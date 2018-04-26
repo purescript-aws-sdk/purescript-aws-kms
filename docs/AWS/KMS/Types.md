@@ -58,7 +58,7 @@ Encode AliasList
 
 ``` purescript
 newtype AliasListEntry
-  = AliasListEntry { "AliasName" :: NullOrUndefined (AliasNameType), "AliasArn" :: NullOrUndefined (ArnType), "TargetKeyId" :: NullOrUndefined (KeyIdType) }
+  = AliasListEntry { "AliasName" :: Maybe (AliasNameType), "AliasArn" :: Maybe (ArnType), "TargetKeyId" :: Maybe (KeyIdType) }
 ```
 
 <p>Contains information about an alias.</p>
@@ -83,7 +83,7 @@ Constructs AliasListEntry from required parameters
 #### `newAliasListEntry'`
 
 ``` purescript
-newAliasListEntry' :: ({ "AliasName" :: NullOrUndefined (AliasNameType), "AliasArn" :: NullOrUndefined (ArnType), "TargetKeyId" :: NullOrUndefined (KeyIdType) } -> { "AliasName" :: NullOrUndefined (AliasNameType), "AliasArn" :: NullOrUndefined (ArnType), "TargetKeyId" :: NullOrUndefined (KeyIdType) }) -> AliasListEntry
+newAliasListEntry' :: ({ "AliasName" :: Maybe (AliasNameType), "AliasArn" :: Maybe (ArnType), "TargetKeyId" :: Maybe (KeyIdType) } -> { "AliasName" :: Maybe (AliasNameType), "AliasArn" :: Maybe (ArnType), "TargetKeyId" :: Maybe (KeyIdType) }) -> AliasListEntry
 ```
 
 Constructs AliasListEntry's fields from required parameters
@@ -108,7 +108,7 @@ Encode AliasNameType
 
 ``` purescript
 newtype AlreadyExistsException
-  = AlreadyExistsException { message :: NullOrUndefined (ErrorMessageType) }
+  = AlreadyExistsException { message :: Maybe (ErrorMessageType) }
 ```
 
 <p>The request was rejected because it attempted to create a resource that already exists.</p>
@@ -133,7 +133,7 @@ Constructs AlreadyExistsException from required parameters
 #### `newAlreadyExistsException'`
 
 ``` purescript
-newAlreadyExistsException' :: ({ message :: NullOrUndefined (ErrorMessageType) } -> { message :: NullOrUndefined (ErrorMessageType) }) -> AlreadyExistsException
+newAlreadyExistsException' :: ({ message :: Maybe (ErrorMessageType) } -> { message :: Maybe (ErrorMessageType) }) -> AlreadyExistsException
 ```
 
 Constructs AlreadyExistsException's fields from required parameters
@@ -206,7 +206,7 @@ Constructs CancelKeyDeletionRequest's fields from required parameters
 
 ``` purescript
 newtype CancelKeyDeletionResponse
-  = CancelKeyDeletionResponse { "KeyId" :: NullOrUndefined (KeyIdType) }
+  = CancelKeyDeletionResponse { "KeyId" :: Maybe (KeyIdType) }
 ```
 
 ##### Instances
@@ -229,7 +229,7 @@ Constructs CancelKeyDeletionResponse from required parameters
 #### `newCancelKeyDeletionResponse'`
 
 ``` purescript
-newCancelKeyDeletionResponse' :: ({ "KeyId" :: NullOrUndefined (KeyIdType) } -> { "KeyId" :: NullOrUndefined (KeyIdType) }) -> CancelKeyDeletionResponse
+newCancelKeyDeletionResponse' :: ({ "KeyId" :: Maybe (KeyIdType) } -> { "KeyId" :: Maybe (KeyIdType) }) -> CancelKeyDeletionResponse
 ```
 
 Constructs CancelKeyDeletionResponse's fields from required parameters
@@ -286,7 +286,7 @@ Constructs CreateAliasRequest's fields from required parameters
 
 ``` purescript
 newtype CreateGrantRequest
-  = CreateGrantRequest { "KeyId" :: KeyIdType, "GranteePrincipal" :: PrincipalIdType, "RetiringPrincipal" :: NullOrUndefined (PrincipalIdType), "Operations" :: GrantOperationList, "Constraints" :: NullOrUndefined (GrantConstraints), "GrantTokens" :: NullOrUndefined (GrantTokenList), "Name" :: NullOrUndefined (GrantNameType) }
+  = CreateGrantRequest { "KeyId" :: KeyIdType, "GranteePrincipal" :: PrincipalIdType, "RetiringPrincipal" :: Maybe (PrincipalIdType), "Operations" :: GrantOperationList, "Constraints" :: Maybe (GrantConstraints), "GrantTokens" :: Maybe (GrantTokenList), "Name" :: Maybe (GrantNameType) }
 ```
 
 ##### Instances
@@ -309,7 +309,7 @@ Constructs CreateGrantRequest from required parameters
 #### `newCreateGrantRequest'`
 
 ``` purescript
-newCreateGrantRequest' :: PrincipalIdType -> KeyIdType -> GrantOperationList -> ({ "KeyId" :: KeyIdType, "GranteePrincipal" :: PrincipalIdType, "RetiringPrincipal" :: NullOrUndefined (PrincipalIdType), "Operations" :: GrantOperationList, "Constraints" :: NullOrUndefined (GrantConstraints), "GrantTokens" :: NullOrUndefined (GrantTokenList), "Name" :: NullOrUndefined (GrantNameType) } -> { "KeyId" :: KeyIdType, "GranteePrincipal" :: PrincipalIdType, "RetiringPrincipal" :: NullOrUndefined (PrincipalIdType), "Operations" :: GrantOperationList, "Constraints" :: NullOrUndefined (GrantConstraints), "GrantTokens" :: NullOrUndefined (GrantTokenList), "Name" :: NullOrUndefined (GrantNameType) }) -> CreateGrantRequest
+newCreateGrantRequest' :: PrincipalIdType -> KeyIdType -> GrantOperationList -> ({ "KeyId" :: KeyIdType, "GranteePrincipal" :: PrincipalIdType, "RetiringPrincipal" :: Maybe (PrincipalIdType), "Operations" :: GrantOperationList, "Constraints" :: Maybe (GrantConstraints), "GrantTokens" :: Maybe (GrantTokenList), "Name" :: Maybe (GrantNameType) } -> { "KeyId" :: KeyIdType, "GranteePrincipal" :: PrincipalIdType, "RetiringPrincipal" :: Maybe (PrincipalIdType), "Operations" :: GrantOperationList, "Constraints" :: Maybe (GrantConstraints), "GrantTokens" :: Maybe (GrantTokenList), "Name" :: Maybe (GrantNameType) }) -> CreateGrantRequest
 ```
 
 Constructs CreateGrantRequest's fields from required parameters
@@ -318,7 +318,7 @@ Constructs CreateGrantRequest's fields from required parameters
 
 ``` purescript
 newtype CreateGrantResponse
-  = CreateGrantResponse { "GrantToken" :: NullOrUndefined (GrantTokenType), "GrantId" :: NullOrUndefined (GrantIdType) }
+  = CreateGrantResponse { "GrantToken" :: Maybe (GrantTokenType), "GrantId" :: Maybe (GrantIdType) }
 ```
 
 ##### Instances
@@ -341,7 +341,7 @@ Constructs CreateGrantResponse from required parameters
 #### `newCreateGrantResponse'`
 
 ``` purescript
-newCreateGrantResponse' :: ({ "GrantToken" :: NullOrUndefined (GrantTokenType), "GrantId" :: NullOrUndefined (GrantIdType) } -> { "GrantToken" :: NullOrUndefined (GrantTokenType), "GrantId" :: NullOrUndefined (GrantIdType) }) -> CreateGrantResponse
+newCreateGrantResponse' :: ({ "GrantToken" :: Maybe (GrantTokenType), "GrantId" :: Maybe (GrantIdType) } -> { "GrantToken" :: Maybe (GrantTokenType), "GrantId" :: Maybe (GrantIdType) }) -> CreateGrantResponse
 ```
 
 Constructs CreateGrantResponse's fields from required parameters
@@ -350,7 +350,7 @@ Constructs CreateGrantResponse's fields from required parameters
 
 ``` purescript
 newtype CreateKeyRequest
-  = CreateKeyRequest { "Policy" :: NullOrUndefined (PolicyType), "Description" :: NullOrUndefined (DescriptionType), "KeyUsage" :: NullOrUndefined (KeyUsageType), "Origin" :: NullOrUndefined (OriginType), "BypassPolicyLockoutSafetyCheck" :: NullOrUndefined (BooleanType), "Tags" :: NullOrUndefined (TagList) }
+  = CreateKeyRequest { "Policy" :: Maybe (PolicyType), "Description" :: Maybe (DescriptionType), "KeyUsage" :: Maybe (KeyUsageType), "Origin" :: Maybe (OriginType), "BypassPolicyLockoutSafetyCheck" :: Maybe (BooleanType), "Tags" :: Maybe (TagList) }
 ```
 
 ##### Instances
@@ -373,7 +373,7 @@ Constructs CreateKeyRequest from required parameters
 #### `newCreateKeyRequest'`
 
 ``` purescript
-newCreateKeyRequest' :: ({ "Policy" :: NullOrUndefined (PolicyType), "Description" :: NullOrUndefined (DescriptionType), "KeyUsage" :: NullOrUndefined (KeyUsageType), "Origin" :: NullOrUndefined (OriginType), "BypassPolicyLockoutSafetyCheck" :: NullOrUndefined (BooleanType), "Tags" :: NullOrUndefined (TagList) } -> { "Policy" :: NullOrUndefined (PolicyType), "Description" :: NullOrUndefined (DescriptionType), "KeyUsage" :: NullOrUndefined (KeyUsageType), "Origin" :: NullOrUndefined (OriginType), "BypassPolicyLockoutSafetyCheck" :: NullOrUndefined (BooleanType), "Tags" :: NullOrUndefined (TagList) }) -> CreateKeyRequest
+newCreateKeyRequest' :: ({ "Policy" :: Maybe (PolicyType), "Description" :: Maybe (DescriptionType), "KeyUsage" :: Maybe (KeyUsageType), "Origin" :: Maybe (OriginType), "BypassPolicyLockoutSafetyCheck" :: Maybe (BooleanType), "Tags" :: Maybe (TagList) } -> { "Policy" :: Maybe (PolicyType), "Description" :: Maybe (DescriptionType), "KeyUsage" :: Maybe (KeyUsageType), "Origin" :: Maybe (OriginType), "BypassPolicyLockoutSafetyCheck" :: Maybe (BooleanType), "Tags" :: Maybe (TagList) }) -> CreateKeyRequest
 ```
 
 Constructs CreateKeyRequest's fields from required parameters
@@ -382,7 +382,7 @@ Constructs CreateKeyRequest's fields from required parameters
 
 ``` purescript
 newtype CreateKeyResponse
-  = CreateKeyResponse { "KeyMetadata" :: NullOrUndefined (KeyMetadata) }
+  = CreateKeyResponse { "KeyMetadata" :: Maybe (KeyMetadata) }
 ```
 
 ##### Instances
@@ -405,7 +405,7 @@ Constructs CreateKeyResponse from required parameters
 #### `newCreateKeyResponse'`
 
 ``` purescript
-newCreateKeyResponse' :: ({ "KeyMetadata" :: NullOrUndefined (KeyMetadata) } -> { "KeyMetadata" :: NullOrUndefined (KeyMetadata) }) -> CreateKeyResponse
+newCreateKeyResponse' :: ({ "KeyMetadata" :: Maybe (KeyMetadata) } -> { "KeyMetadata" :: Maybe (KeyMetadata) }) -> CreateKeyResponse
 ```
 
 Constructs CreateKeyResponse's fields from required parameters
@@ -446,7 +446,7 @@ Encode DateType
 
 ``` purescript
 newtype DecryptRequest
-  = DecryptRequest { "CiphertextBlob" :: CiphertextType, "EncryptionContext" :: NullOrUndefined (EncryptionContextType), "GrantTokens" :: NullOrUndefined (GrantTokenList) }
+  = DecryptRequest { "CiphertextBlob" :: CiphertextType, "EncryptionContext" :: Maybe (EncryptionContextType), "GrantTokens" :: Maybe (GrantTokenList) }
 ```
 
 ##### Instances
@@ -469,7 +469,7 @@ Constructs DecryptRequest from required parameters
 #### `newDecryptRequest'`
 
 ``` purescript
-newDecryptRequest' :: CiphertextType -> ({ "CiphertextBlob" :: CiphertextType, "EncryptionContext" :: NullOrUndefined (EncryptionContextType), "GrantTokens" :: NullOrUndefined (GrantTokenList) } -> { "CiphertextBlob" :: CiphertextType, "EncryptionContext" :: NullOrUndefined (EncryptionContextType), "GrantTokens" :: NullOrUndefined (GrantTokenList) }) -> DecryptRequest
+newDecryptRequest' :: CiphertextType -> ({ "CiphertextBlob" :: CiphertextType, "EncryptionContext" :: Maybe (EncryptionContextType), "GrantTokens" :: Maybe (GrantTokenList) } -> { "CiphertextBlob" :: CiphertextType, "EncryptionContext" :: Maybe (EncryptionContextType), "GrantTokens" :: Maybe (GrantTokenList) }) -> DecryptRequest
 ```
 
 Constructs DecryptRequest's fields from required parameters
@@ -478,7 +478,7 @@ Constructs DecryptRequest's fields from required parameters
 
 ``` purescript
 newtype DecryptResponse
-  = DecryptResponse { "KeyId" :: NullOrUndefined (KeyIdType), "Plaintext" :: NullOrUndefined (PlaintextType) }
+  = DecryptResponse { "KeyId" :: Maybe (KeyIdType), "Plaintext" :: Maybe (PlaintextType) }
 ```
 
 ##### Instances
@@ -501,7 +501,7 @@ Constructs DecryptResponse from required parameters
 #### `newDecryptResponse'`
 
 ``` purescript
-newDecryptResponse' :: ({ "KeyId" :: NullOrUndefined (KeyIdType), "Plaintext" :: NullOrUndefined (PlaintextType) } -> { "KeyId" :: NullOrUndefined (KeyIdType), "Plaintext" :: NullOrUndefined (PlaintextType) }) -> DecryptResponse
+newDecryptResponse' :: ({ "KeyId" :: Maybe (KeyIdType), "Plaintext" :: Maybe (PlaintextType) } -> { "KeyId" :: Maybe (KeyIdType), "Plaintext" :: Maybe (PlaintextType) }) -> DecryptResponse
 ```
 
 Constructs DecryptResponse's fields from required parameters
@@ -574,7 +574,7 @@ Constructs DeleteImportedKeyMaterialRequest's fields from required parameters
 
 ``` purescript
 newtype DependencyTimeoutException
-  = DependencyTimeoutException { message :: NullOrUndefined (ErrorMessageType) }
+  = DependencyTimeoutException { message :: Maybe (ErrorMessageType) }
 ```
 
 <p>The system timed out while trying to fulfill the request. The request can be retried.</p>
@@ -599,7 +599,7 @@ Constructs DependencyTimeoutException from required parameters
 #### `newDependencyTimeoutException'`
 
 ``` purescript
-newDependencyTimeoutException' :: ({ message :: NullOrUndefined (ErrorMessageType) } -> { message :: NullOrUndefined (ErrorMessageType) }) -> DependencyTimeoutException
+newDependencyTimeoutException' :: ({ message :: Maybe (ErrorMessageType) } -> { message :: Maybe (ErrorMessageType) }) -> DependencyTimeoutException
 ```
 
 Constructs DependencyTimeoutException's fields from required parameters
@@ -608,7 +608,7 @@ Constructs DependencyTimeoutException's fields from required parameters
 
 ``` purescript
 newtype DescribeKeyRequest
-  = DescribeKeyRequest { "KeyId" :: KeyIdType, "GrantTokens" :: NullOrUndefined (GrantTokenList) }
+  = DescribeKeyRequest { "KeyId" :: KeyIdType, "GrantTokens" :: Maybe (GrantTokenList) }
 ```
 
 ##### Instances
@@ -631,7 +631,7 @@ Constructs DescribeKeyRequest from required parameters
 #### `newDescribeKeyRequest'`
 
 ``` purescript
-newDescribeKeyRequest' :: KeyIdType -> ({ "KeyId" :: KeyIdType, "GrantTokens" :: NullOrUndefined (GrantTokenList) } -> { "KeyId" :: KeyIdType, "GrantTokens" :: NullOrUndefined (GrantTokenList) }) -> DescribeKeyRequest
+newDescribeKeyRequest' :: KeyIdType -> ({ "KeyId" :: KeyIdType, "GrantTokens" :: Maybe (GrantTokenList) } -> { "KeyId" :: KeyIdType, "GrantTokens" :: Maybe (GrantTokenList) }) -> DescribeKeyRequest
 ```
 
 Constructs DescribeKeyRequest's fields from required parameters
@@ -640,7 +640,7 @@ Constructs DescribeKeyRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeKeyResponse
-  = DescribeKeyResponse { "KeyMetadata" :: NullOrUndefined (KeyMetadata) }
+  = DescribeKeyResponse { "KeyMetadata" :: Maybe (KeyMetadata) }
 ```
 
 ##### Instances
@@ -663,7 +663,7 @@ Constructs DescribeKeyResponse from required parameters
 #### `newDescribeKeyResponse'`
 
 ``` purescript
-newDescribeKeyResponse' :: ({ "KeyMetadata" :: NullOrUndefined (KeyMetadata) } -> { "KeyMetadata" :: NullOrUndefined (KeyMetadata) }) -> DescribeKeyResponse
+newDescribeKeyResponse' :: ({ "KeyMetadata" :: Maybe (KeyMetadata) } -> { "KeyMetadata" :: Maybe (KeyMetadata) }) -> DescribeKeyResponse
 ```
 
 Constructs DescribeKeyResponse's fields from required parameters
@@ -752,7 +752,7 @@ Constructs DisableKeyRotationRequest's fields from required parameters
 
 ``` purescript
 newtype DisabledException
-  = DisabledException { message :: NullOrUndefined (ErrorMessageType) }
+  = DisabledException { message :: Maybe (ErrorMessageType) }
 ```
 
 <p>The request was rejected because the specified CMK is not enabled.</p>
@@ -777,7 +777,7 @@ Constructs DisabledException from required parameters
 #### `newDisabledException'`
 
 ``` purescript
-newDisabledException' :: ({ message :: NullOrUndefined (ErrorMessageType) } -> { message :: NullOrUndefined (ErrorMessageType) }) -> DisabledException
+newDisabledException' :: ({ message :: Maybe (ErrorMessageType) } -> { message :: Maybe (ErrorMessageType) }) -> DisabledException
 ```
 
 Constructs DisabledException's fields from required parameters
@@ -850,7 +850,7 @@ Constructs EnableKeyRotationRequest's fields from required parameters
 
 ``` purescript
 newtype EncryptRequest
-  = EncryptRequest { "KeyId" :: KeyIdType, "Plaintext" :: PlaintextType, "EncryptionContext" :: NullOrUndefined (EncryptionContextType), "GrantTokens" :: NullOrUndefined (GrantTokenList) }
+  = EncryptRequest { "KeyId" :: KeyIdType, "Plaintext" :: PlaintextType, "EncryptionContext" :: Maybe (EncryptionContextType), "GrantTokens" :: Maybe (GrantTokenList) }
 ```
 
 ##### Instances
@@ -873,7 +873,7 @@ Constructs EncryptRequest from required parameters
 #### `newEncryptRequest'`
 
 ``` purescript
-newEncryptRequest' :: KeyIdType -> PlaintextType -> ({ "KeyId" :: KeyIdType, "Plaintext" :: PlaintextType, "EncryptionContext" :: NullOrUndefined (EncryptionContextType), "GrantTokens" :: NullOrUndefined (GrantTokenList) } -> { "KeyId" :: KeyIdType, "Plaintext" :: PlaintextType, "EncryptionContext" :: NullOrUndefined (EncryptionContextType), "GrantTokens" :: NullOrUndefined (GrantTokenList) }) -> EncryptRequest
+newEncryptRequest' :: KeyIdType -> PlaintextType -> ({ "KeyId" :: KeyIdType, "Plaintext" :: PlaintextType, "EncryptionContext" :: Maybe (EncryptionContextType), "GrantTokens" :: Maybe (GrantTokenList) } -> { "KeyId" :: KeyIdType, "Plaintext" :: PlaintextType, "EncryptionContext" :: Maybe (EncryptionContextType), "GrantTokens" :: Maybe (GrantTokenList) }) -> EncryptRequest
 ```
 
 Constructs EncryptRequest's fields from required parameters
@@ -882,7 +882,7 @@ Constructs EncryptRequest's fields from required parameters
 
 ``` purescript
 newtype EncryptResponse
-  = EncryptResponse { "CiphertextBlob" :: NullOrUndefined (CiphertextType), "KeyId" :: NullOrUndefined (KeyIdType) }
+  = EncryptResponse { "CiphertextBlob" :: Maybe (CiphertextType), "KeyId" :: Maybe (KeyIdType) }
 ```
 
 ##### Instances
@@ -905,7 +905,7 @@ Constructs EncryptResponse from required parameters
 #### `newEncryptResponse'`
 
 ``` purescript
-newEncryptResponse' :: ({ "CiphertextBlob" :: NullOrUndefined (CiphertextType), "KeyId" :: NullOrUndefined (KeyIdType) } -> { "CiphertextBlob" :: NullOrUndefined (CiphertextType), "KeyId" :: NullOrUndefined (KeyIdType) }) -> EncryptResponse
+newEncryptResponse' :: ({ "CiphertextBlob" :: Maybe (CiphertextType), "KeyId" :: Maybe (KeyIdType) } -> { "CiphertextBlob" :: Maybe (CiphertextType), "KeyId" :: Maybe (KeyIdType) }) -> EncryptResponse
 ```
 
 Constructs EncryptResponse's fields from required parameters
@@ -994,7 +994,7 @@ Encode ExpirationModelType
 
 ``` purescript
 newtype ExpiredImportTokenException
-  = ExpiredImportTokenException { message :: NullOrUndefined (ErrorMessageType) }
+  = ExpiredImportTokenException { message :: Maybe (ErrorMessageType) }
 ```
 
 <p>The request was rejected because the provided import token is expired. Use <a>GetParametersForImport</a> to get a new import token and public key, use the new public key to encrypt the key material, and then try the request again.</p>
@@ -1019,7 +1019,7 @@ Constructs ExpiredImportTokenException from required parameters
 #### `newExpiredImportTokenException'`
 
 ``` purescript
-newExpiredImportTokenException' :: ({ message :: NullOrUndefined (ErrorMessageType) } -> { message :: NullOrUndefined (ErrorMessageType) }) -> ExpiredImportTokenException
+newExpiredImportTokenException' :: ({ message :: Maybe (ErrorMessageType) } -> { message :: Maybe (ErrorMessageType) }) -> ExpiredImportTokenException
 ```
 
 Constructs ExpiredImportTokenException's fields from required parameters
@@ -1028,7 +1028,7 @@ Constructs ExpiredImportTokenException's fields from required parameters
 
 ``` purescript
 newtype GenerateDataKeyRequest
-  = GenerateDataKeyRequest { "KeyId" :: KeyIdType, "EncryptionContext" :: NullOrUndefined (EncryptionContextType), "NumberOfBytes" :: NullOrUndefined (NumberOfBytesType), "KeySpec" :: NullOrUndefined (DataKeySpec), "GrantTokens" :: NullOrUndefined (GrantTokenList) }
+  = GenerateDataKeyRequest { "KeyId" :: KeyIdType, "EncryptionContext" :: Maybe (EncryptionContextType), "NumberOfBytes" :: Maybe (NumberOfBytesType), "KeySpec" :: Maybe (DataKeySpec), "GrantTokens" :: Maybe (GrantTokenList) }
 ```
 
 ##### Instances
@@ -1051,7 +1051,7 @@ Constructs GenerateDataKeyRequest from required parameters
 #### `newGenerateDataKeyRequest'`
 
 ``` purescript
-newGenerateDataKeyRequest' :: KeyIdType -> ({ "KeyId" :: KeyIdType, "EncryptionContext" :: NullOrUndefined (EncryptionContextType), "NumberOfBytes" :: NullOrUndefined (NumberOfBytesType), "KeySpec" :: NullOrUndefined (DataKeySpec), "GrantTokens" :: NullOrUndefined (GrantTokenList) } -> { "KeyId" :: KeyIdType, "EncryptionContext" :: NullOrUndefined (EncryptionContextType), "NumberOfBytes" :: NullOrUndefined (NumberOfBytesType), "KeySpec" :: NullOrUndefined (DataKeySpec), "GrantTokens" :: NullOrUndefined (GrantTokenList) }) -> GenerateDataKeyRequest
+newGenerateDataKeyRequest' :: KeyIdType -> ({ "KeyId" :: KeyIdType, "EncryptionContext" :: Maybe (EncryptionContextType), "NumberOfBytes" :: Maybe (NumberOfBytesType), "KeySpec" :: Maybe (DataKeySpec), "GrantTokens" :: Maybe (GrantTokenList) } -> { "KeyId" :: KeyIdType, "EncryptionContext" :: Maybe (EncryptionContextType), "NumberOfBytes" :: Maybe (NumberOfBytesType), "KeySpec" :: Maybe (DataKeySpec), "GrantTokens" :: Maybe (GrantTokenList) }) -> GenerateDataKeyRequest
 ```
 
 Constructs GenerateDataKeyRequest's fields from required parameters
@@ -1060,7 +1060,7 @@ Constructs GenerateDataKeyRequest's fields from required parameters
 
 ``` purescript
 newtype GenerateDataKeyResponse
-  = GenerateDataKeyResponse { "CiphertextBlob" :: NullOrUndefined (CiphertextType), "Plaintext" :: NullOrUndefined (PlaintextType), "KeyId" :: NullOrUndefined (KeyIdType) }
+  = GenerateDataKeyResponse { "CiphertextBlob" :: Maybe (CiphertextType), "Plaintext" :: Maybe (PlaintextType), "KeyId" :: Maybe (KeyIdType) }
 ```
 
 ##### Instances
@@ -1083,7 +1083,7 @@ Constructs GenerateDataKeyResponse from required parameters
 #### `newGenerateDataKeyResponse'`
 
 ``` purescript
-newGenerateDataKeyResponse' :: ({ "CiphertextBlob" :: NullOrUndefined (CiphertextType), "Plaintext" :: NullOrUndefined (PlaintextType), "KeyId" :: NullOrUndefined (KeyIdType) } -> { "CiphertextBlob" :: NullOrUndefined (CiphertextType), "Plaintext" :: NullOrUndefined (PlaintextType), "KeyId" :: NullOrUndefined (KeyIdType) }) -> GenerateDataKeyResponse
+newGenerateDataKeyResponse' :: ({ "CiphertextBlob" :: Maybe (CiphertextType), "Plaintext" :: Maybe (PlaintextType), "KeyId" :: Maybe (KeyIdType) } -> { "CiphertextBlob" :: Maybe (CiphertextType), "Plaintext" :: Maybe (PlaintextType), "KeyId" :: Maybe (KeyIdType) }) -> GenerateDataKeyResponse
 ```
 
 Constructs GenerateDataKeyResponse's fields from required parameters
@@ -1092,7 +1092,7 @@ Constructs GenerateDataKeyResponse's fields from required parameters
 
 ``` purescript
 newtype GenerateDataKeyWithoutPlaintextRequest
-  = GenerateDataKeyWithoutPlaintextRequest { "KeyId" :: KeyIdType, "EncryptionContext" :: NullOrUndefined (EncryptionContextType), "KeySpec" :: NullOrUndefined (DataKeySpec), "NumberOfBytes" :: NullOrUndefined (NumberOfBytesType), "GrantTokens" :: NullOrUndefined (GrantTokenList) }
+  = GenerateDataKeyWithoutPlaintextRequest { "KeyId" :: KeyIdType, "EncryptionContext" :: Maybe (EncryptionContextType), "KeySpec" :: Maybe (DataKeySpec), "NumberOfBytes" :: Maybe (NumberOfBytesType), "GrantTokens" :: Maybe (GrantTokenList) }
 ```
 
 ##### Instances
@@ -1115,7 +1115,7 @@ Constructs GenerateDataKeyWithoutPlaintextRequest from required parameters
 #### `newGenerateDataKeyWithoutPlaintextRequest'`
 
 ``` purescript
-newGenerateDataKeyWithoutPlaintextRequest' :: KeyIdType -> ({ "KeyId" :: KeyIdType, "EncryptionContext" :: NullOrUndefined (EncryptionContextType), "KeySpec" :: NullOrUndefined (DataKeySpec), "NumberOfBytes" :: NullOrUndefined (NumberOfBytesType), "GrantTokens" :: NullOrUndefined (GrantTokenList) } -> { "KeyId" :: KeyIdType, "EncryptionContext" :: NullOrUndefined (EncryptionContextType), "KeySpec" :: NullOrUndefined (DataKeySpec), "NumberOfBytes" :: NullOrUndefined (NumberOfBytesType), "GrantTokens" :: NullOrUndefined (GrantTokenList) }) -> GenerateDataKeyWithoutPlaintextRequest
+newGenerateDataKeyWithoutPlaintextRequest' :: KeyIdType -> ({ "KeyId" :: KeyIdType, "EncryptionContext" :: Maybe (EncryptionContextType), "KeySpec" :: Maybe (DataKeySpec), "NumberOfBytes" :: Maybe (NumberOfBytesType), "GrantTokens" :: Maybe (GrantTokenList) } -> { "KeyId" :: KeyIdType, "EncryptionContext" :: Maybe (EncryptionContextType), "KeySpec" :: Maybe (DataKeySpec), "NumberOfBytes" :: Maybe (NumberOfBytesType), "GrantTokens" :: Maybe (GrantTokenList) }) -> GenerateDataKeyWithoutPlaintextRequest
 ```
 
 Constructs GenerateDataKeyWithoutPlaintextRequest's fields from required parameters
@@ -1124,7 +1124,7 @@ Constructs GenerateDataKeyWithoutPlaintextRequest's fields from required paramet
 
 ``` purescript
 newtype GenerateDataKeyWithoutPlaintextResponse
-  = GenerateDataKeyWithoutPlaintextResponse { "CiphertextBlob" :: NullOrUndefined (CiphertextType), "KeyId" :: NullOrUndefined (KeyIdType) }
+  = GenerateDataKeyWithoutPlaintextResponse { "CiphertextBlob" :: Maybe (CiphertextType), "KeyId" :: Maybe (KeyIdType) }
 ```
 
 ##### Instances
@@ -1147,7 +1147,7 @@ Constructs GenerateDataKeyWithoutPlaintextResponse from required parameters
 #### `newGenerateDataKeyWithoutPlaintextResponse'`
 
 ``` purescript
-newGenerateDataKeyWithoutPlaintextResponse' :: ({ "CiphertextBlob" :: NullOrUndefined (CiphertextType), "KeyId" :: NullOrUndefined (KeyIdType) } -> { "CiphertextBlob" :: NullOrUndefined (CiphertextType), "KeyId" :: NullOrUndefined (KeyIdType) }) -> GenerateDataKeyWithoutPlaintextResponse
+newGenerateDataKeyWithoutPlaintextResponse' :: ({ "CiphertextBlob" :: Maybe (CiphertextType), "KeyId" :: Maybe (KeyIdType) } -> { "CiphertextBlob" :: Maybe (CiphertextType), "KeyId" :: Maybe (KeyIdType) }) -> GenerateDataKeyWithoutPlaintextResponse
 ```
 
 Constructs GenerateDataKeyWithoutPlaintextResponse's fields from required parameters
@@ -1156,7 +1156,7 @@ Constructs GenerateDataKeyWithoutPlaintextResponse's fields from required parame
 
 ``` purescript
 newtype GenerateRandomRequest
-  = GenerateRandomRequest { "NumberOfBytes" :: NullOrUndefined (NumberOfBytesType) }
+  = GenerateRandomRequest { "NumberOfBytes" :: Maybe (NumberOfBytesType) }
 ```
 
 ##### Instances
@@ -1179,7 +1179,7 @@ Constructs GenerateRandomRequest from required parameters
 #### `newGenerateRandomRequest'`
 
 ``` purescript
-newGenerateRandomRequest' :: ({ "NumberOfBytes" :: NullOrUndefined (NumberOfBytesType) } -> { "NumberOfBytes" :: NullOrUndefined (NumberOfBytesType) }) -> GenerateRandomRequest
+newGenerateRandomRequest' :: ({ "NumberOfBytes" :: Maybe (NumberOfBytesType) } -> { "NumberOfBytes" :: Maybe (NumberOfBytesType) }) -> GenerateRandomRequest
 ```
 
 Constructs GenerateRandomRequest's fields from required parameters
@@ -1188,7 +1188,7 @@ Constructs GenerateRandomRequest's fields from required parameters
 
 ``` purescript
 newtype GenerateRandomResponse
-  = GenerateRandomResponse { "Plaintext" :: NullOrUndefined (PlaintextType) }
+  = GenerateRandomResponse { "Plaintext" :: Maybe (PlaintextType) }
 ```
 
 ##### Instances
@@ -1211,7 +1211,7 @@ Constructs GenerateRandomResponse from required parameters
 #### `newGenerateRandomResponse'`
 
 ``` purescript
-newGenerateRandomResponse' :: ({ "Plaintext" :: NullOrUndefined (PlaintextType) } -> { "Plaintext" :: NullOrUndefined (PlaintextType) }) -> GenerateRandomResponse
+newGenerateRandomResponse' :: ({ "Plaintext" :: Maybe (PlaintextType) } -> { "Plaintext" :: Maybe (PlaintextType) }) -> GenerateRandomResponse
 ```
 
 Constructs GenerateRandomResponse's fields from required parameters
@@ -1252,7 +1252,7 @@ Constructs GetKeyPolicyRequest's fields from required parameters
 
 ``` purescript
 newtype GetKeyPolicyResponse
-  = GetKeyPolicyResponse { "Policy" :: NullOrUndefined (PolicyType) }
+  = GetKeyPolicyResponse { "Policy" :: Maybe (PolicyType) }
 ```
 
 ##### Instances
@@ -1275,7 +1275,7 @@ Constructs GetKeyPolicyResponse from required parameters
 #### `newGetKeyPolicyResponse'`
 
 ``` purescript
-newGetKeyPolicyResponse' :: ({ "Policy" :: NullOrUndefined (PolicyType) } -> { "Policy" :: NullOrUndefined (PolicyType) }) -> GetKeyPolicyResponse
+newGetKeyPolicyResponse' :: ({ "Policy" :: Maybe (PolicyType) } -> { "Policy" :: Maybe (PolicyType) }) -> GetKeyPolicyResponse
 ```
 
 Constructs GetKeyPolicyResponse's fields from required parameters
@@ -1316,7 +1316,7 @@ Constructs GetKeyRotationStatusRequest's fields from required parameters
 
 ``` purescript
 newtype GetKeyRotationStatusResponse
-  = GetKeyRotationStatusResponse { "KeyRotationEnabled" :: NullOrUndefined (BooleanType) }
+  = GetKeyRotationStatusResponse { "KeyRotationEnabled" :: Maybe (BooleanType) }
 ```
 
 ##### Instances
@@ -1339,7 +1339,7 @@ Constructs GetKeyRotationStatusResponse from required parameters
 #### `newGetKeyRotationStatusResponse'`
 
 ``` purescript
-newGetKeyRotationStatusResponse' :: ({ "KeyRotationEnabled" :: NullOrUndefined (BooleanType) } -> { "KeyRotationEnabled" :: NullOrUndefined (BooleanType) }) -> GetKeyRotationStatusResponse
+newGetKeyRotationStatusResponse' :: ({ "KeyRotationEnabled" :: Maybe (BooleanType) } -> { "KeyRotationEnabled" :: Maybe (BooleanType) }) -> GetKeyRotationStatusResponse
 ```
 
 Constructs GetKeyRotationStatusResponse's fields from required parameters
@@ -1380,7 +1380,7 @@ Constructs GetParametersForImportRequest's fields from required parameters
 
 ``` purescript
 newtype GetParametersForImportResponse
-  = GetParametersForImportResponse { "KeyId" :: NullOrUndefined (KeyIdType), "ImportToken" :: NullOrUndefined (CiphertextType), "PublicKey" :: NullOrUndefined (PlaintextType), "ParametersValidTo" :: NullOrUndefined (DateType) }
+  = GetParametersForImportResponse { "KeyId" :: Maybe (KeyIdType), "ImportToken" :: Maybe (CiphertextType), "PublicKey" :: Maybe (PlaintextType), "ParametersValidTo" :: Maybe (DateType) }
 ```
 
 ##### Instances
@@ -1403,7 +1403,7 @@ Constructs GetParametersForImportResponse from required parameters
 #### `newGetParametersForImportResponse'`
 
 ``` purescript
-newGetParametersForImportResponse' :: ({ "KeyId" :: NullOrUndefined (KeyIdType), "ImportToken" :: NullOrUndefined (CiphertextType), "PublicKey" :: NullOrUndefined (PlaintextType), "ParametersValidTo" :: NullOrUndefined (DateType) } -> { "KeyId" :: NullOrUndefined (KeyIdType), "ImportToken" :: NullOrUndefined (CiphertextType), "PublicKey" :: NullOrUndefined (PlaintextType), "ParametersValidTo" :: NullOrUndefined (DateType) }) -> GetParametersForImportResponse
+newGetParametersForImportResponse' :: ({ "KeyId" :: Maybe (KeyIdType), "ImportToken" :: Maybe (CiphertextType), "PublicKey" :: Maybe (PlaintextType), "ParametersValidTo" :: Maybe (DateType) } -> { "KeyId" :: Maybe (KeyIdType), "ImportToken" :: Maybe (CiphertextType), "PublicKey" :: Maybe (PlaintextType), "ParametersValidTo" :: Maybe (DateType) }) -> GetParametersForImportResponse
 ```
 
 Constructs GetParametersForImportResponse's fields from required parameters
@@ -1412,7 +1412,7 @@ Constructs GetParametersForImportResponse's fields from required parameters
 
 ``` purescript
 newtype GrantConstraints
-  = GrantConstraints { "EncryptionContextSubset" :: NullOrUndefined (EncryptionContextType), "EncryptionContextEquals" :: NullOrUndefined (EncryptionContextType) }
+  = GrantConstraints { "EncryptionContextSubset" :: Maybe (EncryptionContextType), "EncryptionContextEquals" :: Maybe (EncryptionContextType) }
 ```
 
 <p>A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html">Encryption Context</a> in the <i>AWS Key Management Service Developer Guide</i>.</p> <p>Grant constraints apply only to operations that accept encryption context as input. For example, the <code> <a>DescribeKey</a> </code> operation does not accept encryption context as input. A grant that allows the <code>DescribeKey</code> operation does so regardless of the grant constraints. In constrast, the <code> <a>Encrypt</a> </code> operation accepts encryption context as input. A grant that allows the <code>Encrypt</code> operation does so only when the encryption context of the <code>Encrypt</code> operation satisfies the grant constraints.</p>
@@ -1437,7 +1437,7 @@ Constructs GrantConstraints from required parameters
 #### `newGrantConstraints'`
 
 ``` purescript
-newGrantConstraints' :: ({ "EncryptionContextSubset" :: NullOrUndefined (EncryptionContextType), "EncryptionContextEquals" :: NullOrUndefined (EncryptionContextType) } -> { "EncryptionContextSubset" :: NullOrUndefined (EncryptionContextType), "EncryptionContextEquals" :: NullOrUndefined (EncryptionContextType) }) -> GrantConstraints
+newGrantConstraints' :: ({ "EncryptionContextSubset" :: Maybe (EncryptionContextType), "EncryptionContextEquals" :: Maybe (EncryptionContextType) } -> { "EncryptionContextSubset" :: Maybe (EncryptionContextType), "EncryptionContextEquals" :: Maybe (EncryptionContextType) }) -> GrantConstraints
 ```
 
 Constructs GrantConstraints's fields from required parameters
@@ -1478,7 +1478,7 @@ Encode GrantList
 
 ``` purescript
 newtype GrantListEntry
-  = GrantListEntry { "KeyId" :: NullOrUndefined (KeyIdType), "GrantId" :: NullOrUndefined (GrantIdType), "Name" :: NullOrUndefined (GrantNameType), "CreationDate" :: NullOrUndefined (DateType), "GranteePrincipal" :: NullOrUndefined (PrincipalIdType), "RetiringPrincipal" :: NullOrUndefined (PrincipalIdType), "IssuingAccount" :: NullOrUndefined (PrincipalIdType), "Operations" :: NullOrUndefined (GrantOperationList), "Constraints" :: NullOrUndefined (GrantConstraints) }
+  = GrantListEntry { "KeyId" :: Maybe (KeyIdType), "GrantId" :: Maybe (GrantIdType), "Name" :: Maybe (GrantNameType), "CreationDate" :: Maybe (DateType), "GranteePrincipal" :: Maybe (PrincipalIdType), "RetiringPrincipal" :: Maybe (PrincipalIdType), "IssuingAccount" :: Maybe (PrincipalIdType), "Operations" :: Maybe (GrantOperationList), "Constraints" :: Maybe (GrantConstraints) }
 ```
 
 <p>Contains information about an entry in a list of grants.</p>
@@ -1503,7 +1503,7 @@ Constructs GrantListEntry from required parameters
 #### `newGrantListEntry'`
 
 ``` purescript
-newGrantListEntry' :: ({ "KeyId" :: NullOrUndefined (KeyIdType), "GrantId" :: NullOrUndefined (GrantIdType), "Name" :: NullOrUndefined (GrantNameType), "CreationDate" :: NullOrUndefined (DateType), "GranteePrincipal" :: NullOrUndefined (PrincipalIdType), "RetiringPrincipal" :: NullOrUndefined (PrincipalIdType), "IssuingAccount" :: NullOrUndefined (PrincipalIdType), "Operations" :: NullOrUndefined (GrantOperationList), "Constraints" :: NullOrUndefined (GrantConstraints) } -> { "KeyId" :: NullOrUndefined (KeyIdType), "GrantId" :: NullOrUndefined (GrantIdType), "Name" :: NullOrUndefined (GrantNameType), "CreationDate" :: NullOrUndefined (DateType), "GranteePrincipal" :: NullOrUndefined (PrincipalIdType), "RetiringPrincipal" :: NullOrUndefined (PrincipalIdType), "IssuingAccount" :: NullOrUndefined (PrincipalIdType), "Operations" :: NullOrUndefined (GrantOperationList), "Constraints" :: NullOrUndefined (GrantConstraints) }) -> GrantListEntry
+newGrantListEntry' :: ({ "KeyId" :: Maybe (KeyIdType), "GrantId" :: Maybe (GrantIdType), "Name" :: Maybe (GrantNameType), "CreationDate" :: Maybe (DateType), "GranteePrincipal" :: Maybe (PrincipalIdType), "RetiringPrincipal" :: Maybe (PrincipalIdType), "IssuingAccount" :: Maybe (PrincipalIdType), "Operations" :: Maybe (GrantOperationList), "Constraints" :: Maybe (GrantConstraints) } -> { "KeyId" :: Maybe (KeyIdType), "GrantId" :: Maybe (GrantIdType), "Name" :: Maybe (GrantNameType), "CreationDate" :: Maybe (DateType), "GranteePrincipal" :: Maybe (PrincipalIdType), "RetiringPrincipal" :: Maybe (PrincipalIdType), "IssuingAccount" :: Maybe (PrincipalIdType), "Operations" :: Maybe (GrantOperationList), "Constraints" :: Maybe (GrantConstraints) }) -> GrantListEntry
 ```
 
 Constructs GrantListEntry's fields from required parameters
@@ -1592,7 +1592,7 @@ Encode GrantTokenType
 
 ``` purescript
 newtype ImportKeyMaterialRequest
-  = ImportKeyMaterialRequest { "KeyId" :: KeyIdType, "ImportToken" :: CiphertextType, "EncryptedKeyMaterial" :: CiphertextType, "ValidTo" :: NullOrUndefined (DateType), "ExpirationModel" :: NullOrUndefined (ExpirationModelType) }
+  = ImportKeyMaterialRequest { "KeyId" :: KeyIdType, "ImportToken" :: CiphertextType, "EncryptedKeyMaterial" :: CiphertextType, "ValidTo" :: Maybe (DateType), "ExpirationModel" :: Maybe (ExpirationModelType) }
 ```
 
 ##### Instances
@@ -1615,7 +1615,7 @@ Constructs ImportKeyMaterialRequest from required parameters
 #### `newImportKeyMaterialRequest'`
 
 ``` purescript
-newImportKeyMaterialRequest' :: CiphertextType -> CiphertextType -> KeyIdType -> ({ "KeyId" :: KeyIdType, "ImportToken" :: CiphertextType, "EncryptedKeyMaterial" :: CiphertextType, "ValidTo" :: NullOrUndefined (DateType), "ExpirationModel" :: NullOrUndefined (ExpirationModelType) } -> { "KeyId" :: KeyIdType, "ImportToken" :: CiphertextType, "EncryptedKeyMaterial" :: CiphertextType, "ValidTo" :: NullOrUndefined (DateType), "ExpirationModel" :: NullOrUndefined (ExpirationModelType) }) -> ImportKeyMaterialRequest
+newImportKeyMaterialRequest' :: CiphertextType -> CiphertextType -> KeyIdType -> ({ "KeyId" :: KeyIdType, "ImportToken" :: CiphertextType, "EncryptedKeyMaterial" :: CiphertextType, "ValidTo" :: Maybe (DateType), "ExpirationModel" :: Maybe (ExpirationModelType) } -> { "KeyId" :: KeyIdType, "ImportToken" :: CiphertextType, "EncryptedKeyMaterial" :: CiphertextType, "ValidTo" :: Maybe (DateType), "ExpirationModel" :: Maybe (ExpirationModelType) }) -> ImportKeyMaterialRequest
 ```
 
 Constructs ImportKeyMaterialRequest's fields from required parameters
@@ -1640,7 +1640,7 @@ Encode ImportKeyMaterialResponse
 
 ``` purescript
 newtype IncorrectKeyMaterialException
-  = IncorrectKeyMaterialException { message :: NullOrUndefined (ErrorMessageType) }
+  = IncorrectKeyMaterialException { message :: Maybe (ErrorMessageType) }
 ```
 
 <p>The request was rejected because the provided key material is invalid or is not the same key material that was previously imported into this customer master key (CMK).</p>
@@ -1665,7 +1665,7 @@ Constructs IncorrectKeyMaterialException from required parameters
 #### `newIncorrectKeyMaterialException'`
 
 ``` purescript
-newIncorrectKeyMaterialException' :: ({ message :: NullOrUndefined (ErrorMessageType) } -> { message :: NullOrUndefined (ErrorMessageType) }) -> IncorrectKeyMaterialException
+newIncorrectKeyMaterialException' :: ({ message :: Maybe (ErrorMessageType) } -> { message :: Maybe (ErrorMessageType) }) -> IncorrectKeyMaterialException
 ```
 
 Constructs IncorrectKeyMaterialException's fields from required parameters
@@ -1674,7 +1674,7 @@ Constructs IncorrectKeyMaterialException's fields from required parameters
 
 ``` purescript
 newtype InvalidAliasNameException
-  = InvalidAliasNameException { message :: NullOrUndefined (ErrorMessageType) }
+  = InvalidAliasNameException { message :: Maybe (ErrorMessageType) }
 ```
 
 <p>The request was rejected because the specified alias name is not valid.</p>
@@ -1699,7 +1699,7 @@ Constructs InvalidAliasNameException from required parameters
 #### `newInvalidAliasNameException'`
 
 ``` purescript
-newInvalidAliasNameException' :: ({ message :: NullOrUndefined (ErrorMessageType) } -> { message :: NullOrUndefined (ErrorMessageType) }) -> InvalidAliasNameException
+newInvalidAliasNameException' :: ({ message :: Maybe (ErrorMessageType) } -> { message :: Maybe (ErrorMessageType) }) -> InvalidAliasNameException
 ```
 
 Constructs InvalidAliasNameException's fields from required parameters
@@ -1708,7 +1708,7 @@ Constructs InvalidAliasNameException's fields from required parameters
 
 ``` purescript
 newtype InvalidArnException
-  = InvalidArnException { message :: NullOrUndefined (ErrorMessageType) }
+  = InvalidArnException { message :: Maybe (ErrorMessageType) }
 ```
 
 <p>The request was rejected because a specified ARN was not valid.</p>
@@ -1733,7 +1733,7 @@ Constructs InvalidArnException from required parameters
 #### `newInvalidArnException'`
 
 ``` purescript
-newInvalidArnException' :: ({ message :: NullOrUndefined (ErrorMessageType) } -> { message :: NullOrUndefined (ErrorMessageType) }) -> InvalidArnException
+newInvalidArnException' :: ({ message :: Maybe (ErrorMessageType) } -> { message :: Maybe (ErrorMessageType) }) -> InvalidArnException
 ```
 
 Constructs InvalidArnException's fields from required parameters
@@ -1742,7 +1742,7 @@ Constructs InvalidArnException's fields from required parameters
 
 ``` purescript
 newtype InvalidCiphertextException
-  = InvalidCiphertextException { message :: NullOrUndefined (ErrorMessageType) }
+  = InvalidCiphertextException { message :: Maybe (ErrorMessageType) }
 ```
 
 <p>The request was rejected because the specified ciphertext, or additional authenticated data incorporated into the ciphertext, such as the encryption context, is corrupted, missing, or otherwise invalid.</p>
@@ -1767,7 +1767,7 @@ Constructs InvalidCiphertextException from required parameters
 #### `newInvalidCiphertextException'`
 
 ``` purescript
-newInvalidCiphertextException' :: ({ message :: NullOrUndefined (ErrorMessageType) } -> { message :: NullOrUndefined (ErrorMessageType) }) -> InvalidCiphertextException
+newInvalidCiphertextException' :: ({ message :: Maybe (ErrorMessageType) } -> { message :: Maybe (ErrorMessageType) }) -> InvalidCiphertextException
 ```
 
 Constructs InvalidCiphertextException's fields from required parameters
@@ -1776,7 +1776,7 @@ Constructs InvalidCiphertextException's fields from required parameters
 
 ``` purescript
 newtype InvalidGrantIdException
-  = InvalidGrantIdException { message :: NullOrUndefined (ErrorMessageType) }
+  = InvalidGrantIdException { message :: Maybe (ErrorMessageType) }
 ```
 
 <p>The request was rejected because the specified <code>GrantId</code> is not valid.</p>
@@ -1801,7 +1801,7 @@ Constructs InvalidGrantIdException from required parameters
 #### `newInvalidGrantIdException'`
 
 ``` purescript
-newInvalidGrantIdException' :: ({ message :: NullOrUndefined (ErrorMessageType) } -> { message :: NullOrUndefined (ErrorMessageType) }) -> InvalidGrantIdException
+newInvalidGrantIdException' :: ({ message :: Maybe (ErrorMessageType) } -> { message :: Maybe (ErrorMessageType) }) -> InvalidGrantIdException
 ```
 
 Constructs InvalidGrantIdException's fields from required parameters
@@ -1810,7 +1810,7 @@ Constructs InvalidGrantIdException's fields from required parameters
 
 ``` purescript
 newtype InvalidGrantTokenException
-  = InvalidGrantTokenException { message :: NullOrUndefined (ErrorMessageType) }
+  = InvalidGrantTokenException { message :: Maybe (ErrorMessageType) }
 ```
 
 <p>The request was rejected because the specified grant token is not valid.</p>
@@ -1835,7 +1835,7 @@ Constructs InvalidGrantTokenException from required parameters
 #### `newInvalidGrantTokenException'`
 
 ``` purescript
-newInvalidGrantTokenException' :: ({ message :: NullOrUndefined (ErrorMessageType) } -> { message :: NullOrUndefined (ErrorMessageType) }) -> InvalidGrantTokenException
+newInvalidGrantTokenException' :: ({ message :: Maybe (ErrorMessageType) } -> { message :: Maybe (ErrorMessageType) }) -> InvalidGrantTokenException
 ```
 
 Constructs InvalidGrantTokenException's fields from required parameters
@@ -1844,7 +1844,7 @@ Constructs InvalidGrantTokenException's fields from required parameters
 
 ``` purescript
 newtype InvalidImportTokenException
-  = InvalidImportTokenException { message :: NullOrUndefined (ErrorMessageType) }
+  = InvalidImportTokenException { message :: Maybe (ErrorMessageType) }
 ```
 
 <p>The request was rejected because the provided import token is invalid or is associated with a different customer master key (CMK).</p>
@@ -1869,7 +1869,7 @@ Constructs InvalidImportTokenException from required parameters
 #### `newInvalidImportTokenException'`
 
 ``` purescript
-newInvalidImportTokenException' :: ({ message :: NullOrUndefined (ErrorMessageType) } -> { message :: NullOrUndefined (ErrorMessageType) }) -> InvalidImportTokenException
+newInvalidImportTokenException' :: ({ message :: Maybe (ErrorMessageType) } -> { message :: Maybe (ErrorMessageType) }) -> InvalidImportTokenException
 ```
 
 Constructs InvalidImportTokenException's fields from required parameters
@@ -1878,7 +1878,7 @@ Constructs InvalidImportTokenException's fields from required parameters
 
 ``` purescript
 newtype InvalidKeyUsageException
-  = InvalidKeyUsageException { message :: NullOrUndefined (ErrorMessageType) }
+  = InvalidKeyUsageException { message :: Maybe (ErrorMessageType) }
 ```
 
 <p>The request was rejected because the specified <code>KeySpec</code> value is not valid.</p>
@@ -1903,7 +1903,7 @@ Constructs InvalidKeyUsageException from required parameters
 #### `newInvalidKeyUsageException'`
 
 ``` purescript
-newInvalidKeyUsageException' :: ({ message :: NullOrUndefined (ErrorMessageType) } -> { message :: NullOrUndefined (ErrorMessageType) }) -> InvalidKeyUsageException
+newInvalidKeyUsageException' :: ({ message :: Maybe (ErrorMessageType) } -> { message :: Maybe (ErrorMessageType) }) -> InvalidKeyUsageException
 ```
 
 Constructs InvalidKeyUsageException's fields from required parameters
@@ -1912,7 +1912,7 @@ Constructs InvalidKeyUsageException's fields from required parameters
 
 ``` purescript
 newtype InvalidMarkerException
-  = InvalidMarkerException { message :: NullOrUndefined (ErrorMessageType) }
+  = InvalidMarkerException { message :: Maybe (ErrorMessageType) }
 ```
 
 <p>The request was rejected because the marker that specifies where pagination should next begin is not valid.</p>
@@ -1937,7 +1937,7 @@ Constructs InvalidMarkerException from required parameters
 #### `newInvalidMarkerException'`
 
 ``` purescript
-newInvalidMarkerException' :: ({ message :: NullOrUndefined (ErrorMessageType) } -> { message :: NullOrUndefined (ErrorMessageType) }) -> InvalidMarkerException
+newInvalidMarkerException' :: ({ message :: Maybe (ErrorMessageType) } -> { message :: Maybe (ErrorMessageType) }) -> InvalidMarkerException
 ```
 
 Constructs InvalidMarkerException's fields from required parameters
@@ -1946,7 +1946,7 @@ Constructs InvalidMarkerException's fields from required parameters
 
 ``` purescript
 newtype KMSInternalException
-  = KMSInternalException { message :: NullOrUndefined (ErrorMessageType) }
+  = KMSInternalException { message :: Maybe (ErrorMessageType) }
 ```
 
 <p>The request was rejected because an internal exception occurred. The request can be retried.</p>
@@ -1971,7 +1971,7 @@ Constructs KMSInternalException from required parameters
 #### `newKMSInternalException'`
 
 ``` purescript
-newKMSInternalException' :: ({ message :: NullOrUndefined (ErrorMessageType) } -> { message :: NullOrUndefined (ErrorMessageType) }) -> KMSInternalException
+newKMSInternalException' :: ({ message :: Maybe (ErrorMessageType) } -> { message :: Maybe (ErrorMessageType) }) -> KMSInternalException
 ```
 
 Constructs KMSInternalException's fields from required parameters
@@ -1980,7 +1980,7 @@ Constructs KMSInternalException's fields from required parameters
 
 ``` purescript
 newtype KMSInvalidStateException
-  = KMSInvalidStateException { message :: NullOrUndefined (ErrorMessageType) }
+  = KMSInvalidStateException { message :: Maybe (ErrorMessageType) }
 ```
 
 <p>The request was rejected because the state of the specified resource is not valid for this request.</p> <p>For more information about how key state affects the use of a CMK, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
@@ -2005,7 +2005,7 @@ Constructs KMSInvalidStateException from required parameters
 #### `newKMSInvalidStateException'`
 
 ``` purescript
-newKMSInvalidStateException' :: ({ message :: NullOrUndefined (ErrorMessageType) } -> { message :: NullOrUndefined (ErrorMessageType) }) -> KMSInvalidStateException
+newKMSInvalidStateException' :: ({ message :: Maybe (ErrorMessageType) } -> { message :: Maybe (ErrorMessageType) }) -> KMSInvalidStateException
 ```
 
 Constructs KMSInvalidStateException's fields from required parameters
@@ -2046,7 +2046,7 @@ Encode KeyList
 
 ``` purescript
 newtype KeyListEntry
-  = KeyListEntry { "KeyId" :: NullOrUndefined (KeyIdType), "KeyArn" :: NullOrUndefined (ArnType) }
+  = KeyListEntry { "KeyId" :: Maybe (KeyIdType), "KeyArn" :: Maybe (ArnType) }
 ```
 
 <p>Contains information about each entry in the key list.</p>
@@ -2071,7 +2071,7 @@ Constructs KeyListEntry from required parameters
 #### `newKeyListEntry'`
 
 ``` purescript
-newKeyListEntry' :: ({ "KeyId" :: NullOrUndefined (KeyIdType), "KeyArn" :: NullOrUndefined (ArnType) } -> { "KeyId" :: NullOrUndefined (KeyIdType), "KeyArn" :: NullOrUndefined (ArnType) }) -> KeyListEntry
+newKeyListEntry' :: ({ "KeyId" :: Maybe (KeyIdType), "KeyArn" :: Maybe (ArnType) } -> { "KeyId" :: Maybe (KeyIdType), "KeyArn" :: Maybe (ArnType) }) -> KeyListEntry
 ```
 
 Constructs KeyListEntry's fields from required parameters
@@ -2096,7 +2096,7 @@ Encode KeyManagerType
 
 ``` purescript
 newtype KeyMetadata
-  = KeyMetadata { "AWSAccountId" :: NullOrUndefined (AWSAccountIdType), "KeyId" :: KeyIdType, "Arn" :: NullOrUndefined (ArnType), "CreationDate" :: NullOrUndefined (DateType), "Enabled" :: NullOrUndefined (BooleanType), "Description" :: NullOrUndefined (DescriptionType), "KeyUsage" :: NullOrUndefined (KeyUsageType), "KeyState" :: NullOrUndefined (KeyState), "DeletionDate" :: NullOrUndefined (DateType), "ValidTo" :: NullOrUndefined (DateType), "Origin" :: NullOrUndefined (OriginType), "ExpirationModel" :: NullOrUndefined (ExpirationModelType), "KeyManager" :: NullOrUndefined (KeyManagerType) }
+  = KeyMetadata { "AWSAccountId" :: Maybe (AWSAccountIdType), "KeyId" :: KeyIdType, "Arn" :: Maybe (ArnType), "CreationDate" :: Maybe (DateType), "Enabled" :: Maybe (BooleanType), "Description" :: Maybe (DescriptionType), "KeyUsage" :: Maybe (KeyUsageType), "KeyState" :: Maybe (KeyState), "DeletionDate" :: Maybe (DateType), "ValidTo" :: Maybe (DateType), "Origin" :: Maybe (OriginType), "ExpirationModel" :: Maybe (ExpirationModelType), "KeyManager" :: Maybe (KeyManagerType) }
 ```
 
 <p>Contains metadata about a customer master key (CMK).</p> <p>This data type is used as a response element for the <a>CreateKey</a> and <a>DescribeKey</a> operations.</p>
@@ -2121,7 +2121,7 @@ Constructs KeyMetadata from required parameters
 #### `newKeyMetadata'`
 
 ``` purescript
-newKeyMetadata' :: KeyIdType -> ({ "AWSAccountId" :: NullOrUndefined (AWSAccountIdType), "KeyId" :: KeyIdType, "Arn" :: NullOrUndefined (ArnType), "CreationDate" :: NullOrUndefined (DateType), "Enabled" :: NullOrUndefined (BooleanType), "Description" :: NullOrUndefined (DescriptionType), "KeyUsage" :: NullOrUndefined (KeyUsageType), "KeyState" :: NullOrUndefined (KeyState), "DeletionDate" :: NullOrUndefined (DateType), "ValidTo" :: NullOrUndefined (DateType), "Origin" :: NullOrUndefined (OriginType), "ExpirationModel" :: NullOrUndefined (ExpirationModelType), "KeyManager" :: NullOrUndefined (KeyManagerType) } -> { "AWSAccountId" :: NullOrUndefined (AWSAccountIdType), "KeyId" :: KeyIdType, "Arn" :: NullOrUndefined (ArnType), "CreationDate" :: NullOrUndefined (DateType), "Enabled" :: NullOrUndefined (BooleanType), "Description" :: NullOrUndefined (DescriptionType), "KeyUsage" :: NullOrUndefined (KeyUsageType), "KeyState" :: NullOrUndefined (KeyState), "DeletionDate" :: NullOrUndefined (DateType), "ValidTo" :: NullOrUndefined (DateType), "Origin" :: NullOrUndefined (OriginType), "ExpirationModel" :: NullOrUndefined (ExpirationModelType), "KeyManager" :: NullOrUndefined (KeyManagerType) }) -> KeyMetadata
+newKeyMetadata' :: KeyIdType -> ({ "AWSAccountId" :: Maybe (AWSAccountIdType), "KeyId" :: KeyIdType, "Arn" :: Maybe (ArnType), "CreationDate" :: Maybe (DateType), "Enabled" :: Maybe (BooleanType), "Description" :: Maybe (DescriptionType), "KeyUsage" :: Maybe (KeyUsageType), "KeyState" :: Maybe (KeyState), "DeletionDate" :: Maybe (DateType), "ValidTo" :: Maybe (DateType), "Origin" :: Maybe (OriginType), "ExpirationModel" :: Maybe (ExpirationModelType), "KeyManager" :: Maybe (KeyManagerType) } -> { "AWSAccountId" :: Maybe (AWSAccountIdType), "KeyId" :: KeyIdType, "Arn" :: Maybe (ArnType), "CreationDate" :: Maybe (DateType), "Enabled" :: Maybe (BooleanType), "Description" :: Maybe (DescriptionType), "KeyUsage" :: Maybe (KeyUsageType), "KeyState" :: Maybe (KeyState), "DeletionDate" :: Maybe (DateType), "ValidTo" :: Maybe (DateType), "Origin" :: Maybe (OriginType), "ExpirationModel" :: Maybe (ExpirationModelType), "KeyManager" :: Maybe (KeyManagerType) }) -> KeyMetadata
 ```
 
 Constructs KeyMetadata's fields from required parameters
@@ -2146,7 +2146,7 @@ Encode KeyState
 
 ``` purescript
 newtype KeyUnavailableException
-  = KeyUnavailableException { message :: NullOrUndefined (ErrorMessageType) }
+  = KeyUnavailableException { message :: Maybe (ErrorMessageType) }
 ```
 
 <p>The request was rejected because the specified CMK was not available. The request can be retried.</p>
@@ -2171,7 +2171,7 @@ Constructs KeyUnavailableException from required parameters
 #### `newKeyUnavailableException'`
 
 ``` purescript
-newKeyUnavailableException' :: ({ message :: NullOrUndefined (ErrorMessageType) } -> { message :: NullOrUndefined (ErrorMessageType) }) -> KeyUnavailableException
+newKeyUnavailableException' :: ({ message :: Maybe (ErrorMessageType) } -> { message :: Maybe (ErrorMessageType) }) -> KeyUnavailableException
 ```
 
 Constructs KeyUnavailableException's fields from required parameters
@@ -2196,7 +2196,7 @@ Encode KeyUsageType
 
 ``` purescript
 newtype LimitExceededException
-  = LimitExceededException { message :: NullOrUndefined (ErrorMessageType) }
+  = LimitExceededException { message :: Maybe (ErrorMessageType) }
 ```
 
 <p>The request was rejected because a limit was exceeded. For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Limits</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
@@ -2221,7 +2221,7 @@ Constructs LimitExceededException from required parameters
 #### `newLimitExceededException'`
 
 ``` purescript
-newLimitExceededException' :: ({ message :: NullOrUndefined (ErrorMessageType) } -> { message :: NullOrUndefined (ErrorMessageType) }) -> LimitExceededException
+newLimitExceededException' :: ({ message :: Maybe (ErrorMessageType) } -> { message :: Maybe (ErrorMessageType) }) -> LimitExceededException
 ```
 
 Constructs LimitExceededException's fields from required parameters
@@ -2246,7 +2246,7 @@ Encode LimitType
 
 ``` purescript
 newtype ListAliasesRequest
-  = ListAliasesRequest { "Limit" :: NullOrUndefined (LimitType), "Marker" :: NullOrUndefined (MarkerType) }
+  = ListAliasesRequest { "Limit" :: Maybe (LimitType), "Marker" :: Maybe (MarkerType) }
 ```
 
 ##### Instances
@@ -2269,7 +2269,7 @@ Constructs ListAliasesRequest from required parameters
 #### `newListAliasesRequest'`
 
 ``` purescript
-newListAliasesRequest' :: ({ "Limit" :: NullOrUndefined (LimitType), "Marker" :: NullOrUndefined (MarkerType) } -> { "Limit" :: NullOrUndefined (LimitType), "Marker" :: NullOrUndefined (MarkerType) }) -> ListAliasesRequest
+newListAliasesRequest' :: ({ "Limit" :: Maybe (LimitType), "Marker" :: Maybe (MarkerType) } -> { "Limit" :: Maybe (LimitType), "Marker" :: Maybe (MarkerType) }) -> ListAliasesRequest
 ```
 
 Constructs ListAliasesRequest's fields from required parameters
@@ -2278,7 +2278,7 @@ Constructs ListAliasesRequest's fields from required parameters
 
 ``` purescript
 newtype ListAliasesResponse
-  = ListAliasesResponse { "Aliases" :: NullOrUndefined (AliasList), "NextMarker" :: NullOrUndefined (MarkerType), "Truncated" :: NullOrUndefined (BooleanType) }
+  = ListAliasesResponse { "Aliases" :: Maybe (AliasList), "NextMarker" :: Maybe (MarkerType), "Truncated" :: Maybe (BooleanType) }
 ```
 
 ##### Instances
@@ -2301,7 +2301,7 @@ Constructs ListAliasesResponse from required parameters
 #### `newListAliasesResponse'`
 
 ``` purescript
-newListAliasesResponse' :: ({ "Aliases" :: NullOrUndefined (AliasList), "NextMarker" :: NullOrUndefined (MarkerType), "Truncated" :: NullOrUndefined (BooleanType) } -> { "Aliases" :: NullOrUndefined (AliasList), "NextMarker" :: NullOrUndefined (MarkerType), "Truncated" :: NullOrUndefined (BooleanType) }) -> ListAliasesResponse
+newListAliasesResponse' :: ({ "Aliases" :: Maybe (AliasList), "NextMarker" :: Maybe (MarkerType), "Truncated" :: Maybe (BooleanType) } -> { "Aliases" :: Maybe (AliasList), "NextMarker" :: Maybe (MarkerType), "Truncated" :: Maybe (BooleanType) }) -> ListAliasesResponse
 ```
 
 Constructs ListAliasesResponse's fields from required parameters
@@ -2310,7 +2310,7 @@ Constructs ListAliasesResponse's fields from required parameters
 
 ``` purescript
 newtype ListGrantsRequest
-  = ListGrantsRequest { "Limit" :: NullOrUndefined (LimitType), "Marker" :: NullOrUndefined (MarkerType), "KeyId" :: KeyIdType }
+  = ListGrantsRequest { "Limit" :: Maybe (LimitType), "Marker" :: Maybe (MarkerType), "KeyId" :: KeyIdType }
 ```
 
 ##### Instances
@@ -2333,7 +2333,7 @@ Constructs ListGrantsRequest from required parameters
 #### `newListGrantsRequest'`
 
 ``` purescript
-newListGrantsRequest' :: KeyIdType -> ({ "Limit" :: NullOrUndefined (LimitType), "Marker" :: NullOrUndefined (MarkerType), "KeyId" :: KeyIdType } -> { "Limit" :: NullOrUndefined (LimitType), "Marker" :: NullOrUndefined (MarkerType), "KeyId" :: KeyIdType }) -> ListGrantsRequest
+newListGrantsRequest' :: KeyIdType -> ({ "Limit" :: Maybe (LimitType), "Marker" :: Maybe (MarkerType), "KeyId" :: KeyIdType } -> { "Limit" :: Maybe (LimitType), "Marker" :: Maybe (MarkerType), "KeyId" :: KeyIdType }) -> ListGrantsRequest
 ```
 
 Constructs ListGrantsRequest's fields from required parameters
@@ -2342,7 +2342,7 @@ Constructs ListGrantsRequest's fields from required parameters
 
 ``` purescript
 newtype ListGrantsResponse
-  = ListGrantsResponse { "Grants" :: NullOrUndefined (GrantList), "NextMarker" :: NullOrUndefined (MarkerType), "Truncated" :: NullOrUndefined (BooleanType) }
+  = ListGrantsResponse { "Grants" :: Maybe (GrantList), "NextMarker" :: Maybe (MarkerType), "Truncated" :: Maybe (BooleanType) }
 ```
 
 ##### Instances
@@ -2365,7 +2365,7 @@ Constructs ListGrantsResponse from required parameters
 #### `newListGrantsResponse'`
 
 ``` purescript
-newListGrantsResponse' :: ({ "Grants" :: NullOrUndefined (GrantList), "NextMarker" :: NullOrUndefined (MarkerType), "Truncated" :: NullOrUndefined (BooleanType) } -> { "Grants" :: NullOrUndefined (GrantList), "NextMarker" :: NullOrUndefined (MarkerType), "Truncated" :: NullOrUndefined (BooleanType) }) -> ListGrantsResponse
+newListGrantsResponse' :: ({ "Grants" :: Maybe (GrantList), "NextMarker" :: Maybe (MarkerType), "Truncated" :: Maybe (BooleanType) } -> { "Grants" :: Maybe (GrantList), "NextMarker" :: Maybe (MarkerType), "Truncated" :: Maybe (BooleanType) }) -> ListGrantsResponse
 ```
 
 Constructs ListGrantsResponse's fields from required parameters
@@ -2374,7 +2374,7 @@ Constructs ListGrantsResponse's fields from required parameters
 
 ``` purescript
 newtype ListKeyPoliciesRequest
-  = ListKeyPoliciesRequest { "KeyId" :: KeyIdType, "Limit" :: NullOrUndefined (LimitType), "Marker" :: NullOrUndefined (MarkerType) }
+  = ListKeyPoliciesRequest { "KeyId" :: KeyIdType, "Limit" :: Maybe (LimitType), "Marker" :: Maybe (MarkerType) }
 ```
 
 ##### Instances
@@ -2397,7 +2397,7 @@ Constructs ListKeyPoliciesRequest from required parameters
 #### `newListKeyPoliciesRequest'`
 
 ``` purescript
-newListKeyPoliciesRequest' :: KeyIdType -> ({ "KeyId" :: KeyIdType, "Limit" :: NullOrUndefined (LimitType), "Marker" :: NullOrUndefined (MarkerType) } -> { "KeyId" :: KeyIdType, "Limit" :: NullOrUndefined (LimitType), "Marker" :: NullOrUndefined (MarkerType) }) -> ListKeyPoliciesRequest
+newListKeyPoliciesRequest' :: KeyIdType -> ({ "KeyId" :: KeyIdType, "Limit" :: Maybe (LimitType), "Marker" :: Maybe (MarkerType) } -> { "KeyId" :: KeyIdType, "Limit" :: Maybe (LimitType), "Marker" :: Maybe (MarkerType) }) -> ListKeyPoliciesRequest
 ```
 
 Constructs ListKeyPoliciesRequest's fields from required parameters
@@ -2406,7 +2406,7 @@ Constructs ListKeyPoliciesRequest's fields from required parameters
 
 ``` purescript
 newtype ListKeyPoliciesResponse
-  = ListKeyPoliciesResponse { "PolicyNames" :: NullOrUndefined (PolicyNameList), "NextMarker" :: NullOrUndefined (MarkerType), "Truncated" :: NullOrUndefined (BooleanType) }
+  = ListKeyPoliciesResponse { "PolicyNames" :: Maybe (PolicyNameList), "NextMarker" :: Maybe (MarkerType), "Truncated" :: Maybe (BooleanType) }
 ```
 
 ##### Instances
@@ -2429,7 +2429,7 @@ Constructs ListKeyPoliciesResponse from required parameters
 #### `newListKeyPoliciesResponse'`
 
 ``` purescript
-newListKeyPoliciesResponse' :: ({ "PolicyNames" :: NullOrUndefined (PolicyNameList), "NextMarker" :: NullOrUndefined (MarkerType), "Truncated" :: NullOrUndefined (BooleanType) } -> { "PolicyNames" :: NullOrUndefined (PolicyNameList), "NextMarker" :: NullOrUndefined (MarkerType), "Truncated" :: NullOrUndefined (BooleanType) }) -> ListKeyPoliciesResponse
+newListKeyPoliciesResponse' :: ({ "PolicyNames" :: Maybe (PolicyNameList), "NextMarker" :: Maybe (MarkerType), "Truncated" :: Maybe (BooleanType) } -> { "PolicyNames" :: Maybe (PolicyNameList), "NextMarker" :: Maybe (MarkerType), "Truncated" :: Maybe (BooleanType) }) -> ListKeyPoliciesResponse
 ```
 
 Constructs ListKeyPoliciesResponse's fields from required parameters
@@ -2438,7 +2438,7 @@ Constructs ListKeyPoliciesResponse's fields from required parameters
 
 ``` purescript
 newtype ListKeysRequest
-  = ListKeysRequest { "Limit" :: NullOrUndefined (LimitType), "Marker" :: NullOrUndefined (MarkerType) }
+  = ListKeysRequest { "Limit" :: Maybe (LimitType), "Marker" :: Maybe (MarkerType) }
 ```
 
 ##### Instances
@@ -2461,7 +2461,7 @@ Constructs ListKeysRequest from required parameters
 #### `newListKeysRequest'`
 
 ``` purescript
-newListKeysRequest' :: ({ "Limit" :: NullOrUndefined (LimitType), "Marker" :: NullOrUndefined (MarkerType) } -> { "Limit" :: NullOrUndefined (LimitType), "Marker" :: NullOrUndefined (MarkerType) }) -> ListKeysRequest
+newListKeysRequest' :: ({ "Limit" :: Maybe (LimitType), "Marker" :: Maybe (MarkerType) } -> { "Limit" :: Maybe (LimitType), "Marker" :: Maybe (MarkerType) }) -> ListKeysRequest
 ```
 
 Constructs ListKeysRequest's fields from required parameters
@@ -2470,7 +2470,7 @@ Constructs ListKeysRequest's fields from required parameters
 
 ``` purescript
 newtype ListKeysResponse
-  = ListKeysResponse { "Keys" :: NullOrUndefined (KeyList), "NextMarker" :: NullOrUndefined (MarkerType), "Truncated" :: NullOrUndefined (BooleanType) }
+  = ListKeysResponse { "Keys" :: Maybe (KeyList), "NextMarker" :: Maybe (MarkerType), "Truncated" :: Maybe (BooleanType) }
 ```
 
 ##### Instances
@@ -2493,7 +2493,7 @@ Constructs ListKeysResponse from required parameters
 #### `newListKeysResponse'`
 
 ``` purescript
-newListKeysResponse' :: ({ "Keys" :: NullOrUndefined (KeyList), "NextMarker" :: NullOrUndefined (MarkerType), "Truncated" :: NullOrUndefined (BooleanType) } -> { "Keys" :: NullOrUndefined (KeyList), "NextMarker" :: NullOrUndefined (MarkerType), "Truncated" :: NullOrUndefined (BooleanType) }) -> ListKeysResponse
+newListKeysResponse' :: ({ "Keys" :: Maybe (KeyList), "NextMarker" :: Maybe (MarkerType), "Truncated" :: Maybe (BooleanType) } -> { "Keys" :: Maybe (KeyList), "NextMarker" :: Maybe (MarkerType), "Truncated" :: Maybe (BooleanType) }) -> ListKeysResponse
 ```
 
 Constructs ListKeysResponse's fields from required parameters
@@ -2502,7 +2502,7 @@ Constructs ListKeysResponse's fields from required parameters
 
 ``` purescript
 newtype ListResourceTagsRequest
-  = ListResourceTagsRequest { "KeyId" :: KeyIdType, "Limit" :: NullOrUndefined (LimitType), "Marker" :: NullOrUndefined (MarkerType) }
+  = ListResourceTagsRequest { "KeyId" :: KeyIdType, "Limit" :: Maybe (LimitType), "Marker" :: Maybe (MarkerType) }
 ```
 
 ##### Instances
@@ -2525,7 +2525,7 @@ Constructs ListResourceTagsRequest from required parameters
 #### `newListResourceTagsRequest'`
 
 ``` purescript
-newListResourceTagsRequest' :: KeyIdType -> ({ "KeyId" :: KeyIdType, "Limit" :: NullOrUndefined (LimitType), "Marker" :: NullOrUndefined (MarkerType) } -> { "KeyId" :: KeyIdType, "Limit" :: NullOrUndefined (LimitType), "Marker" :: NullOrUndefined (MarkerType) }) -> ListResourceTagsRequest
+newListResourceTagsRequest' :: KeyIdType -> ({ "KeyId" :: KeyIdType, "Limit" :: Maybe (LimitType), "Marker" :: Maybe (MarkerType) } -> { "KeyId" :: KeyIdType, "Limit" :: Maybe (LimitType), "Marker" :: Maybe (MarkerType) }) -> ListResourceTagsRequest
 ```
 
 Constructs ListResourceTagsRequest's fields from required parameters
@@ -2534,7 +2534,7 @@ Constructs ListResourceTagsRequest's fields from required parameters
 
 ``` purescript
 newtype ListResourceTagsResponse
-  = ListResourceTagsResponse { "Tags" :: NullOrUndefined (TagList), "NextMarker" :: NullOrUndefined (MarkerType), "Truncated" :: NullOrUndefined (BooleanType) }
+  = ListResourceTagsResponse { "Tags" :: Maybe (TagList), "NextMarker" :: Maybe (MarkerType), "Truncated" :: Maybe (BooleanType) }
 ```
 
 ##### Instances
@@ -2557,7 +2557,7 @@ Constructs ListResourceTagsResponse from required parameters
 #### `newListResourceTagsResponse'`
 
 ``` purescript
-newListResourceTagsResponse' :: ({ "Tags" :: NullOrUndefined (TagList), "NextMarker" :: NullOrUndefined (MarkerType), "Truncated" :: NullOrUndefined (BooleanType) } -> { "Tags" :: NullOrUndefined (TagList), "NextMarker" :: NullOrUndefined (MarkerType), "Truncated" :: NullOrUndefined (BooleanType) }) -> ListResourceTagsResponse
+newListResourceTagsResponse' :: ({ "Tags" :: Maybe (TagList), "NextMarker" :: Maybe (MarkerType), "Truncated" :: Maybe (BooleanType) } -> { "Tags" :: Maybe (TagList), "NextMarker" :: Maybe (MarkerType), "Truncated" :: Maybe (BooleanType) }) -> ListResourceTagsResponse
 ```
 
 Constructs ListResourceTagsResponse's fields from required parameters
@@ -2566,7 +2566,7 @@ Constructs ListResourceTagsResponse's fields from required parameters
 
 ``` purescript
 newtype ListRetirableGrantsRequest
-  = ListRetirableGrantsRequest { "Limit" :: NullOrUndefined (LimitType), "Marker" :: NullOrUndefined (MarkerType), "RetiringPrincipal" :: PrincipalIdType }
+  = ListRetirableGrantsRequest { "Limit" :: Maybe (LimitType), "Marker" :: Maybe (MarkerType), "RetiringPrincipal" :: PrincipalIdType }
 ```
 
 ##### Instances
@@ -2589,7 +2589,7 @@ Constructs ListRetirableGrantsRequest from required parameters
 #### `newListRetirableGrantsRequest'`
 
 ``` purescript
-newListRetirableGrantsRequest' :: PrincipalIdType -> ({ "Limit" :: NullOrUndefined (LimitType), "Marker" :: NullOrUndefined (MarkerType), "RetiringPrincipal" :: PrincipalIdType } -> { "Limit" :: NullOrUndefined (LimitType), "Marker" :: NullOrUndefined (MarkerType), "RetiringPrincipal" :: PrincipalIdType }) -> ListRetirableGrantsRequest
+newListRetirableGrantsRequest' :: PrincipalIdType -> ({ "Limit" :: Maybe (LimitType), "Marker" :: Maybe (MarkerType), "RetiringPrincipal" :: PrincipalIdType } -> { "Limit" :: Maybe (LimitType), "Marker" :: Maybe (MarkerType), "RetiringPrincipal" :: PrincipalIdType }) -> ListRetirableGrantsRequest
 ```
 
 Constructs ListRetirableGrantsRequest's fields from required parameters
@@ -2598,7 +2598,7 @@ Constructs ListRetirableGrantsRequest's fields from required parameters
 
 ``` purescript
 newtype MalformedPolicyDocumentException
-  = MalformedPolicyDocumentException { message :: NullOrUndefined (ErrorMessageType) }
+  = MalformedPolicyDocumentException { message :: Maybe (ErrorMessageType) }
 ```
 
 <p>The request was rejected because the specified policy is not syntactically or semantically correct.</p>
@@ -2623,7 +2623,7 @@ Constructs MalformedPolicyDocumentException from required parameters
 #### `newMalformedPolicyDocumentException'`
 
 ``` purescript
-newMalformedPolicyDocumentException' :: ({ message :: NullOrUndefined (ErrorMessageType) } -> { message :: NullOrUndefined (ErrorMessageType) }) -> MalformedPolicyDocumentException
+newMalformedPolicyDocumentException' :: ({ message :: Maybe (ErrorMessageType) } -> { message :: Maybe (ErrorMessageType) }) -> MalformedPolicyDocumentException
 ```
 
 Constructs MalformedPolicyDocumentException's fields from required parameters
@@ -2648,7 +2648,7 @@ Encode MarkerType
 
 ``` purescript
 newtype NotFoundException
-  = NotFoundException { message :: NullOrUndefined (ErrorMessageType) }
+  = NotFoundException { message :: Maybe (ErrorMessageType) }
 ```
 
 <p>The request was rejected because the specified entity or resource could not be found.</p>
@@ -2673,7 +2673,7 @@ Constructs NotFoundException from required parameters
 #### `newNotFoundException'`
 
 ``` purescript
-newNotFoundException' :: ({ message :: NullOrUndefined (ErrorMessageType) } -> { message :: NullOrUndefined (ErrorMessageType) }) -> NotFoundException
+newNotFoundException' :: ({ message :: Maybe (ErrorMessageType) } -> { message :: Maybe (ErrorMessageType) }) -> NotFoundException
 ```
 
 Constructs NotFoundException's fields from required parameters
@@ -2810,7 +2810,7 @@ Encode PrincipalIdType
 
 ``` purescript
 newtype PutKeyPolicyRequest
-  = PutKeyPolicyRequest { "KeyId" :: KeyIdType, "PolicyName" :: PolicyNameType, "Policy" :: PolicyType, "BypassPolicyLockoutSafetyCheck" :: NullOrUndefined (BooleanType) }
+  = PutKeyPolicyRequest { "KeyId" :: KeyIdType, "PolicyName" :: PolicyNameType, "Policy" :: PolicyType, "BypassPolicyLockoutSafetyCheck" :: Maybe (BooleanType) }
 ```
 
 ##### Instances
@@ -2833,7 +2833,7 @@ Constructs PutKeyPolicyRequest from required parameters
 #### `newPutKeyPolicyRequest'`
 
 ``` purescript
-newPutKeyPolicyRequest' :: KeyIdType -> PolicyType -> PolicyNameType -> ({ "KeyId" :: KeyIdType, "PolicyName" :: PolicyNameType, "Policy" :: PolicyType, "BypassPolicyLockoutSafetyCheck" :: NullOrUndefined (BooleanType) } -> { "KeyId" :: KeyIdType, "PolicyName" :: PolicyNameType, "Policy" :: PolicyType, "BypassPolicyLockoutSafetyCheck" :: NullOrUndefined (BooleanType) }) -> PutKeyPolicyRequest
+newPutKeyPolicyRequest' :: KeyIdType -> PolicyType -> PolicyNameType -> ({ "KeyId" :: KeyIdType, "PolicyName" :: PolicyNameType, "Policy" :: PolicyType, "BypassPolicyLockoutSafetyCheck" :: Maybe (BooleanType) } -> { "KeyId" :: KeyIdType, "PolicyName" :: PolicyNameType, "Policy" :: PolicyType, "BypassPolicyLockoutSafetyCheck" :: Maybe (BooleanType) }) -> PutKeyPolicyRequest
 ```
 
 Constructs PutKeyPolicyRequest's fields from required parameters
@@ -2842,7 +2842,7 @@ Constructs PutKeyPolicyRequest's fields from required parameters
 
 ``` purescript
 newtype ReEncryptRequest
-  = ReEncryptRequest { "CiphertextBlob" :: CiphertextType, "SourceEncryptionContext" :: NullOrUndefined (EncryptionContextType), "DestinationKeyId" :: KeyIdType, "DestinationEncryptionContext" :: NullOrUndefined (EncryptionContextType), "GrantTokens" :: NullOrUndefined (GrantTokenList) }
+  = ReEncryptRequest { "CiphertextBlob" :: CiphertextType, "SourceEncryptionContext" :: Maybe (EncryptionContextType), "DestinationKeyId" :: KeyIdType, "DestinationEncryptionContext" :: Maybe (EncryptionContextType), "GrantTokens" :: Maybe (GrantTokenList) }
 ```
 
 ##### Instances
@@ -2865,7 +2865,7 @@ Constructs ReEncryptRequest from required parameters
 #### `newReEncryptRequest'`
 
 ``` purescript
-newReEncryptRequest' :: CiphertextType -> KeyIdType -> ({ "CiphertextBlob" :: CiphertextType, "SourceEncryptionContext" :: NullOrUndefined (EncryptionContextType), "DestinationKeyId" :: KeyIdType, "DestinationEncryptionContext" :: NullOrUndefined (EncryptionContextType), "GrantTokens" :: NullOrUndefined (GrantTokenList) } -> { "CiphertextBlob" :: CiphertextType, "SourceEncryptionContext" :: NullOrUndefined (EncryptionContextType), "DestinationKeyId" :: KeyIdType, "DestinationEncryptionContext" :: NullOrUndefined (EncryptionContextType), "GrantTokens" :: NullOrUndefined (GrantTokenList) }) -> ReEncryptRequest
+newReEncryptRequest' :: CiphertextType -> KeyIdType -> ({ "CiphertextBlob" :: CiphertextType, "SourceEncryptionContext" :: Maybe (EncryptionContextType), "DestinationKeyId" :: KeyIdType, "DestinationEncryptionContext" :: Maybe (EncryptionContextType), "GrantTokens" :: Maybe (GrantTokenList) } -> { "CiphertextBlob" :: CiphertextType, "SourceEncryptionContext" :: Maybe (EncryptionContextType), "DestinationKeyId" :: KeyIdType, "DestinationEncryptionContext" :: Maybe (EncryptionContextType), "GrantTokens" :: Maybe (GrantTokenList) }) -> ReEncryptRequest
 ```
 
 Constructs ReEncryptRequest's fields from required parameters
@@ -2874,7 +2874,7 @@ Constructs ReEncryptRequest's fields from required parameters
 
 ``` purescript
 newtype ReEncryptResponse
-  = ReEncryptResponse { "CiphertextBlob" :: NullOrUndefined (CiphertextType), "SourceKeyId" :: NullOrUndefined (KeyIdType), "KeyId" :: NullOrUndefined (KeyIdType) }
+  = ReEncryptResponse { "CiphertextBlob" :: Maybe (CiphertextType), "SourceKeyId" :: Maybe (KeyIdType), "KeyId" :: Maybe (KeyIdType) }
 ```
 
 ##### Instances
@@ -2897,7 +2897,7 @@ Constructs ReEncryptResponse from required parameters
 #### `newReEncryptResponse'`
 
 ``` purescript
-newReEncryptResponse' :: ({ "CiphertextBlob" :: NullOrUndefined (CiphertextType), "SourceKeyId" :: NullOrUndefined (KeyIdType), "KeyId" :: NullOrUndefined (KeyIdType) } -> { "CiphertextBlob" :: NullOrUndefined (CiphertextType), "SourceKeyId" :: NullOrUndefined (KeyIdType), "KeyId" :: NullOrUndefined (KeyIdType) }) -> ReEncryptResponse
+newReEncryptResponse' :: ({ "CiphertextBlob" :: Maybe (CiphertextType), "SourceKeyId" :: Maybe (KeyIdType), "KeyId" :: Maybe (KeyIdType) } -> { "CiphertextBlob" :: Maybe (CiphertextType), "SourceKeyId" :: Maybe (KeyIdType), "KeyId" :: Maybe (KeyIdType) }) -> ReEncryptResponse
 ```
 
 Constructs ReEncryptResponse's fields from required parameters
@@ -2906,7 +2906,7 @@ Constructs ReEncryptResponse's fields from required parameters
 
 ``` purescript
 newtype RetireGrantRequest
-  = RetireGrantRequest { "GrantToken" :: NullOrUndefined (GrantTokenType), "KeyId" :: NullOrUndefined (KeyIdType), "GrantId" :: NullOrUndefined (GrantIdType) }
+  = RetireGrantRequest { "GrantToken" :: Maybe (GrantTokenType), "KeyId" :: Maybe (KeyIdType), "GrantId" :: Maybe (GrantIdType) }
 ```
 
 ##### Instances
@@ -2929,7 +2929,7 @@ Constructs RetireGrantRequest from required parameters
 #### `newRetireGrantRequest'`
 
 ``` purescript
-newRetireGrantRequest' :: ({ "GrantToken" :: NullOrUndefined (GrantTokenType), "KeyId" :: NullOrUndefined (KeyIdType), "GrantId" :: NullOrUndefined (GrantIdType) } -> { "GrantToken" :: NullOrUndefined (GrantTokenType), "KeyId" :: NullOrUndefined (KeyIdType), "GrantId" :: NullOrUndefined (GrantIdType) }) -> RetireGrantRequest
+newRetireGrantRequest' :: ({ "GrantToken" :: Maybe (GrantTokenType), "KeyId" :: Maybe (KeyIdType), "GrantId" :: Maybe (GrantIdType) } -> { "GrantToken" :: Maybe (GrantTokenType), "KeyId" :: Maybe (KeyIdType), "GrantId" :: Maybe (GrantIdType) }) -> RetireGrantRequest
 ```
 
 Constructs RetireGrantRequest's fields from required parameters
@@ -2970,7 +2970,7 @@ Constructs RevokeGrantRequest's fields from required parameters
 
 ``` purescript
 newtype ScheduleKeyDeletionRequest
-  = ScheduleKeyDeletionRequest { "KeyId" :: KeyIdType, "PendingWindowInDays" :: NullOrUndefined (PendingWindowInDaysType) }
+  = ScheduleKeyDeletionRequest { "KeyId" :: KeyIdType, "PendingWindowInDays" :: Maybe (PendingWindowInDaysType) }
 ```
 
 ##### Instances
@@ -2993,7 +2993,7 @@ Constructs ScheduleKeyDeletionRequest from required parameters
 #### `newScheduleKeyDeletionRequest'`
 
 ``` purescript
-newScheduleKeyDeletionRequest' :: KeyIdType -> ({ "KeyId" :: KeyIdType, "PendingWindowInDays" :: NullOrUndefined (PendingWindowInDaysType) } -> { "KeyId" :: KeyIdType, "PendingWindowInDays" :: NullOrUndefined (PendingWindowInDaysType) }) -> ScheduleKeyDeletionRequest
+newScheduleKeyDeletionRequest' :: KeyIdType -> ({ "KeyId" :: KeyIdType, "PendingWindowInDays" :: Maybe (PendingWindowInDaysType) } -> { "KeyId" :: KeyIdType, "PendingWindowInDays" :: Maybe (PendingWindowInDaysType) }) -> ScheduleKeyDeletionRequest
 ```
 
 Constructs ScheduleKeyDeletionRequest's fields from required parameters
@@ -3002,7 +3002,7 @@ Constructs ScheduleKeyDeletionRequest's fields from required parameters
 
 ``` purescript
 newtype ScheduleKeyDeletionResponse
-  = ScheduleKeyDeletionResponse { "KeyId" :: NullOrUndefined (KeyIdType), "DeletionDate" :: NullOrUndefined (DateType) }
+  = ScheduleKeyDeletionResponse { "KeyId" :: Maybe (KeyIdType), "DeletionDate" :: Maybe (DateType) }
 ```
 
 ##### Instances
@@ -3025,7 +3025,7 @@ Constructs ScheduleKeyDeletionResponse from required parameters
 #### `newScheduleKeyDeletionResponse'`
 
 ``` purescript
-newScheduleKeyDeletionResponse' :: ({ "KeyId" :: NullOrUndefined (KeyIdType), "DeletionDate" :: NullOrUndefined (DateType) } -> { "KeyId" :: NullOrUndefined (KeyIdType), "DeletionDate" :: NullOrUndefined (DateType) }) -> ScheduleKeyDeletionResponse
+newScheduleKeyDeletionResponse' :: ({ "KeyId" :: Maybe (KeyIdType), "DeletionDate" :: Maybe (DateType) } -> { "KeyId" :: Maybe (KeyIdType), "DeletionDate" :: Maybe (DateType) }) -> ScheduleKeyDeletionResponse
 ```
 
 Constructs ScheduleKeyDeletionResponse's fields from required parameters
@@ -3068,7 +3068,7 @@ Constructs Tag's fields from required parameters
 
 ``` purescript
 newtype TagException
-  = TagException { message :: NullOrUndefined (ErrorMessageType) }
+  = TagException { message :: Maybe (ErrorMessageType) }
 ```
 
 <p>The request was rejected because one or more tags are not valid.</p>
@@ -3093,7 +3093,7 @@ Constructs TagException from required parameters
 #### `newTagException'`
 
 ``` purescript
-newTagException' :: ({ message :: NullOrUndefined (ErrorMessageType) } -> { message :: NullOrUndefined (ErrorMessageType) }) -> TagException
+newTagException' :: ({ message :: Maybe (ErrorMessageType) } -> { message :: Maybe (ErrorMessageType) }) -> TagException
 ```
 
 Constructs TagException's fields from required parameters
@@ -3198,7 +3198,7 @@ Encode TagValueType
 
 ``` purescript
 newtype UnsupportedOperationException
-  = UnsupportedOperationException { message :: NullOrUndefined (ErrorMessageType) }
+  = UnsupportedOperationException { message :: Maybe (ErrorMessageType) }
 ```
 
 <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation.</p>
@@ -3223,7 +3223,7 @@ Constructs UnsupportedOperationException from required parameters
 #### `newUnsupportedOperationException'`
 
 ``` purescript
-newUnsupportedOperationException' :: ({ message :: NullOrUndefined (ErrorMessageType) } -> { message :: NullOrUndefined (ErrorMessageType) }) -> UnsupportedOperationException
+newUnsupportedOperationException' :: ({ message :: Maybe (ErrorMessageType) } -> { message :: Maybe (ErrorMessageType) }) -> UnsupportedOperationException
 ```
 
 Constructs UnsupportedOperationException's fields from required parameters

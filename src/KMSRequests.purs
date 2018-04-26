@@ -19,7 +19,7 @@ cancelKeyDeletion (KMS.Service serviceImpl) = AWS.request serviceImpl method  wh
 
 
 -- | <p>Creates a display name for a customer master key (CMK). You can use an alias to identify a CMK in selected operations, such as <a>Encrypt</a> and <a>GenerateDataKey</a>. </p> <p>Each CMK can have multiple aliases, but each alias points to only one CMK. The alias name must be unique in the AWS account and region. To simplify code that runs in multiple regions, use the same alias name, but point it to a different CMK in each region. </p> <p>Because an alias is not a property of a CMK, you can delete and change the aliases of a CMK without affecting the CMK. Also, aliases do not appear in the response from the <a>DescribeKey</a> operation. To get the aliases of all CMKs, use the <a>ListAliases</a> operation.</p> <p>An alias must start with the word <code>alias</code> followed by a forward slash (<code>alias/</code>). The alias name can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). Alias names cannot begin with <code>aws</code>; that alias name prefix is reserved by Amazon Web Services (AWS).</p> <p>The alias and the CMK it is mapped to must be in the same AWS account and the same region. You cannot perform this operation on an alias in a different AWS account.</p> <p>To map an existing alias to a different CMK, call <a>UpdateAlias</a>.</p>
-createAlias :: forall eff. KMS.Service -> KMSTypes.CreateAliasRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+createAlias :: forall eff. KMS.Service -> KMSTypes.CreateAliasRequest -> Aff (exception :: EXCEPTION | eff) Unit
 createAlias (KMS.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "createAlias"
 
@@ -43,13 +43,13 @@ decrypt (KMS.Service serviceImpl) = AWS.request serviceImpl method  where
 
 
 -- | <p>Deletes the specified alias. You cannot perform this operation on an alias in a different AWS account. </p> <p>Because an alias is not a property of a CMK, you can delete and change the aliases of a CMK without affecting the CMK. Also, aliases do not appear in the response from the <a>DescribeKey</a> operation. To get the aliases of all CMKs, use the <a>ListAliases</a> operation. </p> <p>Each CMK can have multiple aliases. To change the alias of a CMK, use <a>DeleteAlias</a> to delete the current alias and <a>CreateAlias</a> to create a new alias. To associate an existing alias with a different customer master key (CMK), call <a>UpdateAlias</a>.</p>
-deleteAlias :: forall eff. KMS.Service -> KMSTypes.DeleteAliasRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteAlias :: forall eff. KMS.Service -> KMSTypes.DeleteAliasRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteAlias (KMS.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteAlias"
 
 
 -- | <p>Deletes key material that you previously imported. This operation makes the specified customer master key (CMK) unusable. For more information about importing key material into AWS KMS, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key Material</a> in the <i>AWS Key Management Service Developer Guide</i>. You cannot perform this operation on a CMK in a different AWS account.</p> <p>When the specified CMK is in the <code>PendingDeletion</code> state, this operation does not change the CMK's state. Otherwise, it changes the CMK's state to <code>PendingImport</code>.</p> <p>After you delete key material, you can use <a>ImportKeyMaterial</a> to reimport the same key material into the CMK.</p>
-deleteImportedKeyMaterial :: forall eff. KMS.Service -> KMSTypes.DeleteImportedKeyMaterialRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteImportedKeyMaterial :: forall eff. KMS.Service -> KMSTypes.DeleteImportedKeyMaterialRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteImportedKeyMaterial (KMS.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteImportedKeyMaterial"
 
@@ -61,25 +61,25 @@ describeKey (KMS.Service serviceImpl) = AWS.request serviceImpl method  where
 
 
 -- | <p>Sets the state of a customer master key (CMK) to disabled, thereby preventing its use for cryptographic operations. You cannot perform this operation on a CMK in a different AWS account.</p> <p>For more information about how key state affects the use of a CMK, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects the Use of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-disableKey :: forall eff. KMS.Service -> KMSTypes.DisableKeyRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+disableKey :: forall eff. KMS.Service -> KMSTypes.DisableKeyRequest -> Aff (exception :: EXCEPTION | eff) Unit
 disableKey (KMS.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "disableKey"
 
 
 -- | <p>Disables automatic rotation of the key material for the specified customer master key (CMK). You cannot perform this operation on a CMK in a different AWS account.</p>
-disableKeyRotation :: forall eff. KMS.Service -> KMSTypes.DisableKeyRotationRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+disableKeyRotation :: forall eff. KMS.Service -> KMSTypes.DisableKeyRotationRequest -> Aff (exception :: EXCEPTION | eff) Unit
 disableKeyRotation (KMS.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "disableKeyRotation"
 
 
 -- | <p>Sets the state of a customer master key (CMK) to enabled, thereby permitting its use for cryptographic operations. You cannot perform this operation on a CMK in a different AWS account.</p>
-enableKey :: forall eff. KMS.Service -> KMSTypes.EnableKeyRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+enableKey :: forall eff. KMS.Service -> KMSTypes.EnableKeyRequest -> Aff (exception :: EXCEPTION | eff) Unit
 enableKey (KMS.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "enableKey"
 
 
 -- | <p>Enables automatic rotation of the key material for the specified customer master key (CMK). You cannot perform this operation on a CMK in a different AWS account.</p>
-enableKeyRotation :: forall eff. KMS.Service -> KMSTypes.EnableKeyRotationRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+enableKeyRotation :: forall eff. KMS.Service -> KMSTypes.EnableKeyRotationRequest -> Aff (exception :: EXCEPTION | eff) Unit
 enableKeyRotation (KMS.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "enableKeyRotation"
 
@@ -169,7 +169,7 @@ listRetirableGrants (KMS.Service serviceImpl) = AWS.request serviceImpl method  
 
 
 -- | <p>Attaches a key policy to the specified customer master key (CMK). You cannot perform this operation on a CMK in a different AWS account.</p> <p>For more information about key policies, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Key Policies</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-putKeyPolicy :: forall eff. KMS.Service -> KMSTypes.PutKeyPolicyRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+putKeyPolicy :: forall eff. KMS.Service -> KMSTypes.PutKeyPolicyRequest -> Aff (exception :: EXCEPTION | eff) Unit
 putKeyPolicy (KMS.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "putKeyPolicy"
 
@@ -181,13 +181,13 @@ reEncrypt (KMS.Service serviceImpl) = AWS.request serviceImpl method  where
 
 
 -- | <p>Retires a grant. To clean up, you can retire a grant when you're done using it. You should revoke a grant when you intend to actively deny operations that depend on it. The following are permitted to call this API:</p> <ul> <li> <p>The AWS account (root user) under which the grant was created</p> </li> <li> <p>The <code>RetiringPrincipal</code>, if present in the grant</p> </li> <li> <p>The <code>GranteePrincipal</code>, if <code>RetireGrant</code> is an operation specified in the grant</p> </li> </ul> <p>You must identify the grant to retire by its grant token or by a combination of the grant ID and the Amazon Resource Name (ARN) of the customer master key (CMK). A grant token is a unique variable-length base64-encoded string. A grant ID is a 64 character unique identifier of a grant. The <a>CreateGrant</a> operation returns both.</p>
-retireGrant :: forall eff. KMS.Service -> KMSTypes.RetireGrantRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+retireGrant :: forall eff. KMS.Service -> KMSTypes.RetireGrantRequest -> Aff (exception :: EXCEPTION | eff) Unit
 retireGrant (KMS.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "retireGrant"
 
 
 -- | <p>Revokes the specified grant for the specified customer master key (CMK). You can revoke a grant to actively deny operations that depend on it.</p> <p>To perform this operation on a CMK in a different AWS account, specify the key ARN in the value of the KeyId parameter.</p>
-revokeGrant :: forall eff. KMS.Service -> KMSTypes.RevokeGrantRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+revokeGrant :: forall eff. KMS.Service -> KMSTypes.RevokeGrantRequest -> Aff (exception :: EXCEPTION | eff) Unit
 revokeGrant (KMS.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "revokeGrant"
 
@@ -199,24 +199,24 @@ scheduleKeyDeletion (KMS.Service serviceImpl) = AWS.request serviceImpl method  
 
 
 -- | <p>Adds or overwrites one or more tags for the specified customer master key (CMK). You cannot perform this operation on a CMK in a different AWS account.</p> <p>Each tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty (null) strings.</p> <p>You cannot use the same tag key more than once per CMK. For example, consider a CMK with one tag whose tag key is <code>Purpose</code> and tag value is <code>Test</code>. If you send a <code>TagResource</code> request for this CMK with a tag key of <code>Purpose</code> and a tag value of <code>Prod</code>, it does not create a second tag. Instead, the original tag is overwritten with the new tag value.</p> <p>For information about the rules that apply to tag keys and tag values, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-Defined Tag Restrictions</a> in the <i>AWS Billing and Cost Management User Guide</i>.</p>
-tagResource :: forall eff. KMS.Service -> KMSTypes.TagResourceRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+tagResource :: forall eff. KMS.Service -> KMSTypes.TagResourceRequest -> Aff (exception :: EXCEPTION | eff) Unit
 tagResource (KMS.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "tagResource"
 
 
 -- | <p>Removes the specified tag or tags from the specified customer master key (CMK). You cannot perform this operation on a CMK in a different AWS account.</p> <p>To remove a tag, you specify the tag key for each tag to remove. You do not specify the tag value. To overwrite the tag value for an existing tag, use <a>TagResource</a>.</p>
-untagResource :: forall eff. KMS.Service -> KMSTypes.UntagResourceRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+untagResource :: forall eff. KMS.Service -> KMSTypes.UntagResourceRequest -> Aff (exception :: EXCEPTION | eff) Unit
 untagResource (KMS.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "untagResource"
 
 
 -- | <p>Associates an existing alias with a different customer master key (CMK). Each CMK can have multiple aliases, but the aliases must be unique within the account and region. You cannot perform this operation on an alias in a different AWS account.</p> <p>This operation works only on existing aliases. To change the alias of a CMK to a new value, use <a>CreateAlias</a> to create a new alias and <a>DeleteAlias</a> to delete the old alias.</p> <p>Because an alias is not a property of a CMK, you can create, update, and delete the aliases of a CMK without affecting the CMK. Also, aliases do not appear in the response from the <a>DescribeKey</a> operation. To get the aliases of all CMKs in the account, use the <a>ListAliases</a> operation. </p> <p>An alias name can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). An alias must start with the word <code>alias</code> followed by a forward slash (<code>alias/</code>). The alias name can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). Alias names cannot begin with <code>aws</code>; that alias name prefix is reserved by Amazon Web Services (AWS).</p>
-updateAlias :: forall eff. KMS.Service -> KMSTypes.UpdateAliasRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+updateAlias :: forall eff. KMS.Service -> KMSTypes.UpdateAliasRequest -> Aff (exception :: EXCEPTION | eff) Unit
 updateAlias (KMS.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "updateAlias"
 
 
 -- | <p>Updates the description of a customer master key (CMK). To see the decription of a CMK, use <a>DescribeKey</a>. </p> <p>You cannot perform this operation on a CMK in a different AWS account.</p>
-updateKeyDescription :: forall eff. KMS.Service -> KMSTypes.UpdateKeyDescriptionRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+updateKeyDescription :: forall eff. KMS.Service -> KMSTypes.UpdateKeyDescriptionRequest -> Aff (exception :: EXCEPTION | eff) Unit
 updateKeyDescription (KMS.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "updateKeyDescription"

@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -47,9 +46,9 @@ instance encodeAliasList :: Encode AliasList where encode = genericEncode option
 
 -- | <p>Contains information about an alias.</p>
 newtype AliasListEntry = AliasListEntry 
-  { "AliasName" :: NullOrUndefined (AliasNameType)
-  , "AliasArn" :: NullOrUndefined (ArnType)
-  , "TargetKeyId" :: NullOrUndefined (KeyIdType)
+  { "AliasName" :: Maybe (AliasNameType)
+  , "AliasArn" :: Maybe (ArnType)
+  , "TargetKeyId" :: Maybe (KeyIdType)
   }
 derive instance newtypeAliasListEntry :: Newtype AliasListEntry _
 derive instance repGenericAliasListEntry :: Generic AliasListEntry _
@@ -59,12 +58,12 @@ instance encodeAliasListEntry :: Encode AliasListEntry where encode = genericEnc
 
 -- | Constructs AliasListEntry from required parameters
 newAliasListEntry :: AliasListEntry
-newAliasListEntry  = AliasListEntry { "AliasArn": (NullOrUndefined Nothing), "AliasName": (NullOrUndefined Nothing), "TargetKeyId": (NullOrUndefined Nothing) }
+newAliasListEntry  = AliasListEntry { "AliasArn": Nothing, "AliasName": Nothing, "TargetKeyId": Nothing }
 
 -- | Constructs AliasListEntry's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAliasListEntry' :: ( { "AliasName" :: NullOrUndefined (AliasNameType) , "AliasArn" :: NullOrUndefined (ArnType) , "TargetKeyId" :: NullOrUndefined (KeyIdType) } -> {"AliasName" :: NullOrUndefined (AliasNameType) , "AliasArn" :: NullOrUndefined (ArnType) , "TargetKeyId" :: NullOrUndefined (KeyIdType) } ) -> AliasListEntry
-newAliasListEntry'  customize = (AliasListEntry <<< customize) { "AliasArn": (NullOrUndefined Nothing), "AliasName": (NullOrUndefined Nothing), "TargetKeyId": (NullOrUndefined Nothing) }
+newAliasListEntry' :: ( { "AliasName" :: Maybe (AliasNameType) , "AliasArn" :: Maybe (ArnType) , "TargetKeyId" :: Maybe (KeyIdType) } -> {"AliasName" :: Maybe (AliasNameType) , "AliasArn" :: Maybe (ArnType) , "TargetKeyId" :: Maybe (KeyIdType) } ) -> AliasListEntry
+newAliasListEntry'  customize = (AliasListEntry <<< customize) { "AliasArn": Nothing, "AliasName": Nothing, "TargetKeyId": Nothing }
 
 
 
@@ -79,7 +78,7 @@ instance encodeAliasNameType :: Encode AliasNameType where encode = genericEncod
 
 -- | <p>The request was rejected because it attempted to create a resource that already exists.</p>
 newtype AlreadyExistsException = AlreadyExistsException 
-  { "message" :: NullOrUndefined (ErrorMessageType)
+  { "message" :: Maybe (ErrorMessageType)
   }
 derive instance newtypeAlreadyExistsException :: Newtype AlreadyExistsException _
 derive instance repGenericAlreadyExistsException :: Generic AlreadyExistsException _
@@ -89,12 +88,12 @@ instance encodeAlreadyExistsException :: Encode AlreadyExistsException where enc
 
 -- | Constructs AlreadyExistsException from required parameters
 newAlreadyExistsException :: AlreadyExistsException
-newAlreadyExistsException  = AlreadyExistsException { "message": (NullOrUndefined Nothing) }
+newAlreadyExistsException  = AlreadyExistsException { "message": Nothing }
 
 -- | Constructs AlreadyExistsException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAlreadyExistsException' :: ( { "message" :: NullOrUndefined (ErrorMessageType) } -> {"message" :: NullOrUndefined (ErrorMessageType) } ) -> AlreadyExistsException
-newAlreadyExistsException'  customize = (AlreadyExistsException <<< customize) { "message": (NullOrUndefined Nothing) }
+newAlreadyExistsException' :: ( { "message" :: Maybe (ErrorMessageType) } -> {"message" :: Maybe (ErrorMessageType) } ) -> AlreadyExistsException
+newAlreadyExistsException'  customize = (AlreadyExistsException <<< customize) { "message": Nothing }
 
 
 
@@ -137,7 +136,7 @@ newCancelKeyDeletionRequest' _KeyId customize = (CancelKeyDeletionRequest <<< cu
 
 
 newtype CancelKeyDeletionResponse = CancelKeyDeletionResponse 
-  { "KeyId" :: NullOrUndefined (KeyIdType)
+  { "KeyId" :: Maybe (KeyIdType)
   }
 derive instance newtypeCancelKeyDeletionResponse :: Newtype CancelKeyDeletionResponse _
 derive instance repGenericCancelKeyDeletionResponse :: Generic CancelKeyDeletionResponse _
@@ -147,12 +146,12 @@ instance encodeCancelKeyDeletionResponse :: Encode CancelKeyDeletionResponse whe
 
 -- | Constructs CancelKeyDeletionResponse from required parameters
 newCancelKeyDeletionResponse :: CancelKeyDeletionResponse
-newCancelKeyDeletionResponse  = CancelKeyDeletionResponse { "KeyId": (NullOrUndefined Nothing) }
+newCancelKeyDeletionResponse  = CancelKeyDeletionResponse { "KeyId": Nothing }
 
 -- | Constructs CancelKeyDeletionResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCancelKeyDeletionResponse' :: ( { "KeyId" :: NullOrUndefined (KeyIdType) } -> {"KeyId" :: NullOrUndefined (KeyIdType) } ) -> CancelKeyDeletionResponse
-newCancelKeyDeletionResponse'  customize = (CancelKeyDeletionResponse <<< customize) { "KeyId": (NullOrUndefined Nothing) }
+newCancelKeyDeletionResponse' :: ( { "KeyId" :: Maybe (KeyIdType) } -> {"KeyId" :: Maybe (KeyIdType) } ) -> CancelKeyDeletionResponse
+newCancelKeyDeletionResponse'  customize = (CancelKeyDeletionResponse <<< customize) { "KeyId": Nothing }
 
 
 
@@ -189,11 +188,11 @@ newCreateAliasRequest' _AliasName _TargetKeyId customize = (CreateAliasRequest <
 newtype CreateGrantRequest = CreateGrantRequest 
   { "KeyId" :: (KeyIdType)
   , "GranteePrincipal" :: (PrincipalIdType)
-  , "RetiringPrincipal" :: NullOrUndefined (PrincipalIdType)
+  , "RetiringPrincipal" :: Maybe (PrincipalIdType)
   , "Operations" :: (GrantOperationList)
-  , "Constraints" :: NullOrUndefined (GrantConstraints)
-  , "GrantTokens" :: NullOrUndefined (GrantTokenList)
-  , "Name" :: NullOrUndefined (GrantNameType)
+  , "Constraints" :: Maybe (GrantConstraints)
+  , "GrantTokens" :: Maybe (GrantTokenList)
+  , "Name" :: Maybe (GrantNameType)
   }
 derive instance newtypeCreateGrantRequest :: Newtype CreateGrantRequest _
 derive instance repGenericCreateGrantRequest :: Generic CreateGrantRequest _
@@ -203,18 +202,18 @@ instance encodeCreateGrantRequest :: Encode CreateGrantRequest where encode = ge
 
 -- | Constructs CreateGrantRequest from required parameters
 newCreateGrantRequest :: PrincipalIdType -> KeyIdType -> GrantOperationList -> CreateGrantRequest
-newCreateGrantRequest _GranteePrincipal _KeyId _Operations = CreateGrantRequest { "GranteePrincipal": _GranteePrincipal, "KeyId": _KeyId, "Operations": _Operations, "Constraints": (NullOrUndefined Nothing), "GrantTokens": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "RetiringPrincipal": (NullOrUndefined Nothing) }
+newCreateGrantRequest _GranteePrincipal _KeyId _Operations = CreateGrantRequest { "GranteePrincipal": _GranteePrincipal, "KeyId": _KeyId, "Operations": _Operations, "Constraints": Nothing, "GrantTokens": Nothing, "Name": Nothing, "RetiringPrincipal": Nothing }
 
 -- | Constructs CreateGrantRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateGrantRequest' :: PrincipalIdType -> KeyIdType -> GrantOperationList -> ( { "KeyId" :: (KeyIdType) , "GranteePrincipal" :: (PrincipalIdType) , "RetiringPrincipal" :: NullOrUndefined (PrincipalIdType) , "Operations" :: (GrantOperationList) , "Constraints" :: NullOrUndefined (GrantConstraints) , "GrantTokens" :: NullOrUndefined (GrantTokenList) , "Name" :: NullOrUndefined (GrantNameType) } -> {"KeyId" :: (KeyIdType) , "GranteePrincipal" :: (PrincipalIdType) , "RetiringPrincipal" :: NullOrUndefined (PrincipalIdType) , "Operations" :: (GrantOperationList) , "Constraints" :: NullOrUndefined (GrantConstraints) , "GrantTokens" :: NullOrUndefined (GrantTokenList) , "Name" :: NullOrUndefined (GrantNameType) } ) -> CreateGrantRequest
-newCreateGrantRequest' _GranteePrincipal _KeyId _Operations customize = (CreateGrantRequest <<< customize) { "GranteePrincipal": _GranteePrincipal, "KeyId": _KeyId, "Operations": _Operations, "Constraints": (NullOrUndefined Nothing), "GrantTokens": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "RetiringPrincipal": (NullOrUndefined Nothing) }
+newCreateGrantRequest' :: PrincipalIdType -> KeyIdType -> GrantOperationList -> ( { "KeyId" :: (KeyIdType) , "GranteePrincipal" :: (PrincipalIdType) , "RetiringPrincipal" :: Maybe (PrincipalIdType) , "Operations" :: (GrantOperationList) , "Constraints" :: Maybe (GrantConstraints) , "GrantTokens" :: Maybe (GrantTokenList) , "Name" :: Maybe (GrantNameType) } -> {"KeyId" :: (KeyIdType) , "GranteePrincipal" :: (PrincipalIdType) , "RetiringPrincipal" :: Maybe (PrincipalIdType) , "Operations" :: (GrantOperationList) , "Constraints" :: Maybe (GrantConstraints) , "GrantTokens" :: Maybe (GrantTokenList) , "Name" :: Maybe (GrantNameType) } ) -> CreateGrantRequest
+newCreateGrantRequest' _GranteePrincipal _KeyId _Operations customize = (CreateGrantRequest <<< customize) { "GranteePrincipal": _GranteePrincipal, "KeyId": _KeyId, "Operations": _Operations, "Constraints": Nothing, "GrantTokens": Nothing, "Name": Nothing, "RetiringPrincipal": Nothing }
 
 
 
 newtype CreateGrantResponse = CreateGrantResponse 
-  { "GrantToken" :: NullOrUndefined (GrantTokenType)
-  , "GrantId" :: NullOrUndefined (GrantIdType)
+  { "GrantToken" :: Maybe (GrantTokenType)
+  , "GrantId" :: Maybe (GrantIdType)
   }
 derive instance newtypeCreateGrantResponse :: Newtype CreateGrantResponse _
 derive instance repGenericCreateGrantResponse :: Generic CreateGrantResponse _
@@ -224,22 +223,22 @@ instance encodeCreateGrantResponse :: Encode CreateGrantResponse where encode = 
 
 -- | Constructs CreateGrantResponse from required parameters
 newCreateGrantResponse :: CreateGrantResponse
-newCreateGrantResponse  = CreateGrantResponse { "GrantId": (NullOrUndefined Nothing), "GrantToken": (NullOrUndefined Nothing) }
+newCreateGrantResponse  = CreateGrantResponse { "GrantId": Nothing, "GrantToken": Nothing }
 
 -- | Constructs CreateGrantResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateGrantResponse' :: ( { "GrantToken" :: NullOrUndefined (GrantTokenType) , "GrantId" :: NullOrUndefined (GrantIdType) } -> {"GrantToken" :: NullOrUndefined (GrantTokenType) , "GrantId" :: NullOrUndefined (GrantIdType) } ) -> CreateGrantResponse
-newCreateGrantResponse'  customize = (CreateGrantResponse <<< customize) { "GrantId": (NullOrUndefined Nothing), "GrantToken": (NullOrUndefined Nothing) }
+newCreateGrantResponse' :: ( { "GrantToken" :: Maybe (GrantTokenType) , "GrantId" :: Maybe (GrantIdType) } -> {"GrantToken" :: Maybe (GrantTokenType) , "GrantId" :: Maybe (GrantIdType) } ) -> CreateGrantResponse
+newCreateGrantResponse'  customize = (CreateGrantResponse <<< customize) { "GrantId": Nothing, "GrantToken": Nothing }
 
 
 
 newtype CreateKeyRequest = CreateKeyRequest 
-  { "Policy" :: NullOrUndefined (PolicyType)
-  , "Description" :: NullOrUndefined (DescriptionType)
-  , "KeyUsage" :: NullOrUndefined (KeyUsageType)
-  , "Origin" :: NullOrUndefined (OriginType)
-  , "BypassPolicyLockoutSafetyCheck" :: NullOrUndefined (BooleanType)
-  , "Tags" :: NullOrUndefined (TagList)
+  { "Policy" :: Maybe (PolicyType)
+  , "Description" :: Maybe (DescriptionType)
+  , "KeyUsage" :: Maybe (KeyUsageType)
+  , "Origin" :: Maybe (OriginType)
+  , "BypassPolicyLockoutSafetyCheck" :: Maybe (BooleanType)
+  , "Tags" :: Maybe (TagList)
   }
 derive instance newtypeCreateKeyRequest :: Newtype CreateKeyRequest _
 derive instance repGenericCreateKeyRequest :: Generic CreateKeyRequest _
@@ -249,17 +248,17 @@ instance encodeCreateKeyRequest :: Encode CreateKeyRequest where encode = generi
 
 -- | Constructs CreateKeyRequest from required parameters
 newCreateKeyRequest :: CreateKeyRequest
-newCreateKeyRequest  = CreateKeyRequest { "BypassPolicyLockoutSafetyCheck": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "KeyUsage": (NullOrUndefined Nothing), "Origin": (NullOrUndefined Nothing), "Policy": (NullOrUndefined Nothing), "Tags": (NullOrUndefined Nothing) }
+newCreateKeyRequest  = CreateKeyRequest { "BypassPolicyLockoutSafetyCheck": Nothing, "Description": Nothing, "KeyUsage": Nothing, "Origin": Nothing, "Policy": Nothing, "Tags": Nothing }
 
 -- | Constructs CreateKeyRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateKeyRequest' :: ( { "Policy" :: NullOrUndefined (PolicyType) , "Description" :: NullOrUndefined (DescriptionType) , "KeyUsage" :: NullOrUndefined (KeyUsageType) , "Origin" :: NullOrUndefined (OriginType) , "BypassPolicyLockoutSafetyCheck" :: NullOrUndefined (BooleanType) , "Tags" :: NullOrUndefined (TagList) } -> {"Policy" :: NullOrUndefined (PolicyType) , "Description" :: NullOrUndefined (DescriptionType) , "KeyUsage" :: NullOrUndefined (KeyUsageType) , "Origin" :: NullOrUndefined (OriginType) , "BypassPolicyLockoutSafetyCheck" :: NullOrUndefined (BooleanType) , "Tags" :: NullOrUndefined (TagList) } ) -> CreateKeyRequest
-newCreateKeyRequest'  customize = (CreateKeyRequest <<< customize) { "BypassPolicyLockoutSafetyCheck": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "KeyUsage": (NullOrUndefined Nothing), "Origin": (NullOrUndefined Nothing), "Policy": (NullOrUndefined Nothing), "Tags": (NullOrUndefined Nothing) }
+newCreateKeyRequest' :: ( { "Policy" :: Maybe (PolicyType) , "Description" :: Maybe (DescriptionType) , "KeyUsage" :: Maybe (KeyUsageType) , "Origin" :: Maybe (OriginType) , "BypassPolicyLockoutSafetyCheck" :: Maybe (BooleanType) , "Tags" :: Maybe (TagList) } -> {"Policy" :: Maybe (PolicyType) , "Description" :: Maybe (DescriptionType) , "KeyUsage" :: Maybe (KeyUsageType) , "Origin" :: Maybe (OriginType) , "BypassPolicyLockoutSafetyCheck" :: Maybe (BooleanType) , "Tags" :: Maybe (TagList) } ) -> CreateKeyRequest
+newCreateKeyRequest'  customize = (CreateKeyRequest <<< customize) { "BypassPolicyLockoutSafetyCheck": Nothing, "Description": Nothing, "KeyUsage": Nothing, "Origin": Nothing, "Policy": Nothing, "Tags": Nothing }
 
 
 
 newtype CreateKeyResponse = CreateKeyResponse 
-  { "KeyMetadata" :: NullOrUndefined (KeyMetadata)
+  { "KeyMetadata" :: Maybe (KeyMetadata)
   }
 derive instance newtypeCreateKeyResponse :: Newtype CreateKeyResponse _
 derive instance repGenericCreateKeyResponse :: Generic CreateKeyResponse _
@@ -269,12 +268,12 @@ instance encodeCreateKeyResponse :: Encode CreateKeyResponse where encode = gene
 
 -- | Constructs CreateKeyResponse from required parameters
 newCreateKeyResponse :: CreateKeyResponse
-newCreateKeyResponse  = CreateKeyResponse { "KeyMetadata": (NullOrUndefined Nothing) }
+newCreateKeyResponse  = CreateKeyResponse { "KeyMetadata": Nothing }
 
 -- | Constructs CreateKeyResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateKeyResponse' :: ( { "KeyMetadata" :: NullOrUndefined (KeyMetadata) } -> {"KeyMetadata" :: NullOrUndefined (KeyMetadata) } ) -> CreateKeyResponse
-newCreateKeyResponse'  customize = (CreateKeyResponse <<< customize) { "KeyMetadata": (NullOrUndefined Nothing) }
+newCreateKeyResponse' :: ( { "KeyMetadata" :: Maybe (KeyMetadata) } -> {"KeyMetadata" :: Maybe (KeyMetadata) } ) -> CreateKeyResponse
+newCreateKeyResponse'  customize = (CreateKeyResponse <<< customize) { "KeyMetadata": Nothing }
 
 
 
@@ -298,8 +297,8 @@ instance encodeDateType :: Encode DateType where encode = genericEncode options
 
 newtype DecryptRequest = DecryptRequest 
   { "CiphertextBlob" :: (CiphertextType)
-  , "EncryptionContext" :: NullOrUndefined (EncryptionContextType)
-  , "GrantTokens" :: NullOrUndefined (GrantTokenList)
+  , "EncryptionContext" :: Maybe (EncryptionContextType)
+  , "GrantTokens" :: Maybe (GrantTokenList)
   }
 derive instance newtypeDecryptRequest :: Newtype DecryptRequest _
 derive instance repGenericDecryptRequest :: Generic DecryptRequest _
@@ -309,18 +308,18 @@ instance encodeDecryptRequest :: Encode DecryptRequest where encode = genericEnc
 
 -- | Constructs DecryptRequest from required parameters
 newDecryptRequest :: CiphertextType -> DecryptRequest
-newDecryptRequest _CiphertextBlob = DecryptRequest { "CiphertextBlob": _CiphertextBlob, "EncryptionContext": (NullOrUndefined Nothing), "GrantTokens": (NullOrUndefined Nothing) }
+newDecryptRequest _CiphertextBlob = DecryptRequest { "CiphertextBlob": _CiphertextBlob, "EncryptionContext": Nothing, "GrantTokens": Nothing }
 
 -- | Constructs DecryptRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDecryptRequest' :: CiphertextType -> ( { "CiphertextBlob" :: (CiphertextType) , "EncryptionContext" :: NullOrUndefined (EncryptionContextType) , "GrantTokens" :: NullOrUndefined (GrantTokenList) } -> {"CiphertextBlob" :: (CiphertextType) , "EncryptionContext" :: NullOrUndefined (EncryptionContextType) , "GrantTokens" :: NullOrUndefined (GrantTokenList) } ) -> DecryptRequest
-newDecryptRequest' _CiphertextBlob customize = (DecryptRequest <<< customize) { "CiphertextBlob": _CiphertextBlob, "EncryptionContext": (NullOrUndefined Nothing), "GrantTokens": (NullOrUndefined Nothing) }
+newDecryptRequest' :: CiphertextType -> ( { "CiphertextBlob" :: (CiphertextType) , "EncryptionContext" :: Maybe (EncryptionContextType) , "GrantTokens" :: Maybe (GrantTokenList) } -> {"CiphertextBlob" :: (CiphertextType) , "EncryptionContext" :: Maybe (EncryptionContextType) , "GrantTokens" :: Maybe (GrantTokenList) } ) -> DecryptRequest
+newDecryptRequest' _CiphertextBlob customize = (DecryptRequest <<< customize) { "CiphertextBlob": _CiphertextBlob, "EncryptionContext": Nothing, "GrantTokens": Nothing }
 
 
 
 newtype DecryptResponse = DecryptResponse 
-  { "KeyId" :: NullOrUndefined (KeyIdType)
-  , "Plaintext" :: NullOrUndefined (PlaintextType)
+  { "KeyId" :: Maybe (KeyIdType)
+  , "Plaintext" :: Maybe (PlaintextType)
   }
 derive instance newtypeDecryptResponse :: Newtype DecryptResponse _
 derive instance repGenericDecryptResponse :: Generic DecryptResponse _
@@ -330,12 +329,12 @@ instance encodeDecryptResponse :: Encode DecryptResponse where encode = genericE
 
 -- | Constructs DecryptResponse from required parameters
 newDecryptResponse :: DecryptResponse
-newDecryptResponse  = DecryptResponse { "KeyId": (NullOrUndefined Nothing), "Plaintext": (NullOrUndefined Nothing) }
+newDecryptResponse  = DecryptResponse { "KeyId": Nothing, "Plaintext": Nothing }
 
 -- | Constructs DecryptResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDecryptResponse' :: ( { "KeyId" :: NullOrUndefined (KeyIdType) , "Plaintext" :: NullOrUndefined (PlaintextType) } -> {"KeyId" :: NullOrUndefined (KeyIdType) , "Plaintext" :: NullOrUndefined (PlaintextType) } ) -> DecryptResponse
-newDecryptResponse'  customize = (DecryptResponse <<< customize) { "KeyId": (NullOrUndefined Nothing), "Plaintext": (NullOrUndefined Nothing) }
+newDecryptResponse' :: ( { "KeyId" :: Maybe (KeyIdType) , "Plaintext" :: Maybe (PlaintextType) } -> {"KeyId" :: Maybe (KeyIdType) , "Plaintext" :: Maybe (PlaintextType) } ) -> DecryptResponse
+newDecryptResponse'  customize = (DecryptResponse <<< customize) { "KeyId": Nothing, "Plaintext": Nothing }
 
 
 
@@ -381,7 +380,7 @@ newDeleteImportedKeyMaterialRequest' _KeyId customize = (DeleteImportedKeyMateri
 
 -- | <p>The system timed out while trying to fulfill the request. The request can be retried.</p>
 newtype DependencyTimeoutException = DependencyTimeoutException 
-  { "message" :: NullOrUndefined (ErrorMessageType)
+  { "message" :: Maybe (ErrorMessageType)
   }
 derive instance newtypeDependencyTimeoutException :: Newtype DependencyTimeoutException _
 derive instance repGenericDependencyTimeoutException :: Generic DependencyTimeoutException _
@@ -391,18 +390,18 @@ instance encodeDependencyTimeoutException :: Encode DependencyTimeoutException w
 
 -- | Constructs DependencyTimeoutException from required parameters
 newDependencyTimeoutException :: DependencyTimeoutException
-newDependencyTimeoutException  = DependencyTimeoutException { "message": (NullOrUndefined Nothing) }
+newDependencyTimeoutException  = DependencyTimeoutException { "message": Nothing }
 
 -- | Constructs DependencyTimeoutException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDependencyTimeoutException' :: ( { "message" :: NullOrUndefined (ErrorMessageType) } -> {"message" :: NullOrUndefined (ErrorMessageType) } ) -> DependencyTimeoutException
-newDependencyTimeoutException'  customize = (DependencyTimeoutException <<< customize) { "message": (NullOrUndefined Nothing) }
+newDependencyTimeoutException' :: ( { "message" :: Maybe (ErrorMessageType) } -> {"message" :: Maybe (ErrorMessageType) } ) -> DependencyTimeoutException
+newDependencyTimeoutException'  customize = (DependencyTimeoutException <<< customize) { "message": Nothing }
 
 
 
 newtype DescribeKeyRequest = DescribeKeyRequest 
   { "KeyId" :: (KeyIdType)
-  , "GrantTokens" :: NullOrUndefined (GrantTokenList)
+  , "GrantTokens" :: Maybe (GrantTokenList)
   }
 derive instance newtypeDescribeKeyRequest :: Newtype DescribeKeyRequest _
 derive instance repGenericDescribeKeyRequest :: Generic DescribeKeyRequest _
@@ -412,17 +411,17 @@ instance encodeDescribeKeyRequest :: Encode DescribeKeyRequest where encode = ge
 
 -- | Constructs DescribeKeyRequest from required parameters
 newDescribeKeyRequest :: KeyIdType -> DescribeKeyRequest
-newDescribeKeyRequest _KeyId = DescribeKeyRequest { "KeyId": _KeyId, "GrantTokens": (NullOrUndefined Nothing) }
+newDescribeKeyRequest _KeyId = DescribeKeyRequest { "KeyId": _KeyId, "GrantTokens": Nothing }
 
 -- | Constructs DescribeKeyRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeKeyRequest' :: KeyIdType -> ( { "KeyId" :: (KeyIdType) , "GrantTokens" :: NullOrUndefined (GrantTokenList) } -> {"KeyId" :: (KeyIdType) , "GrantTokens" :: NullOrUndefined (GrantTokenList) } ) -> DescribeKeyRequest
-newDescribeKeyRequest' _KeyId customize = (DescribeKeyRequest <<< customize) { "KeyId": _KeyId, "GrantTokens": (NullOrUndefined Nothing) }
+newDescribeKeyRequest' :: KeyIdType -> ( { "KeyId" :: (KeyIdType) , "GrantTokens" :: Maybe (GrantTokenList) } -> {"KeyId" :: (KeyIdType) , "GrantTokens" :: Maybe (GrantTokenList) } ) -> DescribeKeyRequest
+newDescribeKeyRequest' _KeyId customize = (DescribeKeyRequest <<< customize) { "KeyId": _KeyId, "GrantTokens": Nothing }
 
 
 
 newtype DescribeKeyResponse = DescribeKeyResponse 
-  { "KeyMetadata" :: NullOrUndefined (KeyMetadata)
+  { "KeyMetadata" :: Maybe (KeyMetadata)
   }
 derive instance newtypeDescribeKeyResponse :: Newtype DescribeKeyResponse _
 derive instance repGenericDescribeKeyResponse :: Generic DescribeKeyResponse _
@@ -432,12 +431,12 @@ instance encodeDescribeKeyResponse :: Encode DescribeKeyResponse where encode = 
 
 -- | Constructs DescribeKeyResponse from required parameters
 newDescribeKeyResponse :: DescribeKeyResponse
-newDescribeKeyResponse  = DescribeKeyResponse { "KeyMetadata": (NullOrUndefined Nothing) }
+newDescribeKeyResponse  = DescribeKeyResponse { "KeyMetadata": Nothing }
 
 -- | Constructs DescribeKeyResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeKeyResponse' :: ( { "KeyMetadata" :: NullOrUndefined (KeyMetadata) } -> {"KeyMetadata" :: NullOrUndefined (KeyMetadata) } ) -> DescribeKeyResponse
-newDescribeKeyResponse'  customize = (DescribeKeyResponse <<< customize) { "KeyMetadata": (NullOrUndefined Nothing) }
+newDescribeKeyResponse' :: ( { "KeyMetadata" :: Maybe (KeyMetadata) } -> {"KeyMetadata" :: Maybe (KeyMetadata) } ) -> DescribeKeyResponse
+newDescribeKeyResponse'  customize = (DescribeKeyResponse <<< customize) { "KeyMetadata": Nothing }
 
 
 
@@ -492,7 +491,7 @@ newDisableKeyRotationRequest' _KeyId customize = (DisableKeyRotationRequest <<< 
 
 -- | <p>The request was rejected because the specified CMK is not enabled.</p>
 newtype DisabledException = DisabledException 
-  { "message" :: NullOrUndefined (ErrorMessageType)
+  { "message" :: Maybe (ErrorMessageType)
   }
 derive instance newtypeDisabledException :: Newtype DisabledException _
 derive instance repGenericDisabledException :: Generic DisabledException _
@@ -502,12 +501,12 @@ instance encodeDisabledException :: Encode DisabledException where encode = gene
 
 -- | Constructs DisabledException from required parameters
 newDisabledException :: DisabledException
-newDisabledException  = DisabledException { "message": (NullOrUndefined Nothing) }
+newDisabledException  = DisabledException { "message": Nothing }
 
 -- | Constructs DisabledException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDisabledException' :: ( { "message" :: NullOrUndefined (ErrorMessageType) } -> {"message" :: NullOrUndefined (ErrorMessageType) } ) -> DisabledException
-newDisabledException'  customize = (DisabledException <<< customize) { "message": (NullOrUndefined Nothing) }
+newDisabledException' :: ( { "message" :: Maybe (ErrorMessageType) } -> {"message" :: Maybe (ErrorMessageType) } ) -> DisabledException
+newDisabledException'  customize = (DisabledException <<< customize) { "message": Nothing }
 
 
 
@@ -554,8 +553,8 @@ newEnableKeyRotationRequest' _KeyId customize = (EnableKeyRotationRequest <<< cu
 newtype EncryptRequest = EncryptRequest 
   { "KeyId" :: (KeyIdType)
   , "Plaintext" :: (PlaintextType)
-  , "EncryptionContext" :: NullOrUndefined (EncryptionContextType)
-  , "GrantTokens" :: NullOrUndefined (GrantTokenList)
+  , "EncryptionContext" :: Maybe (EncryptionContextType)
+  , "GrantTokens" :: Maybe (GrantTokenList)
   }
 derive instance newtypeEncryptRequest :: Newtype EncryptRequest _
 derive instance repGenericEncryptRequest :: Generic EncryptRequest _
@@ -565,18 +564,18 @@ instance encodeEncryptRequest :: Encode EncryptRequest where encode = genericEnc
 
 -- | Constructs EncryptRequest from required parameters
 newEncryptRequest :: KeyIdType -> PlaintextType -> EncryptRequest
-newEncryptRequest _KeyId _Plaintext = EncryptRequest { "KeyId": _KeyId, "Plaintext": _Plaintext, "EncryptionContext": (NullOrUndefined Nothing), "GrantTokens": (NullOrUndefined Nothing) }
+newEncryptRequest _KeyId _Plaintext = EncryptRequest { "KeyId": _KeyId, "Plaintext": _Plaintext, "EncryptionContext": Nothing, "GrantTokens": Nothing }
 
 -- | Constructs EncryptRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newEncryptRequest' :: KeyIdType -> PlaintextType -> ( { "KeyId" :: (KeyIdType) , "Plaintext" :: (PlaintextType) , "EncryptionContext" :: NullOrUndefined (EncryptionContextType) , "GrantTokens" :: NullOrUndefined (GrantTokenList) } -> {"KeyId" :: (KeyIdType) , "Plaintext" :: (PlaintextType) , "EncryptionContext" :: NullOrUndefined (EncryptionContextType) , "GrantTokens" :: NullOrUndefined (GrantTokenList) } ) -> EncryptRequest
-newEncryptRequest' _KeyId _Plaintext customize = (EncryptRequest <<< customize) { "KeyId": _KeyId, "Plaintext": _Plaintext, "EncryptionContext": (NullOrUndefined Nothing), "GrantTokens": (NullOrUndefined Nothing) }
+newEncryptRequest' :: KeyIdType -> PlaintextType -> ( { "KeyId" :: (KeyIdType) , "Plaintext" :: (PlaintextType) , "EncryptionContext" :: Maybe (EncryptionContextType) , "GrantTokens" :: Maybe (GrantTokenList) } -> {"KeyId" :: (KeyIdType) , "Plaintext" :: (PlaintextType) , "EncryptionContext" :: Maybe (EncryptionContextType) , "GrantTokens" :: Maybe (GrantTokenList) } ) -> EncryptRequest
+newEncryptRequest' _KeyId _Plaintext customize = (EncryptRequest <<< customize) { "KeyId": _KeyId, "Plaintext": _Plaintext, "EncryptionContext": Nothing, "GrantTokens": Nothing }
 
 
 
 newtype EncryptResponse = EncryptResponse 
-  { "CiphertextBlob" :: NullOrUndefined (CiphertextType)
-  , "KeyId" :: NullOrUndefined (KeyIdType)
+  { "CiphertextBlob" :: Maybe (CiphertextType)
+  , "KeyId" :: Maybe (KeyIdType)
   }
 derive instance newtypeEncryptResponse :: Newtype EncryptResponse _
 derive instance repGenericEncryptResponse :: Generic EncryptResponse _
@@ -586,12 +585,12 @@ instance encodeEncryptResponse :: Encode EncryptResponse where encode = genericE
 
 -- | Constructs EncryptResponse from required parameters
 newEncryptResponse :: EncryptResponse
-newEncryptResponse  = EncryptResponse { "CiphertextBlob": (NullOrUndefined Nothing), "KeyId": (NullOrUndefined Nothing) }
+newEncryptResponse  = EncryptResponse { "CiphertextBlob": Nothing, "KeyId": Nothing }
 
 -- | Constructs EncryptResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newEncryptResponse' :: ( { "CiphertextBlob" :: NullOrUndefined (CiphertextType) , "KeyId" :: NullOrUndefined (KeyIdType) } -> {"CiphertextBlob" :: NullOrUndefined (CiphertextType) , "KeyId" :: NullOrUndefined (KeyIdType) } ) -> EncryptResponse
-newEncryptResponse'  customize = (EncryptResponse <<< customize) { "CiphertextBlob": (NullOrUndefined Nothing), "KeyId": (NullOrUndefined Nothing) }
+newEncryptResponse' :: ( { "CiphertextBlob" :: Maybe (CiphertextType) , "KeyId" :: Maybe (KeyIdType) } -> {"CiphertextBlob" :: Maybe (CiphertextType) , "KeyId" :: Maybe (KeyIdType) } ) -> EncryptResponse
+newEncryptResponse'  customize = (EncryptResponse <<< customize) { "CiphertextBlob": Nothing, "KeyId": Nothing }
 
 
 
@@ -642,7 +641,7 @@ instance encodeExpirationModelType :: Encode ExpirationModelType where encode = 
 
 -- | <p>The request was rejected because the provided import token is expired. Use <a>GetParametersForImport</a> to get a new import token and public key, use the new public key to encrypt the key material, and then try the request again.</p>
 newtype ExpiredImportTokenException = ExpiredImportTokenException 
-  { "message" :: NullOrUndefined (ErrorMessageType)
+  { "message" :: Maybe (ErrorMessageType)
   }
 derive instance newtypeExpiredImportTokenException :: Newtype ExpiredImportTokenException _
 derive instance repGenericExpiredImportTokenException :: Generic ExpiredImportTokenException _
@@ -652,21 +651,21 @@ instance encodeExpiredImportTokenException :: Encode ExpiredImportTokenException
 
 -- | Constructs ExpiredImportTokenException from required parameters
 newExpiredImportTokenException :: ExpiredImportTokenException
-newExpiredImportTokenException  = ExpiredImportTokenException { "message": (NullOrUndefined Nothing) }
+newExpiredImportTokenException  = ExpiredImportTokenException { "message": Nothing }
 
 -- | Constructs ExpiredImportTokenException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newExpiredImportTokenException' :: ( { "message" :: NullOrUndefined (ErrorMessageType) } -> {"message" :: NullOrUndefined (ErrorMessageType) } ) -> ExpiredImportTokenException
-newExpiredImportTokenException'  customize = (ExpiredImportTokenException <<< customize) { "message": (NullOrUndefined Nothing) }
+newExpiredImportTokenException' :: ( { "message" :: Maybe (ErrorMessageType) } -> {"message" :: Maybe (ErrorMessageType) } ) -> ExpiredImportTokenException
+newExpiredImportTokenException'  customize = (ExpiredImportTokenException <<< customize) { "message": Nothing }
 
 
 
 newtype GenerateDataKeyRequest = GenerateDataKeyRequest 
   { "KeyId" :: (KeyIdType)
-  , "EncryptionContext" :: NullOrUndefined (EncryptionContextType)
-  , "NumberOfBytes" :: NullOrUndefined (NumberOfBytesType)
-  , "KeySpec" :: NullOrUndefined (DataKeySpec)
-  , "GrantTokens" :: NullOrUndefined (GrantTokenList)
+  , "EncryptionContext" :: Maybe (EncryptionContextType)
+  , "NumberOfBytes" :: Maybe (NumberOfBytesType)
+  , "KeySpec" :: Maybe (DataKeySpec)
+  , "GrantTokens" :: Maybe (GrantTokenList)
   }
 derive instance newtypeGenerateDataKeyRequest :: Newtype GenerateDataKeyRequest _
 derive instance repGenericGenerateDataKeyRequest :: Generic GenerateDataKeyRequest _
@@ -676,19 +675,19 @@ instance encodeGenerateDataKeyRequest :: Encode GenerateDataKeyRequest where enc
 
 -- | Constructs GenerateDataKeyRequest from required parameters
 newGenerateDataKeyRequest :: KeyIdType -> GenerateDataKeyRequest
-newGenerateDataKeyRequest _KeyId = GenerateDataKeyRequest { "KeyId": _KeyId, "EncryptionContext": (NullOrUndefined Nothing), "GrantTokens": (NullOrUndefined Nothing), "KeySpec": (NullOrUndefined Nothing), "NumberOfBytes": (NullOrUndefined Nothing) }
+newGenerateDataKeyRequest _KeyId = GenerateDataKeyRequest { "KeyId": _KeyId, "EncryptionContext": Nothing, "GrantTokens": Nothing, "KeySpec": Nothing, "NumberOfBytes": Nothing }
 
 -- | Constructs GenerateDataKeyRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGenerateDataKeyRequest' :: KeyIdType -> ( { "KeyId" :: (KeyIdType) , "EncryptionContext" :: NullOrUndefined (EncryptionContextType) , "NumberOfBytes" :: NullOrUndefined (NumberOfBytesType) , "KeySpec" :: NullOrUndefined (DataKeySpec) , "GrantTokens" :: NullOrUndefined (GrantTokenList) } -> {"KeyId" :: (KeyIdType) , "EncryptionContext" :: NullOrUndefined (EncryptionContextType) , "NumberOfBytes" :: NullOrUndefined (NumberOfBytesType) , "KeySpec" :: NullOrUndefined (DataKeySpec) , "GrantTokens" :: NullOrUndefined (GrantTokenList) } ) -> GenerateDataKeyRequest
-newGenerateDataKeyRequest' _KeyId customize = (GenerateDataKeyRequest <<< customize) { "KeyId": _KeyId, "EncryptionContext": (NullOrUndefined Nothing), "GrantTokens": (NullOrUndefined Nothing), "KeySpec": (NullOrUndefined Nothing), "NumberOfBytes": (NullOrUndefined Nothing) }
+newGenerateDataKeyRequest' :: KeyIdType -> ( { "KeyId" :: (KeyIdType) , "EncryptionContext" :: Maybe (EncryptionContextType) , "NumberOfBytes" :: Maybe (NumberOfBytesType) , "KeySpec" :: Maybe (DataKeySpec) , "GrantTokens" :: Maybe (GrantTokenList) } -> {"KeyId" :: (KeyIdType) , "EncryptionContext" :: Maybe (EncryptionContextType) , "NumberOfBytes" :: Maybe (NumberOfBytesType) , "KeySpec" :: Maybe (DataKeySpec) , "GrantTokens" :: Maybe (GrantTokenList) } ) -> GenerateDataKeyRequest
+newGenerateDataKeyRequest' _KeyId customize = (GenerateDataKeyRequest <<< customize) { "KeyId": _KeyId, "EncryptionContext": Nothing, "GrantTokens": Nothing, "KeySpec": Nothing, "NumberOfBytes": Nothing }
 
 
 
 newtype GenerateDataKeyResponse = GenerateDataKeyResponse 
-  { "CiphertextBlob" :: NullOrUndefined (CiphertextType)
-  , "Plaintext" :: NullOrUndefined (PlaintextType)
-  , "KeyId" :: NullOrUndefined (KeyIdType)
+  { "CiphertextBlob" :: Maybe (CiphertextType)
+  , "Plaintext" :: Maybe (PlaintextType)
+  , "KeyId" :: Maybe (KeyIdType)
   }
 derive instance newtypeGenerateDataKeyResponse :: Newtype GenerateDataKeyResponse _
 derive instance repGenericGenerateDataKeyResponse :: Generic GenerateDataKeyResponse _
@@ -698,21 +697,21 @@ instance encodeGenerateDataKeyResponse :: Encode GenerateDataKeyResponse where e
 
 -- | Constructs GenerateDataKeyResponse from required parameters
 newGenerateDataKeyResponse :: GenerateDataKeyResponse
-newGenerateDataKeyResponse  = GenerateDataKeyResponse { "CiphertextBlob": (NullOrUndefined Nothing), "KeyId": (NullOrUndefined Nothing), "Plaintext": (NullOrUndefined Nothing) }
+newGenerateDataKeyResponse  = GenerateDataKeyResponse { "CiphertextBlob": Nothing, "KeyId": Nothing, "Plaintext": Nothing }
 
 -- | Constructs GenerateDataKeyResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGenerateDataKeyResponse' :: ( { "CiphertextBlob" :: NullOrUndefined (CiphertextType) , "Plaintext" :: NullOrUndefined (PlaintextType) , "KeyId" :: NullOrUndefined (KeyIdType) } -> {"CiphertextBlob" :: NullOrUndefined (CiphertextType) , "Plaintext" :: NullOrUndefined (PlaintextType) , "KeyId" :: NullOrUndefined (KeyIdType) } ) -> GenerateDataKeyResponse
-newGenerateDataKeyResponse'  customize = (GenerateDataKeyResponse <<< customize) { "CiphertextBlob": (NullOrUndefined Nothing), "KeyId": (NullOrUndefined Nothing), "Plaintext": (NullOrUndefined Nothing) }
+newGenerateDataKeyResponse' :: ( { "CiphertextBlob" :: Maybe (CiphertextType) , "Plaintext" :: Maybe (PlaintextType) , "KeyId" :: Maybe (KeyIdType) } -> {"CiphertextBlob" :: Maybe (CiphertextType) , "Plaintext" :: Maybe (PlaintextType) , "KeyId" :: Maybe (KeyIdType) } ) -> GenerateDataKeyResponse
+newGenerateDataKeyResponse'  customize = (GenerateDataKeyResponse <<< customize) { "CiphertextBlob": Nothing, "KeyId": Nothing, "Plaintext": Nothing }
 
 
 
 newtype GenerateDataKeyWithoutPlaintextRequest = GenerateDataKeyWithoutPlaintextRequest 
   { "KeyId" :: (KeyIdType)
-  , "EncryptionContext" :: NullOrUndefined (EncryptionContextType)
-  , "KeySpec" :: NullOrUndefined (DataKeySpec)
-  , "NumberOfBytes" :: NullOrUndefined (NumberOfBytesType)
-  , "GrantTokens" :: NullOrUndefined (GrantTokenList)
+  , "EncryptionContext" :: Maybe (EncryptionContextType)
+  , "KeySpec" :: Maybe (DataKeySpec)
+  , "NumberOfBytes" :: Maybe (NumberOfBytesType)
+  , "GrantTokens" :: Maybe (GrantTokenList)
   }
 derive instance newtypeGenerateDataKeyWithoutPlaintextRequest :: Newtype GenerateDataKeyWithoutPlaintextRequest _
 derive instance repGenericGenerateDataKeyWithoutPlaintextRequest :: Generic GenerateDataKeyWithoutPlaintextRequest _
@@ -722,18 +721,18 @@ instance encodeGenerateDataKeyWithoutPlaintextRequest :: Encode GenerateDataKeyW
 
 -- | Constructs GenerateDataKeyWithoutPlaintextRequest from required parameters
 newGenerateDataKeyWithoutPlaintextRequest :: KeyIdType -> GenerateDataKeyWithoutPlaintextRequest
-newGenerateDataKeyWithoutPlaintextRequest _KeyId = GenerateDataKeyWithoutPlaintextRequest { "KeyId": _KeyId, "EncryptionContext": (NullOrUndefined Nothing), "GrantTokens": (NullOrUndefined Nothing), "KeySpec": (NullOrUndefined Nothing), "NumberOfBytes": (NullOrUndefined Nothing) }
+newGenerateDataKeyWithoutPlaintextRequest _KeyId = GenerateDataKeyWithoutPlaintextRequest { "KeyId": _KeyId, "EncryptionContext": Nothing, "GrantTokens": Nothing, "KeySpec": Nothing, "NumberOfBytes": Nothing }
 
 -- | Constructs GenerateDataKeyWithoutPlaintextRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGenerateDataKeyWithoutPlaintextRequest' :: KeyIdType -> ( { "KeyId" :: (KeyIdType) , "EncryptionContext" :: NullOrUndefined (EncryptionContextType) , "KeySpec" :: NullOrUndefined (DataKeySpec) , "NumberOfBytes" :: NullOrUndefined (NumberOfBytesType) , "GrantTokens" :: NullOrUndefined (GrantTokenList) } -> {"KeyId" :: (KeyIdType) , "EncryptionContext" :: NullOrUndefined (EncryptionContextType) , "KeySpec" :: NullOrUndefined (DataKeySpec) , "NumberOfBytes" :: NullOrUndefined (NumberOfBytesType) , "GrantTokens" :: NullOrUndefined (GrantTokenList) } ) -> GenerateDataKeyWithoutPlaintextRequest
-newGenerateDataKeyWithoutPlaintextRequest' _KeyId customize = (GenerateDataKeyWithoutPlaintextRequest <<< customize) { "KeyId": _KeyId, "EncryptionContext": (NullOrUndefined Nothing), "GrantTokens": (NullOrUndefined Nothing), "KeySpec": (NullOrUndefined Nothing), "NumberOfBytes": (NullOrUndefined Nothing) }
+newGenerateDataKeyWithoutPlaintextRequest' :: KeyIdType -> ( { "KeyId" :: (KeyIdType) , "EncryptionContext" :: Maybe (EncryptionContextType) , "KeySpec" :: Maybe (DataKeySpec) , "NumberOfBytes" :: Maybe (NumberOfBytesType) , "GrantTokens" :: Maybe (GrantTokenList) } -> {"KeyId" :: (KeyIdType) , "EncryptionContext" :: Maybe (EncryptionContextType) , "KeySpec" :: Maybe (DataKeySpec) , "NumberOfBytes" :: Maybe (NumberOfBytesType) , "GrantTokens" :: Maybe (GrantTokenList) } ) -> GenerateDataKeyWithoutPlaintextRequest
+newGenerateDataKeyWithoutPlaintextRequest' _KeyId customize = (GenerateDataKeyWithoutPlaintextRequest <<< customize) { "KeyId": _KeyId, "EncryptionContext": Nothing, "GrantTokens": Nothing, "KeySpec": Nothing, "NumberOfBytes": Nothing }
 
 
 
 newtype GenerateDataKeyWithoutPlaintextResponse = GenerateDataKeyWithoutPlaintextResponse 
-  { "CiphertextBlob" :: NullOrUndefined (CiphertextType)
-  , "KeyId" :: NullOrUndefined (KeyIdType)
+  { "CiphertextBlob" :: Maybe (CiphertextType)
+  , "KeyId" :: Maybe (KeyIdType)
   }
 derive instance newtypeGenerateDataKeyWithoutPlaintextResponse :: Newtype GenerateDataKeyWithoutPlaintextResponse _
 derive instance repGenericGenerateDataKeyWithoutPlaintextResponse :: Generic GenerateDataKeyWithoutPlaintextResponse _
@@ -743,17 +742,17 @@ instance encodeGenerateDataKeyWithoutPlaintextResponse :: Encode GenerateDataKey
 
 -- | Constructs GenerateDataKeyWithoutPlaintextResponse from required parameters
 newGenerateDataKeyWithoutPlaintextResponse :: GenerateDataKeyWithoutPlaintextResponse
-newGenerateDataKeyWithoutPlaintextResponse  = GenerateDataKeyWithoutPlaintextResponse { "CiphertextBlob": (NullOrUndefined Nothing), "KeyId": (NullOrUndefined Nothing) }
+newGenerateDataKeyWithoutPlaintextResponse  = GenerateDataKeyWithoutPlaintextResponse { "CiphertextBlob": Nothing, "KeyId": Nothing }
 
 -- | Constructs GenerateDataKeyWithoutPlaintextResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGenerateDataKeyWithoutPlaintextResponse' :: ( { "CiphertextBlob" :: NullOrUndefined (CiphertextType) , "KeyId" :: NullOrUndefined (KeyIdType) } -> {"CiphertextBlob" :: NullOrUndefined (CiphertextType) , "KeyId" :: NullOrUndefined (KeyIdType) } ) -> GenerateDataKeyWithoutPlaintextResponse
-newGenerateDataKeyWithoutPlaintextResponse'  customize = (GenerateDataKeyWithoutPlaintextResponse <<< customize) { "CiphertextBlob": (NullOrUndefined Nothing), "KeyId": (NullOrUndefined Nothing) }
+newGenerateDataKeyWithoutPlaintextResponse' :: ( { "CiphertextBlob" :: Maybe (CiphertextType) , "KeyId" :: Maybe (KeyIdType) } -> {"CiphertextBlob" :: Maybe (CiphertextType) , "KeyId" :: Maybe (KeyIdType) } ) -> GenerateDataKeyWithoutPlaintextResponse
+newGenerateDataKeyWithoutPlaintextResponse'  customize = (GenerateDataKeyWithoutPlaintextResponse <<< customize) { "CiphertextBlob": Nothing, "KeyId": Nothing }
 
 
 
 newtype GenerateRandomRequest = GenerateRandomRequest 
-  { "NumberOfBytes" :: NullOrUndefined (NumberOfBytesType)
+  { "NumberOfBytes" :: Maybe (NumberOfBytesType)
   }
 derive instance newtypeGenerateRandomRequest :: Newtype GenerateRandomRequest _
 derive instance repGenericGenerateRandomRequest :: Generic GenerateRandomRequest _
@@ -763,17 +762,17 @@ instance encodeGenerateRandomRequest :: Encode GenerateRandomRequest where encod
 
 -- | Constructs GenerateRandomRequest from required parameters
 newGenerateRandomRequest :: GenerateRandomRequest
-newGenerateRandomRequest  = GenerateRandomRequest { "NumberOfBytes": (NullOrUndefined Nothing) }
+newGenerateRandomRequest  = GenerateRandomRequest { "NumberOfBytes": Nothing }
 
 -- | Constructs GenerateRandomRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGenerateRandomRequest' :: ( { "NumberOfBytes" :: NullOrUndefined (NumberOfBytesType) } -> {"NumberOfBytes" :: NullOrUndefined (NumberOfBytesType) } ) -> GenerateRandomRequest
-newGenerateRandomRequest'  customize = (GenerateRandomRequest <<< customize) { "NumberOfBytes": (NullOrUndefined Nothing) }
+newGenerateRandomRequest' :: ( { "NumberOfBytes" :: Maybe (NumberOfBytesType) } -> {"NumberOfBytes" :: Maybe (NumberOfBytesType) } ) -> GenerateRandomRequest
+newGenerateRandomRequest'  customize = (GenerateRandomRequest <<< customize) { "NumberOfBytes": Nothing }
 
 
 
 newtype GenerateRandomResponse = GenerateRandomResponse 
-  { "Plaintext" :: NullOrUndefined (PlaintextType)
+  { "Plaintext" :: Maybe (PlaintextType)
   }
 derive instance newtypeGenerateRandomResponse :: Newtype GenerateRandomResponse _
 derive instance repGenericGenerateRandomResponse :: Generic GenerateRandomResponse _
@@ -783,12 +782,12 @@ instance encodeGenerateRandomResponse :: Encode GenerateRandomResponse where enc
 
 -- | Constructs GenerateRandomResponse from required parameters
 newGenerateRandomResponse :: GenerateRandomResponse
-newGenerateRandomResponse  = GenerateRandomResponse { "Plaintext": (NullOrUndefined Nothing) }
+newGenerateRandomResponse  = GenerateRandomResponse { "Plaintext": Nothing }
 
 -- | Constructs GenerateRandomResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGenerateRandomResponse' :: ( { "Plaintext" :: NullOrUndefined (PlaintextType) } -> {"Plaintext" :: NullOrUndefined (PlaintextType) } ) -> GenerateRandomResponse
-newGenerateRandomResponse'  customize = (GenerateRandomResponse <<< customize) { "Plaintext": (NullOrUndefined Nothing) }
+newGenerateRandomResponse' :: ( { "Plaintext" :: Maybe (PlaintextType) } -> {"Plaintext" :: Maybe (PlaintextType) } ) -> GenerateRandomResponse
+newGenerateRandomResponse'  customize = (GenerateRandomResponse <<< customize) { "Plaintext": Nothing }
 
 
 
@@ -814,7 +813,7 @@ newGetKeyPolicyRequest' _KeyId _PolicyName customize = (GetKeyPolicyRequest <<< 
 
 
 newtype GetKeyPolicyResponse = GetKeyPolicyResponse 
-  { "Policy" :: NullOrUndefined (PolicyType)
+  { "Policy" :: Maybe (PolicyType)
   }
 derive instance newtypeGetKeyPolicyResponse :: Newtype GetKeyPolicyResponse _
 derive instance repGenericGetKeyPolicyResponse :: Generic GetKeyPolicyResponse _
@@ -824,12 +823,12 @@ instance encodeGetKeyPolicyResponse :: Encode GetKeyPolicyResponse where encode 
 
 -- | Constructs GetKeyPolicyResponse from required parameters
 newGetKeyPolicyResponse :: GetKeyPolicyResponse
-newGetKeyPolicyResponse  = GetKeyPolicyResponse { "Policy": (NullOrUndefined Nothing) }
+newGetKeyPolicyResponse  = GetKeyPolicyResponse { "Policy": Nothing }
 
 -- | Constructs GetKeyPolicyResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetKeyPolicyResponse' :: ( { "Policy" :: NullOrUndefined (PolicyType) } -> {"Policy" :: NullOrUndefined (PolicyType) } ) -> GetKeyPolicyResponse
-newGetKeyPolicyResponse'  customize = (GetKeyPolicyResponse <<< customize) { "Policy": (NullOrUndefined Nothing) }
+newGetKeyPolicyResponse' :: ( { "Policy" :: Maybe (PolicyType) } -> {"Policy" :: Maybe (PolicyType) } ) -> GetKeyPolicyResponse
+newGetKeyPolicyResponse'  customize = (GetKeyPolicyResponse <<< customize) { "Policy": Nothing }
 
 
 
@@ -854,7 +853,7 @@ newGetKeyRotationStatusRequest' _KeyId customize = (GetKeyRotationStatusRequest 
 
 
 newtype GetKeyRotationStatusResponse = GetKeyRotationStatusResponse 
-  { "KeyRotationEnabled" :: NullOrUndefined (BooleanType)
+  { "KeyRotationEnabled" :: Maybe (BooleanType)
   }
 derive instance newtypeGetKeyRotationStatusResponse :: Newtype GetKeyRotationStatusResponse _
 derive instance repGenericGetKeyRotationStatusResponse :: Generic GetKeyRotationStatusResponse _
@@ -864,12 +863,12 @@ instance encodeGetKeyRotationStatusResponse :: Encode GetKeyRotationStatusRespon
 
 -- | Constructs GetKeyRotationStatusResponse from required parameters
 newGetKeyRotationStatusResponse :: GetKeyRotationStatusResponse
-newGetKeyRotationStatusResponse  = GetKeyRotationStatusResponse { "KeyRotationEnabled": (NullOrUndefined Nothing) }
+newGetKeyRotationStatusResponse  = GetKeyRotationStatusResponse { "KeyRotationEnabled": Nothing }
 
 -- | Constructs GetKeyRotationStatusResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetKeyRotationStatusResponse' :: ( { "KeyRotationEnabled" :: NullOrUndefined (BooleanType) } -> {"KeyRotationEnabled" :: NullOrUndefined (BooleanType) } ) -> GetKeyRotationStatusResponse
-newGetKeyRotationStatusResponse'  customize = (GetKeyRotationStatusResponse <<< customize) { "KeyRotationEnabled": (NullOrUndefined Nothing) }
+newGetKeyRotationStatusResponse' :: ( { "KeyRotationEnabled" :: Maybe (BooleanType) } -> {"KeyRotationEnabled" :: Maybe (BooleanType) } ) -> GetKeyRotationStatusResponse
+newGetKeyRotationStatusResponse'  customize = (GetKeyRotationStatusResponse <<< customize) { "KeyRotationEnabled": Nothing }
 
 
 
@@ -896,10 +895,10 @@ newGetParametersForImportRequest' _KeyId _WrappingAlgorithm _WrappingKeySpec cus
 
 
 newtype GetParametersForImportResponse = GetParametersForImportResponse 
-  { "KeyId" :: NullOrUndefined (KeyIdType)
-  , "ImportToken" :: NullOrUndefined (CiphertextType)
-  , "PublicKey" :: NullOrUndefined (PlaintextType)
-  , "ParametersValidTo" :: NullOrUndefined (DateType)
+  { "KeyId" :: Maybe (KeyIdType)
+  , "ImportToken" :: Maybe (CiphertextType)
+  , "PublicKey" :: Maybe (PlaintextType)
+  , "ParametersValidTo" :: Maybe (DateType)
   }
 derive instance newtypeGetParametersForImportResponse :: Newtype GetParametersForImportResponse _
 derive instance repGenericGetParametersForImportResponse :: Generic GetParametersForImportResponse _
@@ -909,19 +908,19 @@ instance encodeGetParametersForImportResponse :: Encode GetParametersForImportRe
 
 -- | Constructs GetParametersForImportResponse from required parameters
 newGetParametersForImportResponse :: GetParametersForImportResponse
-newGetParametersForImportResponse  = GetParametersForImportResponse { "ImportToken": (NullOrUndefined Nothing), "KeyId": (NullOrUndefined Nothing), "ParametersValidTo": (NullOrUndefined Nothing), "PublicKey": (NullOrUndefined Nothing) }
+newGetParametersForImportResponse  = GetParametersForImportResponse { "ImportToken": Nothing, "KeyId": Nothing, "ParametersValidTo": Nothing, "PublicKey": Nothing }
 
 -- | Constructs GetParametersForImportResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetParametersForImportResponse' :: ( { "KeyId" :: NullOrUndefined (KeyIdType) , "ImportToken" :: NullOrUndefined (CiphertextType) , "PublicKey" :: NullOrUndefined (PlaintextType) , "ParametersValidTo" :: NullOrUndefined (DateType) } -> {"KeyId" :: NullOrUndefined (KeyIdType) , "ImportToken" :: NullOrUndefined (CiphertextType) , "PublicKey" :: NullOrUndefined (PlaintextType) , "ParametersValidTo" :: NullOrUndefined (DateType) } ) -> GetParametersForImportResponse
-newGetParametersForImportResponse'  customize = (GetParametersForImportResponse <<< customize) { "ImportToken": (NullOrUndefined Nothing), "KeyId": (NullOrUndefined Nothing), "ParametersValidTo": (NullOrUndefined Nothing), "PublicKey": (NullOrUndefined Nothing) }
+newGetParametersForImportResponse' :: ( { "KeyId" :: Maybe (KeyIdType) , "ImportToken" :: Maybe (CiphertextType) , "PublicKey" :: Maybe (PlaintextType) , "ParametersValidTo" :: Maybe (DateType) } -> {"KeyId" :: Maybe (KeyIdType) , "ImportToken" :: Maybe (CiphertextType) , "PublicKey" :: Maybe (PlaintextType) , "ParametersValidTo" :: Maybe (DateType) } ) -> GetParametersForImportResponse
+newGetParametersForImportResponse'  customize = (GetParametersForImportResponse <<< customize) { "ImportToken": Nothing, "KeyId": Nothing, "ParametersValidTo": Nothing, "PublicKey": Nothing }
 
 
 
 -- | <p>A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html">Encryption Context</a> in the <i>AWS Key Management Service Developer Guide</i>.</p> <p>Grant constraints apply only to operations that accept encryption context as input. For example, the <code> <a>DescribeKey</a> </code> operation does not accept encryption context as input. A grant that allows the <code>DescribeKey</code> operation does so regardless of the grant constraints. In constrast, the <code> <a>Encrypt</a> </code> operation accepts encryption context as input. A grant that allows the <code>Encrypt</code> operation does so only when the encryption context of the <code>Encrypt</code> operation satisfies the grant constraints.</p>
 newtype GrantConstraints = GrantConstraints 
-  { "EncryptionContextSubset" :: NullOrUndefined (EncryptionContextType)
-  , "EncryptionContextEquals" :: NullOrUndefined (EncryptionContextType)
+  { "EncryptionContextSubset" :: Maybe (EncryptionContextType)
+  , "EncryptionContextEquals" :: Maybe (EncryptionContextType)
   }
 derive instance newtypeGrantConstraints :: Newtype GrantConstraints _
 derive instance repGenericGrantConstraints :: Generic GrantConstraints _
@@ -931,12 +930,12 @@ instance encodeGrantConstraints :: Encode GrantConstraints where encode = generi
 
 -- | Constructs GrantConstraints from required parameters
 newGrantConstraints :: GrantConstraints
-newGrantConstraints  = GrantConstraints { "EncryptionContextEquals": (NullOrUndefined Nothing), "EncryptionContextSubset": (NullOrUndefined Nothing) }
+newGrantConstraints  = GrantConstraints { "EncryptionContextEquals": Nothing, "EncryptionContextSubset": Nothing }
 
 -- | Constructs GrantConstraints's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGrantConstraints' :: ( { "EncryptionContextSubset" :: NullOrUndefined (EncryptionContextType) , "EncryptionContextEquals" :: NullOrUndefined (EncryptionContextType) } -> {"EncryptionContextSubset" :: NullOrUndefined (EncryptionContextType) , "EncryptionContextEquals" :: NullOrUndefined (EncryptionContextType) } ) -> GrantConstraints
-newGrantConstraints'  customize = (GrantConstraints <<< customize) { "EncryptionContextEquals": (NullOrUndefined Nothing), "EncryptionContextSubset": (NullOrUndefined Nothing) }
+newGrantConstraints' :: ( { "EncryptionContextSubset" :: Maybe (EncryptionContextType) , "EncryptionContextEquals" :: Maybe (EncryptionContextType) } -> {"EncryptionContextSubset" :: Maybe (EncryptionContextType) , "EncryptionContextEquals" :: Maybe (EncryptionContextType) } ) -> GrantConstraints
+newGrantConstraints'  customize = (GrantConstraints <<< customize) { "EncryptionContextEquals": Nothing, "EncryptionContextSubset": Nothing }
 
 
 
@@ -960,15 +959,15 @@ instance encodeGrantList :: Encode GrantList where encode = genericEncode option
 
 -- | <p>Contains information about an entry in a list of grants.</p>
 newtype GrantListEntry = GrantListEntry 
-  { "KeyId" :: NullOrUndefined (KeyIdType)
-  , "GrantId" :: NullOrUndefined (GrantIdType)
-  , "Name" :: NullOrUndefined (GrantNameType)
-  , "CreationDate" :: NullOrUndefined (DateType)
-  , "GranteePrincipal" :: NullOrUndefined (PrincipalIdType)
-  , "RetiringPrincipal" :: NullOrUndefined (PrincipalIdType)
-  , "IssuingAccount" :: NullOrUndefined (PrincipalIdType)
-  , "Operations" :: NullOrUndefined (GrantOperationList)
-  , "Constraints" :: NullOrUndefined (GrantConstraints)
+  { "KeyId" :: Maybe (KeyIdType)
+  , "GrantId" :: Maybe (GrantIdType)
+  , "Name" :: Maybe (GrantNameType)
+  , "CreationDate" :: Maybe (DateType)
+  , "GranteePrincipal" :: Maybe (PrincipalIdType)
+  , "RetiringPrincipal" :: Maybe (PrincipalIdType)
+  , "IssuingAccount" :: Maybe (PrincipalIdType)
+  , "Operations" :: Maybe (GrantOperationList)
+  , "Constraints" :: Maybe (GrantConstraints)
   }
 derive instance newtypeGrantListEntry :: Newtype GrantListEntry _
 derive instance repGenericGrantListEntry :: Generic GrantListEntry _
@@ -978,12 +977,12 @@ instance encodeGrantListEntry :: Encode GrantListEntry where encode = genericEnc
 
 -- | Constructs GrantListEntry from required parameters
 newGrantListEntry :: GrantListEntry
-newGrantListEntry  = GrantListEntry { "Constraints": (NullOrUndefined Nothing), "CreationDate": (NullOrUndefined Nothing), "GrantId": (NullOrUndefined Nothing), "GranteePrincipal": (NullOrUndefined Nothing), "IssuingAccount": (NullOrUndefined Nothing), "KeyId": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "Operations": (NullOrUndefined Nothing), "RetiringPrincipal": (NullOrUndefined Nothing) }
+newGrantListEntry  = GrantListEntry { "Constraints": Nothing, "CreationDate": Nothing, "GrantId": Nothing, "GranteePrincipal": Nothing, "IssuingAccount": Nothing, "KeyId": Nothing, "Name": Nothing, "Operations": Nothing, "RetiringPrincipal": Nothing }
 
 -- | Constructs GrantListEntry's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGrantListEntry' :: ( { "KeyId" :: NullOrUndefined (KeyIdType) , "GrantId" :: NullOrUndefined (GrantIdType) , "Name" :: NullOrUndefined (GrantNameType) , "CreationDate" :: NullOrUndefined (DateType) , "GranteePrincipal" :: NullOrUndefined (PrincipalIdType) , "RetiringPrincipal" :: NullOrUndefined (PrincipalIdType) , "IssuingAccount" :: NullOrUndefined (PrincipalIdType) , "Operations" :: NullOrUndefined (GrantOperationList) , "Constraints" :: NullOrUndefined (GrantConstraints) } -> {"KeyId" :: NullOrUndefined (KeyIdType) , "GrantId" :: NullOrUndefined (GrantIdType) , "Name" :: NullOrUndefined (GrantNameType) , "CreationDate" :: NullOrUndefined (DateType) , "GranteePrincipal" :: NullOrUndefined (PrincipalIdType) , "RetiringPrincipal" :: NullOrUndefined (PrincipalIdType) , "IssuingAccount" :: NullOrUndefined (PrincipalIdType) , "Operations" :: NullOrUndefined (GrantOperationList) , "Constraints" :: NullOrUndefined (GrantConstraints) } ) -> GrantListEntry
-newGrantListEntry'  customize = (GrantListEntry <<< customize) { "Constraints": (NullOrUndefined Nothing), "CreationDate": (NullOrUndefined Nothing), "GrantId": (NullOrUndefined Nothing), "GranteePrincipal": (NullOrUndefined Nothing), "IssuingAccount": (NullOrUndefined Nothing), "KeyId": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "Operations": (NullOrUndefined Nothing), "RetiringPrincipal": (NullOrUndefined Nothing) }
+newGrantListEntry' :: ( { "KeyId" :: Maybe (KeyIdType) , "GrantId" :: Maybe (GrantIdType) , "Name" :: Maybe (GrantNameType) , "CreationDate" :: Maybe (DateType) , "GranteePrincipal" :: Maybe (PrincipalIdType) , "RetiringPrincipal" :: Maybe (PrincipalIdType) , "IssuingAccount" :: Maybe (PrincipalIdType) , "Operations" :: Maybe (GrantOperationList) , "Constraints" :: Maybe (GrantConstraints) } -> {"KeyId" :: Maybe (KeyIdType) , "GrantId" :: Maybe (GrantIdType) , "Name" :: Maybe (GrantNameType) , "CreationDate" :: Maybe (DateType) , "GranteePrincipal" :: Maybe (PrincipalIdType) , "RetiringPrincipal" :: Maybe (PrincipalIdType) , "IssuingAccount" :: Maybe (PrincipalIdType) , "Operations" :: Maybe (GrantOperationList) , "Constraints" :: Maybe (GrantConstraints) } ) -> GrantListEntry
+newGrantListEntry'  customize = (GrantListEntry <<< customize) { "Constraints": Nothing, "CreationDate": Nothing, "GrantId": Nothing, "GranteePrincipal": Nothing, "IssuingAccount": Nothing, "KeyId": Nothing, "Name": Nothing, "Operations": Nothing, "RetiringPrincipal": Nothing }
 
 
 
@@ -1036,8 +1035,8 @@ newtype ImportKeyMaterialRequest = ImportKeyMaterialRequest
   { "KeyId" :: (KeyIdType)
   , "ImportToken" :: (CiphertextType)
   , "EncryptedKeyMaterial" :: (CiphertextType)
-  , "ValidTo" :: NullOrUndefined (DateType)
-  , "ExpirationModel" :: NullOrUndefined (ExpirationModelType)
+  , "ValidTo" :: Maybe (DateType)
+  , "ExpirationModel" :: Maybe (ExpirationModelType)
   }
 derive instance newtypeImportKeyMaterialRequest :: Newtype ImportKeyMaterialRequest _
 derive instance repGenericImportKeyMaterialRequest :: Generic ImportKeyMaterialRequest _
@@ -1047,12 +1046,12 @@ instance encodeImportKeyMaterialRequest :: Encode ImportKeyMaterialRequest where
 
 -- | Constructs ImportKeyMaterialRequest from required parameters
 newImportKeyMaterialRequest :: CiphertextType -> CiphertextType -> KeyIdType -> ImportKeyMaterialRequest
-newImportKeyMaterialRequest _EncryptedKeyMaterial _ImportToken _KeyId = ImportKeyMaterialRequest { "EncryptedKeyMaterial": _EncryptedKeyMaterial, "ImportToken": _ImportToken, "KeyId": _KeyId, "ExpirationModel": (NullOrUndefined Nothing), "ValidTo": (NullOrUndefined Nothing) }
+newImportKeyMaterialRequest _EncryptedKeyMaterial _ImportToken _KeyId = ImportKeyMaterialRequest { "EncryptedKeyMaterial": _EncryptedKeyMaterial, "ImportToken": _ImportToken, "KeyId": _KeyId, "ExpirationModel": Nothing, "ValidTo": Nothing }
 
 -- | Constructs ImportKeyMaterialRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newImportKeyMaterialRequest' :: CiphertextType -> CiphertextType -> KeyIdType -> ( { "KeyId" :: (KeyIdType) , "ImportToken" :: (CiphertextType) , "EncryptedKeyMaterial" :: (CiphertextType) , "ValidTo" :: NullOrUndefined (DateType) , "ExpirationModel" :: NullOrUndefined (ExpirationModelType) } -> {"KeyId" :: (KeyIdType) , "ImportToken" :: (CiphertextType) , "EncryptedKeyMaterial" :: (CiphertextType) , "ValidTo" :: NullOrUndefined (DateType) , "ExpirationModel" :: NullOrUndefined (ExpirationModelType) } ) -> ImportKeyMaterialRequest
-newImportKeyMaterialRequest' _EncryptedKeyMaterial _ImportToken _KeyId customize = (ImportKeyMaterialRequest <<< customize) { "EncryptedKeyMaterial": _EncryptedKeyMaterial, "ImportToken": _ImportToken, "KeyId": _KeyId, "ExpirationModel": (NullOrUndefined Nothing), "ValidTo": (NullOrUndefined Nothing) }
+newImportKeyMaterialRequest' :: CiphertextType -> CiphertextType -> KeyIdType -> ( { "KeyId" :: (KeyIdType) , "ImportToken" :: (CiphertextType) , "EncryptedKeyMaterial" :: (CiphertextType) , "ValidTo" :: Maybe (DateType) , "ExpirationModel" :: Maybe (ExpirationModelType) } -> {"KeyId" :: (KeyIdType) , "ImportToken" :: (CiphertextType) , "EncryptedKeyMaterial" :: (CiphertextType) , "ValidTo" :: Maybe (DateType) , "ExpirationModel" :: Maybe (ExpirationModelType) } ) -> ImportKeyMaterialRequest
+newImportKeyMaterialRequest' _EncryptedKeyMaterial _ImportToken _KeyId customize = (ImportKeyMaterialRequest <<< customize) { "EncryptedKeyMaterial": _EncryptedKeyMaterial, "ImportToken": _ImportToken, "KeyId": _KeyId, "ExpirationModel": Nothing, "ValidTo": Nothing }
 
 
 
@@ -1067,7 +1066,7 @@ instance encodeImportKeyMaterialResponse :: Encode ImportKeyMaterialResponse whe
 
 -- | <p>The request was rejected because the provided key material is invalid or is not the same key material that was previously imported into this customer master key (CMK).</p>
 newtype IncorrectKeyMaterialException = IncorrectKeyMaterialException 
-  { "message" :: NullOrUndefined (ErrorMessageType)
+  { "message" :: Maybe (ErrorMessageType)
   }
 derive instance newtypeIncorrectKeyMaterialException :: Newtype IncorrectKeyMaterialException _
 derive instance repGenericIncorrectKeyMaterialException :: Generic IncorrectKeyMaterialException _
@@ -1077,18 +1076,18 @@ instance encodeIncorrectKeyMaterialException :: Encode IncorrectKeyMaterialExcep
 
 -- | Constructs IncorrectKeyMaterialException from required parameters
 newIncorrectKeyMaterialException :: IncorrectKeyMaterialException
-newIncorrectKeyMaterialException  = IncorrectKeyMaterialException { "message": (NullOrUndefined Nothing) }
+newIncorrectKeyMaterialException  = IncorrectKeyMaterialException { "message": Nothing }
 
 -- | Constructs IncorrectKeyMaterialException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newIncorrectKeyMaterialException' :: ( { "message" :: NullOrUndefined (ErrorMessageType) } -> {"message" :: NullOrUndefined (ErrorMessageType) } ) -> IncorrectKeyMaterialException
-newIncorrectKeyMaterialException'  customize = (IncorrectKeyMaterialException <<< customize) { "message": (NullOrUndefined Nothing) }
+newIncorrectKeyMaterialException' :: ( { "message" :: Maybe (ErrorMessageType) } -> {"message" :: Maybe (ErrorMessageType) } ) -> IncorrectKeyMaterialException
+newIncorrectKeyMaterialException'  customize = (IncorrectKeyMaterialException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The request was rejected because the specified alias name is not valid.</p>
 newtype InvalidAliasNameException = InvalidAliasNameException 
-  { "message" :: NullOrUndefined (ErrorMessageType)
+  { "message" :: Maybe (ErrorMessageType)
   }
 derive instance newtypeInvalidAliasNameException :: Newtype InvalidAliasNameException _
 derive instance repGenericInvalidAliasNameException :: Generic InvalidAliasNameException _
@@ -1098,18 +1097,18 @@ instance encodeInvalidAliasNameException :: Encode InvalidAliasNameException whe
 
 -- | Constructs InvalidAliasNameException from required parameters
 newInvalidAliasNameException :: InvalidAliasNameException
-newInvalidAliasNameException  = InvalidAliasNameException { "message": (NullOrUndefined Nothing) }
+newInvalidAliasNameException  = InvalidAliasNameException { "message": Nothing }
 
 -- | Constructs InvalidAliasNameException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidAliasNameException' :: ( { "message" :: NullOrUndefined (ErrorMessageType) } -> {"message" :: NullOrUndefined (ErrorMessageType) } ) -> InvalidAliasNameException
-newInvalidAliasNameException'  customize = (InvalidAliasNameException <<< customize) { "message": (NullOrUndefined Nothing) }
+newInvalidAliasNameException' :: ( { "message" :: Maybe (ErrorMessageType) } -> {"message" :: Maybe (ErrorMessageType) } ) -> InvalidAliasNameException
+newInvalidAliasNameException'  customize = (InvalidAliasNameException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The request was rejected because a specified ARN was not valid.</p>
 newtype InvalidArnException = InvalidArnException 
-  { "message" :: NullOrUndefined (ErrorMessageType)
+  { "message" :: Maybe (ErrorMessageType)
   }
 derive instance newtypeInvalidArnException :: Newtype InvalidArnException _
 derive instance repGenericInvalidArnException :: Generic InvalidArnException _
@@ -1119,18 +1118,18 @@ instance encodeInvalidArnException :: Encode InvalidArnException where encode = 
 
 -- | Constructs InvalidArnException from required parameters
 newInvalidArnException :: InvalidArnException
-newInvalidArnException  = InvalidArnException { "message": (NullOrUndefined Nothing) }
+newInvalidArnException  = InvalidArnException { "message": Nothing }
 
 -- | Constructs InvalidArnException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidArnException' :: ( { "message" :: NullOrUndefined (ErrorMessageType) } -> {"message" :: NullOrUndefined (ErrorMessageType) } ) -> InvalidArnException
-newInvalidArnException'  customize = (InvalidArnException <<< customize) { "message": (NullOrUndefined Nothing) }
+newInvalidArnException' :: ( { "message" :: Maybe (ErrorMessageType) } -> {"message" :: Maybe (ErrorMessageType) } ) -> InvalidArnException
+newInvalidArnException'  customize = (InvalidArnException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The request was rejected because the specified ciphertext, or additional authenticated data incorporated into the ciphertext, such as the encryption context, is corrupted, missing, or otherwise invalid.</p>
 newtype InvalidCiphertextException = InvalidCiphertextException 
-  { "message" :: NullOrUndefined (ErrorMessageType)
+  { "message" :: Maybe (ErrorMessageType)
   }
 derive instance newtypeInvalidCiphertextException :: Newtype InvalidCiphertextException _
 derive instance repGenericInvalidCiphertextException :: Generic InvalidCiphertextException _
@@ -1140,18 +1139,18 @@ instance encodeInvalidCiphertextException :: Encode InvalidCiphertextException w
 
 -- | Constructs InvalidCiphertextException from required parameters
 newInvalidCiphertextException :: InvalidCiphertextException
-newInvalidCiphertextException  = InvalidCiphertextException { "message": (NullOrUndefined Nothing) }
+newInvalidCiphertextException  = InvalidCiphertextException { "message": Nothing }
 
 -- | Constructs InvalidCiphertextException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidCiphertextException' :: ( { "message" :: NullOrUndefined (ErrorMessageType) } -> {"message" :: NullOrUndefined (ErrorMessageType) } ) -> InvalidCiphertextException
-newInvalidCiphertextException'  customize = (InvalidCiphertextException <<< customize) { "message": (NullOrUndefined Nothing) }
+newInvalidCiphertextException' :: ( { "message" :: Maybe (ErrorMessageType) } -> {"message" :: Maybe (ErrorMessageType) } ) -> InvalidCiphertextException
+newInvalidCiphertextException'  customize = (InvalidCiphertextException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The request was rejected because the specified <code>GrantId</code> is not valid.</p>
 newtype InvalidGrantIdException = InvalidGrantIdException 
-  { "message" :: NullOrUndefined (ErrorMessageType)
+  { "message" :: Maybe (ErrorMessageType)
   }
 derive instance newtypeInvalidGrantIdException :: Newtype InvalidGrantIdException _
 derive instance repGenericInvalidGrantIdException :: Generic InvalidGrantIdException _
@@ -1161,18 +1160,18 @@ instance encodeInvalidGrantIdException :: Encode InvalidGrantIdException where e
 
 -- | Constructs InvalidGrantIdException from required parameters
 newInvalidGrantIdException :: InvalidGrantIdException
-newInvalidGrantIdException  = InvalidGrantIdException { "message": (NullOrUndefined Nothing) }
+newInvalidGrantIdException  = InvalidGrantIdException { "message": Nothing }
 
 -- | Constructs InvalidGrantIdException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidGrantIdException' :: ( { "message" :: NullOrUndefined (ErrorMessageType) } -> {"message" :: NullOrUndefined (ErrorMessageType) } ) -> InvalidGrantIdException
-newInvalidGrantIdException'  customize = (InvalidGrantIdException <<< customize) { "message": (NullOrUndefined Nothing) }
+newInvalidGrantIdException' :: ( { "message" :: Maybe (ErrorMessageType) } -> {"message" :: Maybe (ErrorMessageType) } ) -> InvalidGrantIdException
+newInvalidGrantIdException'  customize = (InvalidGrantIdException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The request was rejected because the specified grant token is not valid.</p>
 newtype InvalidGrantTokenException = InvalidGrantTokenException 
-  { "message" :: NullOrUndefined (ErrorMessageType)
+  { "message" :: Maybe (ErrorMessageType)
   }
 derive instance newtypeInvalidGrantTokenException :: Newtype InvalidGrantTokenException _
 derive instance repGenericInvalidGrantTokenException :: Generic InvalidGrantTokenException _
@@ -1182,18 +1181,18 @@ instance encodeInvalidGrantTokenException :: Encode InvalidGrantTokenException w
 
 -- | Constructs InvalidGrantTokenException from required parameters
 newInvalidGrantTokenException :: InvalidGrantTokenException
-newInvalidGrantTokenException  = InvalidGrantTokenException { "message": (NullOrUndefined Nothing) }
+newInvalidGrantTokenException  = InvalidGrantTokenException { "message": Nothing }
 
 -- | Constructs InvalidGrantTokenException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidGrantTokenException' :: ( { "message" :: NullOrUndefined (ErrorMessageType) } -> {"message" :: NullOrUndefined (ErrorMessageType) } ) -> InvalidGrantTokenException
-newInvalidGrantTokenException'  customize = (InvalidGrantTokenException <<< customize) { "message": (NullOrUndefined Nothing) }
+newInvalidGrantTokenException' :: ( { "message" :: Maybe (ErrorMessageType) } -> {"message" :: Maybe (ErrorMessageType) } ) -> InvalidGrantTokenException
+newInvalidGrantTokenException'  customize = (InvalidGrantTokenException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The request was rejected because the provided import token is invalid or is associated with a different customer master key (CMK).</p>
 newtype InvalidImportTokenException = InvalidImportTokenException 
-  { "message" :: NullOrUndefined (ErrorMessageType)
+  { "message" :: Maybe (ErrorMessageType)
   }
 derive instance newtypeInvalidImportTokenException :: Newtype InvalidImportTokenException _
 derive instance repGenericInvalidImportTokenException :: Generic InvalidImportTokenException _
@@ -1203,18 +1202,18 @@ instance encodeInvalidImportTokenException :: Encode InvalidImportTokenException
 
 -- | Constructs InvalidImportTokenException from required parameters
 newInvalidImportTokenException :: InvalidImportTokenException
-newInvalidImportTokenException  = InvalidImportTokenException { "message": (NullOrUndefined Nothing) }
+newInvalidImportTokenException  = InvalidImportTokenException { "message": Nothing }
 
 -- | Constructs InvalidImportTokenException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidImportTokenException' :: ( { "message" :: NullOrUndefined (ErrorMessageType) } -> {"message" :: NullOrUndefined (ErrorMessageType) } ) -> InvalidImportTokenException
-newInvalidImportTokenException'  customize = (InvalidImportTokenException <<< customize) { "message": (NullOrUndefined Nothing) }
+newInvalidImportTokenException' :: ( { "message" :: Maybe (ErrorMessageType) } -> {"message" :: Maybe (ErrorMessageType) } ) -> InvalidImportTokenException
+newInvalidImportTokenException'  customize = (InvalidImportTokenException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The request was rejected because the specified <code>KeySpec</code> value is not valid.</p>
 newtype InvalidKeyUsageException = InvalidKeyUsageException 
-  { "message" :: NullOrUndefined (ErrorMessageType)
+  { "message" :: Maybe (ErrorMessageType)
   }
 derive instance newtypeInvalidKeyUsageException :: Newtype InvalidKeyUsageException _
 derive instance repGenericInvalidKeyUsageException :: Generic InvalidKeyUsageException _
@@ -1224,18 +1223,18 @@ instance encodeInvalidKeyUsageException :: Encode InvalidKeyUsageException where
 
 -- | Constructs InvalidKeyUsageException from required parameters
 newInvalidKeyUsageException :: InvalidKeyUsageException
-newInvalidKeyUsageException  = InvalidKeyUsageException { "message": (NullOrUndefined Nothing) }
+newInvalidKeyUsageException  = InvalidKeyUsageException { "message": Nothing }
 
 -- | Constructs InvalidKeyUsageException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidKeyUsageException' :: ( { "message" :: NullOrUndefined (ErrorMessageType) } -> {"message" :: NullOrUndefined (ErrorMessageType) } ) -> InvalidKeyUsageException
-newInvalidKeyUsageException'  customize = (InvalidKeyUsageException <<< customize) { "message": (NullOrUndefined Nothing) }
+newInvalidKeyUsageException' :: ( { "message" :: Maybe (ErrorMessageType) } -> {"message" :: Maybe (ErrorMessageType) } ) -> InvalidKeyUsageException
+newInvalidKeyUsageException'  customize = (InvalidKeyUsageException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The request was rejected because the marker that specifies where pagination should next begin is not valid.</p>
 newtype InvalidMarkerException = InvalidMarkerException 
-  { "message" :: NullOrUndefined (ErrorMessageType)
+  { "message" :: Maybe (ErrorMessageType)
   }
 derive instance newtypeInvalidMarkerException :: Newtype InvalidMarkerException _
 derive instance repGenericInvalidMarkerException :: Generic InvalidMarkerException _
@@ -1245,18 +1244,18 @@ instance encodeInvalidMarkerException :: Encode InvalidMarkerException where enc
 
 -- | Constructs InvalidMarkerException from required parameters
 newInvalidMarkerException :: InvalidMarkerException
-newInvalidMarkerException  = InvalidMarkerException { "message": (NullOrUndefined Nothing) }
+newInvalidMarkerException  = InvalidMarkerException { "message": Nothing }
 
 -- | Constructs InvalidMarkerException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidMarkerException' :: ( { "message" :: NullOrUndefined (ErrorMessageType) } -> {"message" :: NullOrUndefined (ErrorMessageType) } ) -> InvalidMarkerException
-newInvalidMarkerException'  customize = (InvalidMarkerException <<< customize) { "message": (NullOrUndefined Nothing) }
+newInvalidMarkerException' :: ( { "message" :: Maybe (ErrorMessageType) } -> {"message" :: Maybe (ErrorMessageType) } ) -> InvalidMarkerException
+newInvalidMarkerException'  customize = (InvalidMarkerException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The request was rejected because an internal exception occurred. The request can be retried.</p>
 newtype KMSInternalException = KMSInternalException 
-  { "message" :: NullOrUndefined (ErrorMessageType)
+  { "message" :: Maybe (ErrorMessageType)
   }
 derive instance newtypeKMSInternalException :: Newtype KMSInternalException _
 derive instance repGenericKMSInternalException :: Generic KMSInternalException _
@@ -1266,18 +1265,18 @@ instance encodeKMSInternalException :: Encode KMSInternalException where encode 
 
 -- | Constructs KMSInternalException from required parameters
 newKMSInternalException :: KMSInternalException
-newKMSInternalException  = KMSInternalException { "message": (NullOrUndefined Nothing) }
+newKMSInternalException  = KMSInternalException { "message": Nothing }
 
 -- | Constructs KMSInternalException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newKMSInternalException' :: ( { "message" :: NullOrUndefined (ErrorMessageType) } -> {"message" :: NullOrUndefined (ErrorMessageType) } ) -> KMSInternalException
-newKMSInternalException'  customize = (KMSInternalException <<< customize) { "message": (NullOrUndefined Nothing) }
+newKMSInternalException' :: ( { "message" :: Maybe (ErrorMessageType) } -> {"message" :: Maybe (ErrorMessageType) } ) -> KMSInternalException
+newKMSInternalException'  customize = (KMSInternalException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The request was rejected because the state of the specified resource is not valid for this request.</p> <p>For more information about how key state affects the use of a CMK, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
 newtype KMSInvalidStateException = KMSInvalidStateException 
-  { "message" :: NullOrUndefined (ErrorMessageType)
+  { "message" :: Maybe (ErrorMessageType)
   }
 derive instance newtypeKMSInvalidStateException :: Newtype KMSInvalidStateException _
 derive instance repGenericKMSInvalidStateException :: Generic KMSInvalidStateException _
@@ -1287,12 +1286,12 @@ instance encodeKMSInvalidStateException :: Encode KMSInvalidStateException where
 
 -- | Constructs KMSInvalidStateException from required parameters
 newKMSInvalidStateException :: KMSInvalidStateException
-newKMSInvalidStateException  = KMSInvalidStateException { "message": (NullOrUndefined Nothing) }
+newKMSInvalidStateException  = KMSInvalidStateException { "message": Nothing }
 
 -- | Constructs KMSInvalidStateException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newKMSInvalidStateException' :: ( { "message" :: NullOrUndefined (ErrorMessageType) } -> {"message" :: NullOrUndefined (ErrorMessageType) } ) -> KMSInvalidStateException
-newKMSInvalidStateException'  customize = (KMSInvalidStateException <<< customize) { "message": (NullOrUndefined Nothing) }
+newKMSInvalidStateException' :: ( { "message" :: Maybe (ErrorMessageType) } -> {"message" :: Maybe (ErrorMessageType) } ) -> KMSInvalidStateException
+newKMSInvalidStateException'  customize = (KMSInvalidStateException <<< customize) { "message": Nothing }
 
 
 
@@ -1316,8 +1315,8 @@ instance encodeKeyList :: Encode KeyList where encode = genericEncode options
 
 -- | <p>Contains information about each entry in the key list.</p>
 newtype KeyListEntry = KeyListEntry 
-  { "KeyId" :: NullOrUndefined (KeyIdType)
-  , "KeyArn" :: NullOrUndefined (ArnType)
+  { "KeyId" :: Maybe (KeyIdType)
+  , "KeyArn" :: Maybe (ArnType)
   }
 derive instance newtypeKeyListEntry :: Newtype KeyListEntry _
 derive instance repGenericKeyListEntry :: Generic KeyListEntry _
@@ -1327,12 +1326,12 @@ instance encodeKeyListEntry :: Encode KeyListEntry where encode = genericEncode 
 
 -- | Constructs KeyListEntry from required parameters
 newKeyListEntry :: KeyListEntry
-newKeyListEntry  = KeyListEntry { "KeyArn": (NullOrUndefined Nothing), "KeyId": (NullOrUndefined Nothing) }
+newKeyListEntry  = KeyListEntry { "KeyArn": Nothing, "KeyId": Nothing }
 
 -- | Constructs KeyListEntry's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newKeyListEntry' :: ( { "KeyId" :: NullOrUndefined (KeyIdType) , "KeyArn" :: NullOrUndefined (ArnType) } -> {"KeyId" :: NullOrUndefined (KeyIdType) , "KeyArn" :: NullOrUndefined (ArnType) } ) -> KeyListEntry
-newKeyListEntry'  customize = (KeyListEntry <<< customize) { "KeyArn": (NullOrUndefined Nothing), "KeyId": (NullOrUndefined Nothing) }
+newKeyListEntry' :: ( { "KeyId" :: Maybe (KeyIdType) , "KeyArn" :: Maybe (ArnType) } -> {"KeyId" :: Maybe (KeyIdType) , "KeyArn" :: Maybe (ArnType) } ) -> KeyListEntry
+newKeyListEntry'  customize = (KeyListEntry <<< customize) { "KeyArn": Nothing, "KeyId": Nothing }
 
 
 
@@ -1347,19 +1346,19 @@ instance encodeKeyManagerType :: Encode KeyManagerType where encode = genericEnc
 
 -- | <p>Contains metadata about a customer master key (CMK).</p> <p>This data type is used as a response element for the <a>CreateKey</a> and <a>DescribeKey</a> operations.</p>
 newtype KeyMetadata = KeyMetadata 
-  { "AWSAccountId" :: NullOrUndefined (AWSAccountIdType)
+  { "AWSAccountId" :: Maybe (AWSAccountIdType)
   , "KeyId" :: (KeyIdType)
-  , "Arn" :: NullOrUndefined (ArnType)
-  , "CreationDate" :: NullOrUndefined (DateType)
-  , "Enabled" :: NullOrUndefined (BooleanType)
-  , "Description" :: NullOrUndefined (DescriptionType)
-  , "KeyUsage" :: NullOrUndefined (KeyUsageType)
-  , "KeyState" :: NullOrUndefined (KeyState)
-  , "DeletionDate" :: NullOrUndefined (DateType)
-  , "ValidTo" :: NullOrUndefined (DateType)
-  , "Origin" :: NullOrUndefined (OriginType)
-  , "ExpirationModel" :: NullOrUndefined (ExpirationModelType)
-  , "KeyManager" :: NullOrUndefined (KeyManagerType)
+  , "Arn" :: Maybe (ArnType)
+  , "CreationDate" :: Maybe (DateType)
+  , "Enabled" :: Maybe (BooleanType)
+  , "Description" :: Maybe (DescriptionType)
+  , "KeyUsage" :: Maybe (KeyUsageType)
+  , "KeyState" :: Maybe (KeyState)
+  , "DeletionDate" :: Maybe (DateType)
+  , "ValidTo" :: Maybe (DateType)
+  , "Origin" :: Maybe (OriginType)
+  , "ExpirationModel" :: Maybe (ExpirationModelType)
+  , "KeyManager" :: Maybe (KeyManagerType)
   }
 derive instance newtypeKeyMetadata :: Newtype KeyMetadata _
 derive instance repGenericKeyMetadata :: Generic KeyMetadata _
@@ -1369,12 +1368,12 @@ instance encodeKeyMetadata :: Encode KeyMetadata where encode = genericEncode op
 
 -- | Constructs KeyMetadata from required parameters
 newKeyMetadata :: KeyIdType -> KeyMetadata
-newKeyMetadata _KeyId = KeyMetadata { "KeyId": _KeyId, "AWSAccountId": (NullOrUndefined Nothing), "Arn": (NullOrUndefined Nothing), "CreationDate": (NullOrUndefined Nothing), "DeletionDate": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "Enabled": (NullOrUndefined Nothing), "ExpirationModel": (NullOrUndefined Nothing), "KeyManager": (NullOrUndefined Nothing), "KeyState": (NullOrUndefined Nothing), "KeyUsage": (NullOrUndefined Nothing), "Origin": (NullOrUndefined Nothing), "ValidTo": (NullOrUndefined Nothing) }
+newKeyMetadata _KeyId = KeyMetadata { "KeyId": _KeyId, "AWSAccountId": Nothing, "Arn": Nothing, "CreationDate": Nothing, "DeletionDate": Nothing, "Description": Nothing, "Enabled": Nothing, "ExpirationModel": Nothing, "KeyManager": Nothing, "KeyState": Nothing, "KeyUsage": Nothing, "Origin": Nothing, "ValidTo": Nothing }
 
 -- | Constructs KeyMetadata's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newKeyMetadata' :: KeyIdType -> ( { "AWSAccountId" :: NullOrUndefined (AWSAccountIdType) , "KeyId" :: (KeyIdType) , "Arn" :: NullOrUndefined (ArnType) , "CreationDate" :: NullOrUndefined (DateType) , "Enabled" :: NullOrUndefined (BooleanType) , "Description" :: NullOrUndefined (DescriptionType) , "KeyUsage" :: NullOrUndefined (KeyUsageType) , "KeyState" :: NullOrUndefined (KeyState) , "DeletionDate" :: NullOrUndefined (DateType) , "ValidTo" :: NullOrUndefined (DateType) , "Origin" :: NullOrUndefined (OriginType) , "ExpirationModel" :: NullOrUndefined (ExpirationModelType) , "KeyManager" :: NullOrUndefined (KeyManagerType) } -> {"AWSAccountId" :: NullOrUndefined (AWSAccountIdType) , "KeyId" :: (KeyIdType) , "Arn" :: NullOrUndefined (ArnType) , "CreationDate" :: NullOrUndefined (DateType) , "Enabled" :: NullOrUndefined (BooleanType) , "Description" :: NullOrUndefined (DescriptionType) , "KeyUsage" :: NullOrUndefined (KeyUsageType) , "KeyState" :: NullOrUndefined (KeyState) , "DeletionDate" :: NullOrUndefined (DateType) , "ValidTo" :: NullOrUndefined (DateType) , "Origin" :: NullOrUndefined (OriginType) , "ExpirationModel" :: NullOrUndefined (ExpirationModelType) , "KeyManager" :: NullOrUndefined (KeyManagerType) } ) -> KeyMetadata
-newKeyMetadata' _KeyId customize = (KeyMetadata <<< customize) { "KeyId": _KeyId, "AWSAccountId": (NullOrUndefined Nothing), "Arn": (NullOrUndefined Nothing), "CreationDate": (NullOrUndefined Nothing), "DeletionDate": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "Enabled": (NullOrUndefined Nothing), "ExpirationModel": (NullOrUndefined Nothing), "KeyManager": (NullOrUndefined Nothing), "KeyState": (NullOrUndefined Nothing), "KeyUsage": (NullOrUndefined Nothing), "Origin": (NullOrUndefined Nothing), "ValidTo": (NullOrUndefined Nothing) }
+newKeyMetadata' :: KeyIdType -> ( { "AWSAccountId" :: Maybe (AWSAccountIdType) , "KeyId" :: (KeyIdType) , "Arn" :: Maybe (ArnType) , "CreationDate" :: Maybe (DateType) , "Enabled" :: Maybe (BooleanType) , "Description" :: Maybe (DescriptionType) , "KeyUsage" :: Maybe (KeyUsageType) , "KeyState" :: Maybe (KeyState) , "DeletionDate" :: Maybe (DateType) , "ValidTo" :: Maybe (DateType) , "Origin" :: Maybe (OriginType) , "ExpirationModel" :: Maybe (ExpirationModelType) , "KeyManager" :: Maybe (KeyManagerType) } -> {"AWSAccountId" :: Maybe (AWSAccountIdType) , "KeyId" :: (KeyIdType) , "Arn" :: Maybe (ArnType) , "CreationDate" :: Maybe (DateType) , "Enabled" :: Maybe (BooleanType) , "Description" :: Maybe (DescriptionType) , "KeyUsage" :: Maybe (KeyUsageType) , "KeyState" :: Maybe (KeyState) , "DeletionDate" :: Maybe (DateType) , "ValidTo" :: Maybe (DateType) , "Origin" :: Maybe (OriginType) , "ExpirationModel" :: Maybe (ExpirationModelType) , "KeyManager" :: Maybe (KeyManagerType) } ) -> KeyMetadata
+newKeyMetadata' _KeyId customize = (KeyMetadata <<< customize) { "KeyId": _KeyId, "AWSAccountId": Nothing, "Arn": Nothing, "CreationDate": Nothing, "DeletionDate": Nothing, "Description": Nothing, "Enabled": Nothing, "ExpirationModel": Nothing, "KeyManager": Nothing, "KeyState": Nothing, "KeyUsage": Nothing, "Origin": Nothing, "ValidTo": Nothing }
 
 
 
@@ -1389,7 +1388,7 @@ instance encodeKeyState :: Encode KeyState where encode = genericEncode options
 
 -- | <p>The request was rejected because the specified CMK was not available. The request can be retried.</p>
 newtype KeyUnavailableException = KeyUnavailableException 
-  { "message" :: NullOrUndefined (ErrorMessageType)
+  { "message" :: Maybe (ErrorMessageType)
   }
 derive instance newtypeKeyUnavailableException :: Newtype KeyUnavailableException _
 derive instance repGenericKeyUnavailableException :: Generic KeyUnavailableException _
@@ -1399,12 +1398,12 @@ instance encodeKeyUnavailableException :: Encode KeyUnavailableException where e
 
 -- | Constructs KeyUnavailableException from required parameters
 newKeyUnavailableException :: KeyUnavailableException
-newKeyUnavailableException  = KeyUnavailableException { "message": (NullOrUndefined Nothing) }
+newKeyUnavailableException  = KeyUnavailableException { "message": Nothing }
 
 -- | Constructs KeyUnavailableException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newKeyUnavailableException' :: ( { "message" :: NullOrUndefined (ErrorMessageType) } -> {"message" :: NullOrUndefined (ErrorMessageType) } ) -> KeyUnavailableException
-newKeyUnavailableException'  customize = (KeyUnavailableException <<< customize) { "message": (NullOrUndefined Nothing) }
+newKeyUnavailableException' :: ( { "message" :: Maybe (ErrorMessageType) } -> {"message" :: Maybe (ErrorMessageType) } ) -> KeyUnavailableException
+newKeyUnavailableException'  customize = (KeyUnavailableException <<< customize) { "message": Nothing }
 
 
 
@@ -1419,7 +1418,7 @@ instance encodeKeyUsageType :: Encode KeyUsageType where encode = genericEncode 
 
 -- | <p>The request was rejected because a limit was exceeded. For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Limits</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
 newtype LimitExceededException = LimitExceededException 
-  { "message" :: NullOrUndefined (ErrorMessageType)
+  { "message" :: Maybe (ErrorMessageType)
   }
 derive instance newtypeLimitExceededException :: Newtype LimitExceededException _
 derive instance repGenericLimitExceededException :: Generic LimitExceededException _
@@ -1429,12 +1428,12 @@ instance encodeLimitExceededException :: Encode LimitExceededException where enc
 
 -- | Constructs LimitExceededException from required parameters
 newLimitExceededException :: LimitExceededException
-newLimitExceededException  = LimitExceededException { "message": (NullOrUndefined Nothing) }
+newLimitExceededException  = LimitExceededException { "message": Nothing }
 
 -- | Constructs LimitExceededException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newLimitExceededException' :: ( { "message" :: NullOrUndefined (ErrorMessageType) } -> {"message" :: NullOrUndefined (ErrorMessageType) } ) -> LimitExceededException
-newLimitExceededException'  customize = (LimitExceededException <<< customize) { "message": (NullOrUndefined Nothing) }
+newLimitExceededException' :: ( { "message" :: Maybe (ErrorMessageType) } -> {"message" :: Maybe (ErrorMessageType) } ) -> LimitExceededException
+newLimitExceededException'  customize = (LimitExceededException <<< customize) { "message": Nothing }
 
 
 
@@ -1448,8 +1447,8 @@ instance encodeLimitType :: Encode LimitType where encode = genericEncode option
 
 
 newtype ListAliasesRequest = ListAliasesRequest 
-  { "Limit" :: NullOrUndefined (LimitType)
-  , "Marker" :: NullOrUndefined (MarkerType)
+  { "Limit" :: Maybe (LimitType)
+  , "Marker" :: Maybe (MarkerType)
   }
 derive instance newtypeListAliasesRequest :: Newtype ListAliasesRequest _
 derive instance repGenericListAliasesRequest :: Generic ListAliasesRequest _
@@ -1459,19 +1458,19 @@ instance encodeListAliasesRequest :: Encode ListAliasesRequest where encode = ge
 
 -- | Constructs ListAliasesRequest from required parameters
 newListAliasesRequest :: ListAliasesRequest
-newListAliasesRequest  = ListAliasesRequest { "Limit": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing) }
+newListAliasesRequest  = ListAliasesRequest { "Limit": Nothing, "Marker": Nothing }
 
 -- | Constructs ListAliasesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListAliasesRequest' :: ( { "Limit" :: NullOrUndefined (LimitType) , "Marker" :: NullOrUndefined (MarkerType) } -> {"Limit" :: NullOrUndefined (LimitType) , "Marker" :: NullOrUndefined (MarkerType) } ) -> ListAliasesRequest
-newListAliasesRequest'  customize = (ListAliasesRequest <<< customize) { "Limit": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing) }
+newListAliasesRequest' :: ( { "Limit" :: Maybe (LimitType) , "Marker" :: Maybe (MarkerType) } -> {"Limit" :: Maybe (LimitType) , "Marker" :: Maybe (MarkerType) } ) -> ListAliasesRequest
+newListAliasesRequest'  customize = (ListAliasesRequest <<< customize) { "Limit": Nothing, "Marker": Nothing }
 
 
 
 newtype ListAliasesResponse = ListAliasesResponse 
-  { "Aliases" :: NullOrUndefined (AliasList)
-  , "NextMarker" :: NullOrUndefined (MarkerType)
-  , "Truncated" :: NullOrUndefined (BooleanType)
+  { "Aliases" :: Maybe (AliasList)
+  , "NextMarker" :: Maybe (MarkerType)
+  , "Truncated" :: Maybe (BooleanType)
   }
 derive instance newtypeListAliasesResponse :: Newtype ListAliasesResponse _
 derive instance repGenericListAliasesResponse :: Generic ListAliasesResponse _
@@ -1481,18 +1480,18 @@ instance encodeListAliasesResponse :: Encode ListAliasesResponse where encode = 
 
 -- | Constructs ListAliasesResponse from required parameters
 newListAliasesResponse :: ListAliasesResponse
-newListAliasesResponse  = ListAliasesResponse { "Aliases": (NullOrUndefined Nothing), "NextMarker": (NullOrUndefined Nothing), "Truncated": (NullOrUndefined Nothing) }
+newListAliasesResponse  = ListAliasesResponse { "Aliases": Nothing, "NextMarker": Nothing, "Truncated": Nothing }
 
 -- | Constructs ListAliasesResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListAliasesResponse' :: ( { "Aliases" :: NullOrUndefined (AliasList) , "NextMarker" :: NullOrUndefined (MarkerType) , "Truncated" :: NullOrUndefined (BooleanType) } -> {"Aliases" :: NullOrUndefined (AliasList) , "NextMarker" :: NullOrUndefined (MarkerType) , "Truncated" :: NullOrUndefined (BooleanType) } ) -> ListAliasesResponse
-newListAliasesResponse'  customize = (ListAliasesResponse <<< customize) { "Aliases": (NullOrUndefined Nothing), "NextMarker": (NullOrUndefined Nothing), "Truncated": (NullOrUndefined Nothing) }
+newListAliasesResponse' :: ( { "Aliases" :: Maybe (AliasList) , "NextMarker" :: Maybe (MarkerType) , "Truncated" :: Maybe (BooleanType) } -> {"Aliases" :: Maybe (AliasList) , "NextMarker" :: Maybe (MarkerType) , "Truncated" :: Maybe (BooleanType) } ) -> ListAliasesResponse
+newListAliasesResponse'  customize = (ListAliasesResponse <<< customize) { "Aliases": Nothing, "NextMarker": Nothing, "Truncated": Nothing }
 
 
 
 newtype ListGrantsRequest = ListGrantsRequest 
-  { "Limit" :: NullOrUndefined (LimitType)
-  , "Marker" :: NullOrUndefined (MarkerType)
+  { "Limit" :: Maybe (LimitType)
+  , "Marker" :: Maybe (MarkerType)
   , "KeyId" :: (KeyIdType)
   }
 derive instance newtypeListGrantsRequest :: Newtype ListGrantsRequest _
@@ -1503,19 +1502,19 @@ instance encodeListGrantsRequest :: Encode ListGrantsRequest where encode = gene
 
 -- | Constructs ListGrantsRequest from required parameters
 newListGrantsRequest :: KeyIdType -> ListGrantsRequest
-newListGrantsRequest _KeyId = ListGrantsRequest { "KeyId": _KeyId, "Limit": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing) }
+newListGrantsRequest _KeyId = ListGrantsRequest { "KeyId": _KeyId, "Limit": Nothing, "Marker": Nothing }
 
 -- | Constructs ListGrantsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListGrantsRequest' :: KeyIdType -> ( { "Limit" :: NullOrUndefined (LimitType) , "Marker" :: NullOrUndefined (MarkerType) , "KeyId" :: (KeyIdType) } -> {"Limit" :: NullOrUndefined (LimitType) , "Marker" :: NullOrUndefined (MarkerType) , "KeyId" :: (KeyIdType) } ) -> ListGrantsRequest
-newListGrantsRequest' _KeyId customize = (ListGrantsRequest <<< customize) { "KeyId": _KeyId, "Limit": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing) }
+newListGrantsRequest' :: KeyIdType -> ( { "Limit" :: Maybe (LimitType) , "Marker" :: Maybe (MarkerType) , "KeyId" :: (KeyIdType) } -> {"Limit" :: Maybe (LimitType) , "Marker" :: Maybe (MarkerType) , "KeyId" :: (KeyIdType) } ) -> ListGrantsRequest
+newListGrantsRequest' _KeyId customize = (ListGrantsRequest <<< customize) { "KeyId": _KeyId, "Limit": Nothing, "Marker": Nothing }
 
 
 
 newtype ListGrantsResponse = ListGrantsResponse 
-  { "Grants" :: NullOrUndefined (GrantList)
-  , "NextMarker" :: NullOrUndefined (MarkerType)
-  , "Truncated" :: NullOrUndefined (BooleanType)
+  { "Grants" :: Maybe (GrantList)
+  , "NextMarker" :: Maybe (MarkerType)
+  , "Truncated" :: Maybe (BooleanType)
   }
 derive instance newtypeListGrantsResponse :: Newtype ListGrantsResponse _
 derive instance repGenericListGrantsResponse :: Generic ListGrantsResponse _
@@ -1525,19 +1524,19 @@ instance encodeListGrantsResponse :: Encode ListGrantsResponse where encode = ge
 
 -- | Constructs ListGrantsResponse from required parameters
 newListGrantsResponse :: ListGrantsResponse
-newListGrantsResponse  = ListGrantsResponse { "Grants": (NullOrUndefined Nothing), "NextMarker": (NullOrUndefined Nothing), "Truncated": (NullOrUndefined Nothing) }
+newListGrantsResponse  = ListGrantsResponse { "Grants": Nothing, "NextMarker": Nothing, "Truncated": Nothing }
 
 -- | Constructs ListGrantsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListGrantsResponse' :: ( { "Grants" :: NullOrUndefined (GrantList) , "NextMarker" :: NullOrUndefined (MarkerType) , "Truncated" :: NullOrUndefined (BooleanType) } -> {"Grants" :: NullOrUndefined (GrantList) , "NextMarker" :: NullOrUndefined (MarkerType) , "Truncated" :: NullOrUndefined (BooleanType) } ) -> ListGrantsResponse
-newListGrantsResponse'  customize = (ListGrantsResponse <<< customize) { "Grants": (NullOrUndefined Nothing), "NextMarker": (NullOrUndefined Nothing), "Truncated": (NullOrUndefined Nothing) }
+newListGrantsResponse' :: ( { "Grants" :: Maybe (GrantList) , "NextMarker" :: Maybe (MarkerType) , "Truncated" :: Maybe (BooleanType) } -> {"Grants" :: Maybe (GrantList) , "NextMarker" :: Maybe (MarkerType) , "Truncated" :: Maybe (BooleanType) } ) -> ListGrantsResponse
+newListGrantsResponse'  customize = (ListGrantsResponse <<< customize) { "Grants": Nothing, "NextMarker": Nothing, "Truncated": Nothing }
 
 
 
 newtype ListKeyPoliciesRequest = ListKeyPoliciesRequest 
   { "KeyId" :: (KeyIdType)
-  , "Limit" :: NullOrUndefined (LimitType)
-  , "Marker" :: NullOrUndefined (MarkerType)
+  , "Limit" :: Maybe (LimitType)
+  , "Marker" :: Maybe (MarkerType)
   }
 derive instance newtypeListKeyPoliciesRequest :: Newtype ListKeyPoliciesRequest _
 derive instance repGenericListKeyPoliciesRequest :: Generic ListKeyPoliciesRequest _
@@ -1547,19 +1546,19 @@ instance encodeListKeyPoliciesRequest :: Encode ListKeyPoliciesRequest where enc
 
 -- | Constructs ListKeyPoliciesRequest from required parameters
 newListKeyPoliciesRequest :: KeyIdType -> ListKeyPoliciesRequest
-newListKeyPoliciesRequest _KeyId = ListKeyPoliciesRequest { "KeyId": _KeyId, "Limit": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing) }
+newListKeyPoliciesRequest _KeyId = ListKeyPoliciesRequest { "KeyId": _KeyId, "Limit": Nothing, "Marker": Nothing }
 
 -- | Constructs ListKeyPoliciesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListKeyPoliciesRequest' :: KeyIdType -> ( { "KeyId" :: (KeyIdType) , "Limit" :: NullOrUndefined (LimitType) , "Marker" :: NullOrUndefined (MarkerType) } -> {"KeyId" :: (KeyIdType) , "Limit" :: NullOrUndefined (LimitType) , "Marker" :: NullOrUndefined (MarkerType) } ) -> ListKeyPoliciesRequest
-newListKeyPoliciesRequest' _KeyId customize = (ListKeyPoliciesRequest <<< customize) { "KeyId": _KeyId, "Limit": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing) }
+newListKeyPoliciesRequest' :: KeyIdType -> ( { "KeyId" :: (KeyIdType) , "Limit" :: Maybe (LimitType) , "Marker" :: Maybe (MarkerType) } -> {"KeyId" :: (KeyIdType) , "Limit" :: Maybe (LimitType) , "Marker" :: Maybe (MarkerType) } ) -> ListKeyPoliciesRequest
+newListKeyPoliciesRequest' _KeyId customize = (ListKeyPoliciesRequest <<< customize) { "KeyId": _KeyId, "Limit": Nothing, "Marker": Nothing }
 
 
 
 newtype ListKeyPoliciesResponse = ListKeyPoliciesResponse 
-  { "PolicyNames" :: NullOrUndefined (PolicyNameList)
-  , "NextMarker" :: NullOrUndefined (MarkerType)
-  , "Truncated" :: NullOrUndefined (BooleanType)
+  { "PolicyNames" :: Maybe (PolicyNameList)
+  , "NextMarker" :: Maybe (MarkerType)
+  , "Truncated" :: Maybe (BooleanType)
   }
 derive instance newtypeListKeyPoliciesResponse :: Newtype ListKeyPoliciesResponse _
 derive instance repGenericListKeyPoliciesResponse :: Generic ListKeyPoliciesResponse _
@@ -1569,18 +1568,18 @@ instance encodeListKeyPoliciesResponse :: Encode ListKeyPoliciesResponse where e
 
 -- | Constructs ListKeyPoliciesResponse from required parameters
 newListKeyPoliciesResponse :: ListKeyPoliciesResponse
-newListKeyPoliciesResponse  = ListKeyPoliciesResponse { "NextMarker": (NullOrUndefined Nothing), "PolicyNames": (NullOrUndefined Nothing), "Truncated": (NullOrUndefined Nothing) }
+newListKeyPoliciesResponse  = ListKeyPoliciesResponse { "NextMarker": Nothing, "PolicyNames": Nothing, "Truncated": Nothing }
 
 -- | Constructs ListKeyPoliciesResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListKeyPoliciesResponse' :: ( { "PolicyNames" :: NullOrUndefined (PolicyNameList) , "NextMarker" :: NullOrUndefined (MarkerType) , "Truncated" :: NullOrUndefined (BooleanType) } -> {"PolicyNames" :: NullOrUndefined (PolicyNameList) , "NextMarker" :: NullOrUndefined (MarkerType) , "Truncated" :: NullOrUndefined (BooleanType) } ) -> ListKeyPoliciesResponse
-newListKeyPoliciesResponse'  customize = (ListKeyPoliciesResponse <<< customize) { "NextMarker": (NullOrUndefined Nothing), "PolicyNames": (NullOrUndefined Nothing), "Truncated": (NullOrUndefined Nothing) }
+newListKeyPoliciesResponse' :: ( { "PolicyNames" :: Maybe (PolicyNameList) , "NextMarker" :: Maybe (MarkerType) , "Truncated" :: Maybe (BooleanType) } -> {"PolicyNames" :: Maybe (PolicyNameList) , "NextMarker" :: Maybe (MarkerType) , "Truncated" :: Maybe (BooleanType) } ) -> ListKeyPoliciesResponse
+newListKeyPoliciesResponse'  customize = (ListKeyPoliciesResponse <<< customize) { "NextMarker": Nothing, "PolicyNames": Nothing, "Truncated": Nothing }
 
 
 
 newtype ListKeysRequest = ListKeysRequest 
-  { "Limit" :: NullOrUndefined (LimitType)
-  , "Marker" :: NullOrUndefined (MarkerType)
+  { "Limit" :: Maybe (LimitType)
+  , "Marker" :: Maybe (MarkerType)
   }
 derive instance newtypeListKeysRequest :: Newtype ListKeysRequest _
 derive instance repGenericListKeysRequest :: Generic ListKeysRequest _
@@ -1590,19 +1589,19 @@ instance encodeListKeysRequest :: Encode ListKeysRequest where encode = genericE
 
 -- | Constructs ListKeysRequest from required parameters
 newListKeysRequest :: ListKeysRequest
-newListKeysRequest  = ListKeysRequest { "Limit": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing) }
+newListKeysRequest  = ListKeysRequest { "Limit": Nothing, "Marker": Nothing }
 
 -- | Constructs ListKeysRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListKeysRequest' :: ( { "Limit" :: NullOrUndefined (LimitType) , "Marker" :: NullOrUndefined (MarkerType) } -> {"Limit" :: NullOrUndefined (LimitType) , "Marker" :: NullOrUndefined (MarkerType) } ) -> ListKeysRequest
-newListKeysRequest'  customize = (ListKeysRequest <<< customize) { "Limit": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing) }
+newListKeysRequest' :: ( { "Limit" :: Maybe (LimitType) , "Marker" :: Maybe (MarkerType) } -> {"Limit" :: Maybe (LimitType) , "Marker" :: Maybe (MarkerType) } ) -> ListKeysRequest
+newListKeysRequest'  customize = (ListKeysRequest <<< customize) { "Limit": Nothing, "Marker": Nothing }
 
 
 
 newtype ListKeysResponse = ListKeysResponse 
-  { "Keys" :: NullOrUndefined (KeyList)
-  , "NextMarker" :: NullOrUndefined (MarkerType)
-  , "Truncated" :: NullOrUndefined (BooleanType)
+  { "Keys" :: Maybe (KeyList)
+  , "NextMarker" :: Maybe (MarkerType)
+  , "Truncated" :: Maybe (BooleanType)
   }
 derive instance newtypeListKeysResponse :: Newtype ListKeysResponse _
 derive instance repGenericListKeysResponse :: Generic ListKeysResponse _
@@ -1612,19 +1611,19 @@ instance encodeListKeysResponse :: Encode ListKeysResponse where encode = generi
 
 -- | Constructs ListKeysResponse from required parameters
 newListKeysResponse :: ListKeysResponse
-newListKeysResponse  = ListKeysResponse { "Keys": (NullOrUndefined Nothing), "NextMarker": (NullOrUndefined Nothing), "Truncated": (NullOrUndefined Nothing) }
+newListKeysResponse  = ListKeysResponse { "Keys": Nothing, "NextMarker": Nothing, "Truncated": Nothing }
 
 -- | Constructs ListKeysResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListKeysResponse' :: ( { "Keys" :: NullOrUndefined (KeyList) , "NextMarker" :: NullOrUndefined (MarkerType) , "Truncated" :: NullOrUndefined (BooleanType) } -> {"Keys" :: NullOrUndefined (KeyList) , "NextMarker" :: NullOrUndefined (MarkerType) , "Truncated" :: NullOrUndefined (BooleanType) } ) -> ListKeysResponse
-newListKeysResponse'  customize = (ListKeysResponse <<< customize) { "Keys": (NullOrUndefined Nothing), "NextMarker": (NullOrUndefined Nothing), "Truncated": (NullOrUndefined Nothing) }
+newListKeysResponse' :: ( { "Keys" :: Maybe (KeyList) , "NextMarker" :: Maybe (MarkerType) , "Truncated" :: Maybe (BooleanType) } -> {"Keys" :: Maybe (KeyList) , "NextMarker" :: Maybe (MarkerType) , "Truncated" :: Maybe (BooleanType) } ) -> ListKeysResponse
+newListKeysResponse'  customize = (ListKeysResponse <<< customize) { "Keys": Nothing, "NextMarker": Nothing, "Truncated": Nothing }
 
 
 
 newtype ListResourceTagsRequest = ListResourceTagsRequest 
   { "KeyId" :: (KeyIdType)
-  , "Limit" :: NullOrUndefined (LimitType)
-  , "Marker" :: NullOrUndefined (MarkerType)
+  , "Limit" :: Maybe (LimitType)
+  , "Marker" :: Maybe (MarkerType)
   }
 derive instance newtypeListResourceTagsRequest :: Newtype ListResourceTagsRequest _
 derive instance repGenericListResourceTagsRequest :: Generic ListResourceTagsRequest _
@@ -1634,19 +1633,19 @@ instance encodeListResourceTagsRequest :: Encode ListResourceTagsRequest where e
 
 -- | Constructs ListResourceTagsRequest from required parameters
 newListResourceTagsRequest :: KeyIdType -> ListResourceTagsRequest
-newListResourceTagsRequest _KeyId = ListResourceTagsRequest { "KeyId": _KeyId, "Limit": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing) }
+newListResourceTagsRequest _KeyId = ListResourceTagsRequest { "KeyId": _KeyId, "Limit": Nothing, "Marker": Nothing }
 
 -- | Constructs ListResourceTagsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListResourceTagsRequest' :: KeyIdType -> ( { "KeyId" :: (KeyIdType) , "Limit" :: NullOrUndefined (LimitType) , "Marker" :: NullOrUndefined (MarkerType) } -> {"KeyId" :: (KeyIdType) , "Limit" :: NullOrUndefined (LimitType) , "Marker" :: NullOrUndefined (MarkerType) } ) -> ListResourceTagsRequest
-newListResourceTagsRequest' _KeyId customize = (ListResourceTagsRequest <<< customize) { "KeyId": _KeyId, "Limit": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing) }
+newListResourceTagsRequest' :: KeyIdType -> ( { "KeyId" :: (KeyIdType) , "Limit" :: Maybe (LimitType) , "Marker" :: Maybe (MarkerType) } -> {"KeyId" :: (KeyIdType) , "Limit" :: Maybe (LimitType) , "Marker" :: Maybe (MarkerType) } ) -> ListResourceTagsRequest
+newListResourceTagsRequest' _KeyId customize = (ListResourceTagsRequest <<< customize) { "KeyId": _KeyId, "Limit": Nothing, "Marker": Nothing }
 
 
 
 newtype ListResourceTagsResponse = ListResourceTagsResponse 
-  { "Tags" :: NullOrUndefined (TagList)
-  , "NextMarker" :: NullOrUndefined (MarkerType)
-  , "Truncated" :: NullOrUndefined (BooleanType)
+  { "Tags" :: Maybe (TagList)
+  , "NextMarker" :: Maybe (MarkerType)
+  , "Truncated" :: Maybe (BooleanType)
   }
 derive instance newtypeListResourceTagsResponse :: Newtype ListResourceTagsResponse _
 derive instance repGenericListResourceTagsResponse :: Generic ListResourceTagsResponse _
@@ -1656,18 +1655,18 @@ instance encodeListResourceTagsResponse :: Encode ListResourceTagsResponse where
 
 -- | Constructs ListResourceTagsResponse from required parameters
 newListResourceTagsResponse :: ListResourceTagsResponse
-newListResourceTagsResponse  = ListResourceTagsResponse { "NextMarker": (NullOrUndefined Nothing), "Tags": (NullOrUndefined Nothing), "Truncated": (NullOrUndefined Nothing) }
+newListResourceTagsResponse  = ListResourceTagsResponse { "NextMarker": Nothing, "Tags": Nothing, "Truncated": Nothing }
 
 -- | Constructs ListResourceTagsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListResourceTagsResponse' :: ( { "Tags" :: NullOrUndefined (TagList) , "NextMarker" :: NullOrUndefined (MarkerType) , "Truncated" :: NullOrUndefined (BooleanType) } -> {"Tags" :: NullOrUndefined (TagList) , "NextMarker" :: NullOrUndefined (MarkerType) , "Truncated" :: NullOrUndefined (BooleanType) } ) -> ListResourceTagsResponse
-newListResourceTagsResponse'  customize = (ListResourceTagsResponse <<< customize) { "NextMarker": (NullOrUndefined Nothing), "Tags": (NullOrUndefined Nothing), "Truncated": (NullOrUndefined Nothing) }
+newListResourceTagsResponse' :: ( { "Tags" :: Maybe (TagList) , "NextMarker" :: Maybe (MarkerType) , "Truncated" :: Maybe (BooleanType) } -> {"Tags" :: Maybe (TagList) , "NextMarker" :: Maybe (MarkerType) , "Truncated" :: Maybe (BooleanType) } ) -> ListResourceTagsResponse
+newListResourceTagsResponse'  customize = (ListResourceTagsResponse <<< customize) { "NextMarker": Nothing, "Tags": Nothing, "Truncated": Nothing }
 
 
 
 newtype ListRetirableGrantsRequest = ListRetirableGrantsRequest 
-  { "Limit" :: NullOrUndefined (LimitType)
-  , "Marker" :: NullOrUndefined (MarkerType)
+  { "Limit" :: Maybe (LimitType)
+  , "Marker" :: Maybe (MarkerType)
   , "RetiringPrincipal" :: (PrincipalIdType)
   }
 derive instance newtypeListRetirableGrantsRequest :: Newtype ListRetirableGrantsRequest _
@@ -1678,18 +1677,18 @@ instance encodeListRetirableGrantsRequest :: Encode ListRetirableGrantsRequest w
 
 -- | Constructs ListRetirableGrantsRequest from required parameters
 newListRetirableGrantsRequest :: PrincipalIdType -> ListRetirableGrantsRequest
-newListRetirableGrantsRequest _RetiringPrincipal = ListRetirableGrantsRequest { "RetiringPrincipal": _RetiringPrincipal, "Limit": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing) }
+newListRetirableGrantsRequest _RetiringPrincipal = ListRetirableGrantsRequest { "RetiringPrincipal": _RetiringPrincipal, "Limit": Nothing, "Marker": Nothing }
 
 -- | Constructs ListRetirableGrantsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListRetirableGrantsRequest' :: PrincipalIdType -> ( { "Limit" :: NullOrUndefined (LimitType) , "Marker" :: NullOrUndefined (MarkerType) , "RetiringPrincipal" :: (PrincipalIdType) } -> {"Limit" :: NullOrUndefined (LimitType) , "Marker" :: NullOrUndefined (MarkerType) , "RetiringPrincipal" :: (PrincipalIdType) } ) -> ListRetirableGrantsRequest
-newListRetirableGrantsRequest' _RetiringPrincipal customize = (ListRetirableGrantsRequest <<< customize) { "RetiringPrincipal": _RetiringPrincipal, "Limit": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing) }
+newListRetirableGrantsRequest' :: PrincipalIdType -> ( { "Limit" :: Maybe (LimitType) , "Marker" :: Maybe (MarkerType) , "RetiringPrincipal" :: (PrincipalIdType) } -> {"Limit" :: Maybe (LimitType) , "Marker" :: Maybe (MarkerType) , "RetiringPrincipal" :: (PrincipalIdType) } ) -> ListRetirableGrantsRequest
+newListRetirableGrantsRequest' _RetiringPrincipal customize = (ListRetirableGrantsRequest <<< customize) { "RetiringPrincipal": _RetiringPrincipal, "Limit": Nothing, "Marker": Nothing }
 
 
 
 -- | <p>The request was rejected because the specified policy is not syntactically or semantically correct.</p>
 newtype MalformedPolicyDocumentException = MalformedPolicyDocumentException 
-  { "message" :: NullOrUndefined (ErrorMessageType)
+  { "message" :: Maybe (ErrorMessageType)
   }
 derive instance newtypeMalformedPolicyDocumentException :: Newtype MalformedPolicyDocumentException _
 derive instance repGenericMalformedPolicyDocumentException :: Generic MalformedPolicyDocumentException _
@@ -1699,12 +1698,12 @@ instance encodeMalformedPolicyDocumentException :: Encode MalformedPolicyDocumen
 
 -- | Constructs MalformedPolicyDocumentException from required parameters
 newMalformedPolicyDocumentException :: MalformedPolicyDocumentException
-newMalformedPolicyDocumentException  = MalformedPolicyDocumentException { "message": (NullOrUndefined Nothing) }
+newMalformedPolicyDocumentException  = MalformedPolicyDocumentException { "message": Nothing }
 
 -- | Constructs MalformedPolicyDocumentException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newMalformedPolicyDocumentException' :: ( { "message" :: NullOrUndefined (ErrorMessageType) } -> {"message" :: NullOrUndefined (ErrorMessageType) } ) -> MalformedPolicyDocumentException
-newMalformedPolicyDocumentException'  customize = (MalformedPolicyDocumentException <<< customize) { "message": (NullOrUndefined Nothing) }
+newMalformedPolicyDocumentException' :: ( { "message" :: Maybe (ErrorMessageType) } -> {"message" :: Maybe (ErrorMessageType) } ) -> MalformedPolicyDocumentException
+newMalformedPolicyDocumentException'  customize = (MalformedPolicyDocumentException <<< customize) { "message": Nothing }
 
 
 
@@ -1719,7 +1718,7 @@ instance encodeMarkerType :: Encode MarkerType where encode = genericEncode opti
 
 -- | <p>The request was rejected because the specified entity or resource could not be found.</p>
 newtype NotFoundException = NotFoundException 
-  { "message" :: NullOrUndefined (ErrorMessageType)
+  { "message" :: Maybe (ErrorMessageType)
   }
 derive instance newtypeNotFoundException :: Newtype NotFoundException _
 derive instance repGenericNotFoundException :: Generic NotFoundException _
@@ -1729,12 +1728,12 @@ instance encodeNotFoundException :: Encode NotFoundException where encode = gene
 
 -- | Constructs NotFoundException from required parameters
 newNotFoundException :: NotFoundException
-newNotFoundException  = NotFoundException { "message": (NullOrUndefined Nothing) }
+newNotFoundException  = NotFoundException { "message": Nothing }
 
 -- | Constructs NotFoundException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNotFoundException' :: ( { "message" :: NullOrUndefined (ErrorMessageType) } -> {"message" :: NullOrUndefined (ErrorMessageType) } ) -> NotFoundException
-newNotFoundException'  customize = (NotFoundException <<< customize) { "message": (NullOrUndefined Nothing) }
+newNotFoundException' :: ( { "message" :: Maybe (ErrorMessageType) } -> {"message" :: Maybe (ErrorMessageType) } ) -> NotFoundException
+newNotFoundException'  customize = (NotFoundException <<< customize) { "message": Nothing }
 
 
 
@@ -1814,7 +1813,7 @@ newtype PutKeyPolicyRequest = PutKeyPolicyRequest
   { "KeyId" :: (KeyIdType)
   , "PolicyName" :: (PolicyNameType)
   , "Policy" :: (PolicyType)
-  , "BypassPolicyLockoutSafetyCheck" :: NullOrUndefined (BooleanType)
+  , "BypassPolicyLockoutSafetyCheck" :: Maybe (BooleanType)
   }
 derive instance newtypePutKeyPolicyRequest :: Newtype PutKeyPolicyRequest _
 derive instance repGenericPutKeyPolicyRequest :: Generic PutKeyPolicyRequest _
@@ -1824,21 +1823,21 @@ instance encodePutKeyPolicyRequest :: Encode PutKeyPolicyRequest where encode = 
 
 -- | Constructs PutKeyPolicyRequest from required parameters
 newPutKeyPolicyRequest :: KeyIdType -> PolicyType -> PolicyNameType -> PutKeyPolicyRequest
-newPutKeyPolicyRequest _KeyId _Policy _PolicyName = PutKeyPolicyRequest { "KeyId": _KeyId, "Policy": _Policy, "PolicyName": _PolicyName, "BypassPolicyLockoutSafetyCheck": (NullOrUndefined Nothing) }
+newPutKeyPolicyRequest _KeyId _Policy _PolicyName = PutKeyPolicyRequest { "KeyId": _KeyId, "Policy": _Policy, "PolicyName": _PolicyName, "BypassPolicyLockoutSafetyCheck": Nothing }
 
 -- | Constructs PutKeyPolicyRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutKeyPolicyRequest' :: KeyIdType -> PolicyType -> PolicyNameType -> ( { "KeyId" :: (KeyIdType) , "PolicyName" :: (PolicyNameType) , "Policy" :: (PolicyType) , "BypassPolicyLockoutSafetyCheck" :: NullOrUndefined (BooleanType) } -> {"KeyId" :: (KeyIdType) , "PolicyName" :: (PolicyNameType) , "Policy" :: (PolicyType) , "BypassPolicyLockoutSafetyCheck" :: NullOrUndefined (BooleanType) } ) -> PutKeyPolicyRequest
-newPutKeyPolicyRequest' _KeyId _Policy _PolicyName customize = (PutKeyPolicyRequest <<< customize) { "KeyId": _KeyId, "Policy": _Policy, "PolicyName": _PolicyName, "BypassPolicyLockoutSafetyCheck": (NullOrUndefined Nothing) }
+newPutKeyPolicyRequest' :: KeyIdType -> PolicyType -> PolicyNameType -> ( { "KeyId" :: (KeyIdType) , "PolicyName" :: (PolicyNameType) , "Policy" :: (PolicyType) , "BypassPolicyLockoutSafetyCheck" :: Maybe (BooleanType) } -> {"KeyId" :: (KeyIdType) , "PolicyName" :: (PolicyNameType) , "Policy" :: (PolicyType) , "BypassPolicyLockoutSafetyCheck" :: Maybe (BooleanType) } ) -> PutKeyPolicyRequest
+newPutKeyPolicyRequest' _KeyId _Policy _PolicyName customize = (PutKeyPolicyRequest <<< customize) { "KeyId": _KeyId, "Policy": _Policy, "PolicyName": _PolicyName, "BypassPolicyLockoutSafetyCheck": Nothing }
 
 
 
 newtype ReEncryptRequest = ReEncryptRequest 
   { "CiphertextBlob" :: (CiphertextType)
-  , "SourceEncryptionContext" :: NullOrUndefined (EncryptionContextType)
+  , "SourceEncryptionContext" :: Maybe (EncryptionContextType)
   , "DestinationKeyId" :: (KeyIdType)
-  , "DestinationEncryptionContext" :: NullOrUndefined (EncryptionContextType)
-  , "GrantTokens" :: NullOrUndefined (GrantTokenList)
+  , "DestinationEncryptionContext" :: Maybe (EncryptionContextType)
+  , "GrantTokens" :: Maybe (GrantTokenList)
   }
 derive instance newtypeReEncryptRequest :: Newtype ReEncryptRequest _
 derive instance repGenericReEncryptRequest :: Generic ReEncryptRequest _
@@ -1848,19 +1847,19 @@ instance encodeReEncryptRequest :: Encode ReEncryptRequest where encode = generi
 
 -- | Constructs ReEncryptRequest from required parameters
 newReEncryptRequest :: CiphertextType -> KeyIdType -> ReEncryptRequest
-newReEncryptRequest _CiphertextBlob _DestinationKeyId = ReEncryptRequest { "CiphertextBlob": _CiphertextBlob, "DestinationKeyId": _DestinationKeyId, "DestinationEncryptionContext": (NullOrUndefined Nothing), "GrantTokens": (NullOrUndefined Nothing), "SourceEncryptionContext": (NullOrUndefined Nothing) }
+newReEncryptRequest _CiphertextBlob _DestinationKeyId = ReEncryptRequest { "CiphertextBlob": _CiphertextBlob, "DestinationKeyId": _DestinationKeyId, "DestinationEncryptionContext": Nothing, "GrantTokens": Nothing, "SourceEncryptionContext": Nothing }
 
 -- | Constructs ReEncryptRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newReEncryptRequest' :: CiphertextType -> KeyIdType -> ( { "CiphertextBlob" :: (CiphertextType) , "SourceEncryptionContext" :: NullOrUndefined (EncryptionContextType) , "DestinationKeyId" :: (KeyIdType) , "DestinationEncryptionContext" :: NullOrUndefined (EncryptionContextType) , "GrantTokens" :: NullOrUndefined (GrantTokenList) } -> {"CiphertextBlob" :: (CiphertextType) , "SourceEncryptionContext" :: NullOrUndefined (EncryptionContextType) , "DestinationKeyId" :: (KeyIdType) , "DestinationEncryptionContext" :: NullOrUndefined (EncryptionContextType) , "GrantTokens" :: NullOrUndefined (GrantTokenList) } ) -> ReEncryptRequest
-newReEncryptRequest' _CiphertextBlob _DestinationKeyId customize = (ReEncryptRequest <<< customize) { "CiphertextBlob": _CiphertextBlob, "DestinationKeyId": _DestinationKeyId, "DestinationEncryptionContext": (NullOrUndefined Nothing), "GrantTokens": (NullOrUndefined Nothing), "SourceEncryptionContext": (NullOrUndefined Nothing) }
+newReEncryptRequest' :: CiphertextType -> KeyIdType -> ( { "CiphertextBlob" :: (CiphertextType) , "SourceEncryptionContext" :: Maybe (EncryptionContextType) , "DestinationKeyId" :: (KeyIdType) , "DestinationEncryptionContext" :: Maybe (EncryptionContextType) , "GrantTokens" :: Maybe (GrantTokenList) } -> {"CiphertextBlob" :: (CiphertextType) , "SourceEncryptionContext" :: Maybe (EncryptionContextType) , "DestinationKeyId" :: (KeyIdType) , "DestinationEncryptionContext" :: Maybe (EncryptionContextType) , "GrantTokens" :: Maybe (GrantTokenList) } ) -> ReEncryptRequest
+newReEncryptRequest' _CiphertextBlob _DestinationKeyId customize = (ReEncryptRequest <<< customize) { "CiphertextBlob": _CiphertextBlob, "DestinationKeyId": _DestinationKeyId, "DestinationEncryptionContext": Nothing, "GrantTokens": Nothing, "SourceEncryptionContext": Nothing }
 
 
 
 newtype ReEncryptResponse = ReEncryptResponse 
-  { "CiphertextBlob" :: NullOrUndefined (CiphertextType)
-  , "SourceKeyId" :: NullOrUndefined (KeyIdType)
-  , "KeyId" :: NullOrUndefined (KeyIdType)
+  { "CiphertextBlob" :: Maybe (CiphertextType)
+  , "SourceKeyId" :: Maybe (KeyIdType)
+  , "KeyId" :: Maybe (KeyIdType)
   }
 derive instance newtypeReEncryptResponse :: Newtype ReEncryptResponse _
 derive instance repGenericReEncryptResponse :: Generic ReEncryptResponse _
@@ -1870,19 +1869,19 @@ instance encodeReEncryptResponse :: Encode ReEncryptResponse where encode = gene
 
 -- | Constructs ReEncryptResponse from required parameters
 newReEncryptResponse :: ReEncryptResponse
-newReEncryptResponse  = ReEncryptResponse { "CiphertextBlob": (NullOrUndefined Nothing), "KeyId": (NullOrUndefined Nothing), "SourceKeyId": (NullOrUndefined Nothing) }
+newReEncryptResponse  = ReEncryptResponse { "CiphertextBlob": Nothing, "KeyId": Nothing, "SourceKeyId": Nothing }
 
 -- | Constructs ReEncryptResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newReEncryptResponse' :: ( { "CiphertextBlob" :: NullOrUndefined (CiphertextType) , "SourceKeyId" :: NullOrUndefined (KeyIdType) , "KeyId" :: NullOrUndefined (KeyIdType) } -> {"CiphertextBlob" :: NullOrUndefined (CiphertextType) , "SourceKeyId" :: NullOrUndefined (KeyIdType) , "KeyId" :: NullOrUndefined (KeyIdType) } ) -> ReEncryptResponse
-newReEncryptResponse'  customize = (ReEncryptResponse <<< customize) { "CiphertextBlob": (NullOrUndefined Nothing), "KeyId": (NullOrUndefined Nothing), "SourceKeyId": (NullOrUndefined Nothing) }
+newReEncryptResponse' :: ( { "CiphertextBlob" :: Maybe (CiphertextType) , "SourceKeyId" :: Maybe (KeyIdType) , "KeyId" :: Maybe (KeyIdType) } -> {"CiphertextBlob" :: Maybe (CiphertextType) , "SourceKeyId" :: Maybe (KeyIdType) , "KeyId" :: Maybe (KeyIdType) } ) -> ReEncryptResponse
+newReEncryptResponse'  customize = (ReEncryptResponse <<< customize) { "CiphertextBlob": Nothing, "KeyId": Nothing, "SourceKeyId": Nothing }
 
 
 
 newtype RetireGrantRequest = RetireGrantRequest 
-  { "GrantToken" :: NullOrUndefined (GrantTokenType)
-  , "KeyId" :: NullOrUndefined (KeyIdType)
-  , "GrantId" :: NullOrUndefined (GrantIdType)
+  { "GrantToken" :: Maybe (GrantTokenType)
+  , "KeyId" :: Maybe (KeyIdType)
+  , "GrantId" :: Maybe (GrantIdType)
   }
 derive instance newtypeRetireGrantRequest :: Newtype RetireGrantRequest _
 derive instance repGenericRetireGrantRequest :: Generic RetireGrantRequest _
@@ -1892,12 +1891,12 @@ instance encodeRetireGrantRequest :: Encode RetireGrantRequest where encode = ge
 
 -- | Constructs RetireGrantRequest from required parameters
 newRetireGrantRequest :: RetireGrantRequest
-newRetireGrantRequest  = RetireGrantRequest { "GrantId": (NullOrUndefined Nothing), "GrantToken": (NullOrUndefined Nothing), "KeyId": (NullOrUndefined Nothing) }
+newRetireGrantRequest  = RetireGrantRequest { "GrantId": Nothing, "GrantToken": Nothing, "KeyId": Nothing }
 
 -- | Constructs RetireGrantRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRetireGrantRequest' :: ( { "GrantToken" :: NullOrUndefined (GrantTokenType) , "KeyId" :: NullOrUndefined (KeyIdType) , "GrantId" :: NullOrUndefined (GrantIdType) } -> {"GrantToken" :: NullOrUndefined (GrantTokenType) , "KeyId" :: NullOrUndefined (KeyIdType) , "GrantId" :: NullOrUndefined (GrantIdType) } ) -> RetireGrantRequest
-newRetireGrantRequest'  customize = (RetireGrantRequest <<< customize) { "GrantId": (NullOrUndefined Nothing), "GrantToken": (NullOrUndefined Nothing), "KeyId": (NullOrUndefined Nothing) }
+newRetireGrantRequest' :: ( { "GrantToken" :: Maybe (GrantTokenType) , "KeyId" :: Maybe (KeyIdType) , "GrantId" :: Maybe (GrantIdType) } -> {"GrantToken" :: Maybe (GrantTokenType) , "KeyId" :: Maybe (KeyIdType) , "GrantId" :: Maybe (GrantIdType) } ) -> RetireGrantRequest
+newRetireGrantRequest'  customize = (RetireGrantRequest <<< customize) { "GrantId": Nothing, "GrantToken": Nothing, "KeyId": Nothing }
 
 
 
@@ -1924,7 +1923,7 @@ newRevokeGrantRequest' _GrantId _KeyId customize = (RevokeGrantRequest <<< custo
 
 newtype ScheduleKeyDeletionRequest = ScheduleKeyDeletionRequest 
   { "KeyId" :: (KeyIdType)
-  , "PendingWindowInDays" :: NullOrUndefined (PendingWindowInDaysType)
+  , "PendingWindowInDays" :: Maybe (PendingWindowInDaysType)
   }
 derive instance newtypeScheduleKeyDeletionRequest :: Newtype ScheduleKeyDeletionRequest _
 derive instance repGenericScheduleKeyDeletionRequest :: Generic ScheduleKeyDeletionRequest _
@@ -1934,18 +1933,18 @@ instance encodeScheduleKeyDeletionRequest :: Encode ScheduleKeyDeletionRequest w
 
 -- | Constructs ScheduleKeyDeletionRequest from required parameters
 newScheduleKeyDeletionRequest :: KeyIdType -> ScheduleKeyDeletionRequest
-newScheduleKeyDeletionRequest _KeyId = ScheduleKeyDeletionRequest { "KeyId": _KeyId, "PendingWindowInDays": (NullOrUndefined Nothing) }
+newScheduleKeyDeletionRequest _KeyId = ScheduleKeyDeletionRequest { "KeyId": _KeyId, "PendingWindowInDays": Nothing }
 
 -- | Constructs ScheduleKeyDeletionRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newScheduleKeyDeletionRequest' :: KeyIdType -> ( { "KeyId" :: (KeyIdType) , "PendingWindowInDays" :: NullOrUndefined (PendingWindowInDaysType) } -> {"KeyId" :: (KeyIdType) , "PendingWindowInDays" :: NullOrUndefined (PendingWindowInDaysType) } ) -> ScheduleKeyDeletionRequest
-newScheduleKeyDeletionRequest' _KeyId customize = (ScheduleKeyDeletionRequest <<< customize) { "KeyId": _KeyId, "PendingWindowInDays": (NullOrUndefined Nothing) }
+newScheduleKeyDeletionRequest' :: KeyIdType -> ( { "KeyId" :: (KeyIdType) , "PendingWindowInDays" :: Maybe (PendingWindowInDaysType) } -> {"KeyId" :: (KeyIdType) , "PendingWindowInDays" :: Maybe (PendingWindowInDaysType) } ) -> ScheduleKeyDeletionRequest
+newScheduleKeyDeletionRequest' _KeyId customize = (ScheduleKeyDeletionRequest <<< customize) { "KeyId": _KeyId, "PendingWindowInDays": Nothing }
 
 
 
 newtype ScheduleKeyDeletionResponse = ScheduleKeyDeletionResponse 
-  { "KeyId" :: NullOrUndefined (KeyIdType)
-  , "DeletionDate" :: NullOrUndefined (DateType)
+  { "KeyId" :: Maybe (KeyIdType)
+  , "DeletionDate" :: Maybe (DateType)
   }
 derive instance newtypeScheduleKeyDeletionResponse :: Newtype ScheduleKeyDeletionResponse _
 derive instance repGenericScheduleKeyDeletionResponse :: Generic ScheduleKeyDeletionResponse _
@@ -1955,12 +1954,12 @@ instance encodeScheduleKeyDeletionResponse :: Encode ScheduleKeyDeletionResponse
 
 -- | Constructs ScheduleKeyDeletionResponse from required parameters
 newScheduleKeyDeletionResponse :: ScheduleKeyDeletionResponse
-newScheduleKeyDeletionResponse  = ScheduleKeyDeletionResponse { "DeletionDate": (NullOrUndefined Nothing), "KeyId": (NullOrUndefined Nothing) }
+newScheduleKeyDeletionResponse  = ScheduleKeyDeletionResponse { "DeletionDate": Nothing, "KeyId": Nothing }
 
 -- | Constructs ScheduleKeyDeletionResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newScheduleKeyDeletionResponse' :: ( { "KeyId" :: NullOrUndefined (KeyIdType) , "DeletionDate" :: NullOrUndefined (DateType) } -> {"KeyId" :: NullOrUndefined (KeyIdType) , "DeletionDate" :: NullOrUndefined (DateType) } ) -> ScheduleKeyDeletionResponse
-newScheduleKeyDeletionResponse'  customize = (ScheduleKeyDeletionResponse <<< customize) { "DeletionDate": (NullOrUndefined Nothing), "KeyId": (NullOrUndefined Nothing) }
+newScheduleKeyDeletionResponse' :: ( { "KeyId" :: Maybe (KeyIdType) , "DeletionDate" :: Maybe (DateType) } -> {"KeyId" :: Maybe (KeyIdType) , "DeletionDate" :: Maybe (DateType) } ) -> ScheduleKeyDeletionResponse
+newScheduleKeyDeletionResponse'  customize = (ScheduleKeyDeletionResponse <<< customize) { "DeletionDate": Nothing, "KeyId": Nothing }
 
 
 
@@ -1988,7 +1987,7 @@ newTag' _TagKey _TagValue customize = (Tag <<< customize) { "TagKey": _TagKey, "
 
 -- | <p>The request was rejected because one or more tags are not valid.</p>
 newtype TagException = TagException 
-  { "message" :: NullOrUndefined (ErrorMessageType)
+  { "message" :: Maybe (ErrorMessageType)
   }
 derive instance newtypeTagException :: Newtype TagException _
 derive instance repGenericTagException :: Generic TagException _
@@ -1998,12 +1997,12 @@ instance encodeTagException :: Encode TagException where encode = genericEncode 
 
 -- | Constructs TagException from required parameters
 newTagException :: TagException
-newTagException  = TagException { "message": (NullOrUndefined Nothing) }
+newTagException  = TagException { "message": Nothing }
 
 -- | Constructs TagException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTagException' :: ( { "message" :: NullOrUndefined (ErrorMessageType) } -> {"message" :: NullOrUndefined (ErrorMessageType) } ) -> TagException
-newTagException'  customize = (TagException <<< customize) { "message": (NullOrUndefined Nothing) }
+newTagException' :: ( { "message" :: Maybe (ErrorMessageType) } -> {"message" :: Maybe (ErrorMessageType) } ) -> TagException
+newTagException'  customize = (TagException <<< customize) { "message": Nothing }
 
 
 
@@ -2066,7 +2065,7 @@ instance encodeTagValueType :: Encode TagValueType where encode = genericEncode 
 
 -- | <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation.</p>
 newtype UnsupportedOperationException = UnsupportedOperationException 
-  { "message" :: NullOrUndefined (ErrorMessageType)
+  { "message" :: Maybe (ErrorMessageType)
   }
 derive instance newtypeUnsupportedOperationException :: Newtype UnsupportedOperationException _
 derive instance repGenericUnsupportedOperationException :: Generic UnsupportedOperationException _
@@ -2076,12 +2075,12 @@ instance encodeUnsupportedOperationException :: Encode UnsupportedOperationExcep
 
 -- | Constructs UnsupportedOperationException from required parameters
 newUnsupportedOperationException :: UnsupportedOperationException
-newUnsupportedOperationException  = UnsupportedOperationException { "message": (NullOrUndefined Nothing) }
+newUnsupportedOperationException  = UnsupportedOperationException { "message": Nothing }
 
 -- | Constructs UnsupportedOperationException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUnsupportedOperationException' :: ( { "message" :: NullOrUndefined (ErrorMessageType) } -> {"message" :: NullOrUndefined (ErrorMessageType) } ) -> UnsupportedOperationException
-newUnsupportedOperationException'  customize = (UnsupportedOperationException <<< customize) { "message": (NullOrUndefined Nothing) }
+newUnsupportedOperationException' :: ( { "message" :: Maybe (ErrorMessageType) } -> {"message" :: Maybe (ErrorMessageType) } ) -> UnsupportedOperationException
+newUnsupportedOperationException'  customize = (UnsupportedOperationException <<< customize) { "message": Nothing }
 
 
 
